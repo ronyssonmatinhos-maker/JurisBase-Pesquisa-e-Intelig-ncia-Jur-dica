@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#183c36">
+    <meta name="description" content="Pesquisa local de legislação e fontes jurídicas oficiais.">
+    <title>JurisBase | Pesquisa jurídica</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="src/search.js" defer></script>
+    <script src="src/data.js" defer></script>
+    <script src="src/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="JurisBase, início">
+        <span class="brand-mark" aria-hidden="true">J</span>
+        <span>Juris<span class="brand-light">Base</span></span>
+      </a>
+      <div class="topbar-meta"><span class="status-dot"></span> Acervo local <span class="meta-divider">/</span> Brasil</div>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <div class="intro-copy">
+          <p class="eyebrow">PESQUISA JURÍDICA <span>·</span> MVP</p>
+          <h1 id="page-title">Encontre a fonte.<br><em>Entenda o contexto.</em></h1>
+          <p class="intro-description">Pesquise legislação em um catálogo local com links para as fontes oficiais.</p>
+        </div>
+        <div class="intro-index" aria-hidden="true"><span>01</span><span class="index-line"></span><span>BR</span></div>
+      </section>
+
+      <section class="search-section" aria-label="Busca no acervo">
+        <form id="search-form" novalidate>
+          <label class="search-label" for="query">BUSCAR NO ACERVO</label>
+          <div class="search-row">
+            <div class="input-wrap">
+              <span class="search-icon" aria-hidden="true"></span>
+              <input id="query" name="query" type="search" maxlength="100" placeholder="Ex.: proteção de dados, Lei 13.709..." autocomplete="off" aria-describedby="search-error">
+              <button id="clear-button" class="clear-button" type="button" aria-label="Limpar busca" title="Limpar busca" hidden>×</button>
+            </div>
+            <button class="submit-button" type="submit">Pesquisar <span aria-hidden="true">↗</span></button>
+          </div>
+          <p id="search-error" class="search-error" role="alert" hidden></p>
+        </form>
+        <div class="filter-row">
+          <span class="filter-label">FILTRAR POR</span>
+          <div class="filter-options" role="group" aria-label="Filtrar por tipo">
+            <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Tudo</button>
+            <button class="filter-button" type="button" data-filter="legislacao" aria-pressed="false">Legislação</button>
+          </div>
+          <span class="local-note"><span class="local-icon" aria-hidden="true">●</span> Busca processada neste dispositivo</span>
+        </div>
+      </section>
+
+      <section class="results-section" aria-labelledby="results-heading">
+        <div class="results-heading-row">
+          <div>
+            <p class="eyebrow">ACERVO DISPONÍVEL</p>
+            <h2 id="results-heading">Fontes para consulta</h2>
+          </div>
+          <p id="result-count" class="result-count" aria-live="polite"></p>
+        </div>
+        <div id="results" class="results-list" aria-live="polite"></div>
+        <div class="disclaimer"><span class="disclaimer-mark" aria-hidden="true">i</span><p>Conteúdo demonstrativo para pesquisa. Consulte a fonte oficial para confirmar o texto vigente e a aplicação ao seu caso.</p></div>
+      </section>
+    </main>
+
+    <footer class="footer"><span>JURISBASE <span class="footer-year">· 2026</span></span><span>FONTES OFICIAIS, EM UM SÓ LUGAR</span></footer>
+  </body>
+</html>

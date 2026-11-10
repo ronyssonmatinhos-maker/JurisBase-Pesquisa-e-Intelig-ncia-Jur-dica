@@ -1,0 +1,9 @@
+{
+  "name": "jurisbase-mvp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MVP de pesquisa local de fontes jurídicas oficiais",
+  "scripts": {
+    "test": "node --test"
+  }
+}
