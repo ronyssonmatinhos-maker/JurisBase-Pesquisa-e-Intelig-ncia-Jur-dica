@@ -1,0 +1,11 @@
+GPT-005-B | ESPECIFICACAO DE CONSULTA SOMENTE LEITURA
+Fonte prevista: banco local ativo no Jurisbase; local e integridade a confirmar pelo Claude, sem movimentar bancos.
+Conexao SQLite: abrir com URI mode=ro; preferir immutable=1 apenas para snapshot comprovadamente estatico, nunca para banco em atualizacao.
+Permitir SELECT em views autorizadas, sem ATTACH, PRAGMA mutavel, DDL, DML, extensoes ou execucao de scripts externos.
+Definir limite de resultados, timeout, paginação e parametros vinculados; validar colunas e filtros por allowlist.
+FTS5: consultar apenas tabelas verificadas e parametrizar busca; nao presumir schema.
+Registrar origem, versao/snapshot, timestamp, consulta normalizada e contagem retornada; logs sem conteudo sensivel.
+Acesso: somente operador autorizado; pesquisa externa sem nomes, documentos ou numeros de processos de clientes.
+Julgados novos: NAO_CONFERIDO ate validacao expressa do advogado; sem escrita automatica.
+Nao executar feed_movimentos.py --estado; nao mover SQLite.
+ACEITE: testes demonstrando zero alteracoes no banco, consulta com parametros, limites, erros seguros e origem verificavel.
