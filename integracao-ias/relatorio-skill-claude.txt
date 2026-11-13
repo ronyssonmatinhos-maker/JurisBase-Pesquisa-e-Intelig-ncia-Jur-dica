@@ -31,3 +31,12 @@ Ambiente: Python 3.10.12, VM Linux sobre C:\JURISBASE, ROBO_JULGADOS_DB apontand
 
 4. COMO REPRODUZIR (GPT)
 cd integracao-ias/runtime-local && python3 -m unittest discover -s tests -v   (sem ROBO_JULGADOS_DB: testes de fonte exigem acervo e falham em vez de pular)
+
+ADENDO 2 (13/11/2026, apos pedidos do advogado)
+- Novo agente verificador conferidor_fontes_oficiais (config 'verifiers', ficha, conferencia.py). Le portais por codigo (sem gastar tokens do modelo), confere marcadores no texto e registra consulta/hash/UTC. Nunca CONFERIDO_OFICIAL.
+- Leitura REAL (evidencia: testes/conferencia-fontes-oficiais-2026-11-13.json):
+  * Tema 1184/STF (RE 1.355.208/SC): pagina do processo no portal STF lida ao vivo (200; marcadores 1184, 1355208, relatora). Texto da tese vem de busca em dominio oficial (pagina carrega por script). Inteiro teor NAO lido.
+  * Res. CNJ 547/2024: texto lido ao vivo em atos.cnj.jus.br/atos/detalhar/5455. ACHADO RELEVANTE: alterada tambem pela Res. CNJ 689, de 8/7/2026 (par. 1-A: movimentacao util = art. 921, par. 4-A, CPC; arts. 1-B e 1-C: intimacao do exequente em execucoes com mais de 15 anos ou suspensas ha mais de 6 anos, exame de prescricao intercorrente). Considerandos citam Tema 566/STJ validado pelo Tema 390/STF.
+  * Lei 14.133/2021: texto lido no Planalto via navegador Playwright (acesso por script recusado, nao contornado). Art. 190 e 191 confirmados; art. 193, II = 30/12/2023 (redacao da MPV 1.167/2023, vigencia encerrada, e da LC 198/2023). Par. unico do art. 191 aparece 'Revogado pela MPV 1.167/2023 - Vigencia encerrada': efeito a interpretar.
+- Integracao com modelo (llm.py): provedores anthropic/openai/claude_cli, acao responder_agente. Modelo recebe so texto sanitizado (dados_reais=true apenas por decisao do advogado); saida validada, citacoes auditadas, nada conferido/minuta. Testado com provedor simulado; modelo REAL nao executado: claude_cli indisponivel na VM; computer use nao consegue abrir .bat (Explorador nao concedido; terminal so clique). Para rodar: duplo clique em rodar_testes_windows.bat e rodar_modelo_real_windows.bat (sessao do claude CLI ou ANTHROPIC_API_KEY).
+- Testes: 68/68 ok, 0 skipped (VM Linux, acervo real).

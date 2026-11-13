@@ -40,7 +40,7 @@ Formato de saida: fatos e lacunas; normas e dispositivos com vigencia; precedent
 - Teste T04 (contrato iniciado sob lei anterior): antes de aplicar qualquer regra, identificar a data de celebracao e o ato de opcao pelo regime.
   1. Contrato celebrado antes de 1º/04/2021: regido pela Lei 8.666/93 durante toda a vigencia (art. 190 da Lei 14.133/2021).
   2. Licitacao na convivencia normativa com opcao expressa pelo regime antigo: regido pelo regime escolhido (art. 191 e paragrafo unico; conferir texto).
-  3. Revogacao da Lei 8.666/93 pelo art. 193, II (conferir data; fontes secundarias indicam 30/12/2023). A MPV 1.167/2023 alterou os arts. 191 e 193: conferir vigencia e estado atual no Planalto.
+  3. Revogacao da Lei 8.666/93 pelo art. 193, II (conferir data; fontes secundarias indicam 30/12/2023). Conferencia 13/11/2026 (conferidor_fontes_oficiais, LOCALIZADO_OFICIAL via leitura do texto no Planalto; NAO conferido pelo advogado): art. 190 (contrato assinado antes continua na lei revogada); art. 191 (opcao expressa, vedada aplicacao combinada); art. 193, II com redacao da LC 198/2023 = 30/12/2023 (a MPV 1.167/2023 teve redacao identica, com vigencia encerrada); status do par. unico do art. 191 a interpretar.
   Status: NAO_CONFERIDO ate conferencia na norma oficial. Nao aplicar a Lei 14.133 a contrato sob regime anterior sem verificar o marco.
 
 SKILL APLICADA: skill_marcos_e_precedentes v1.0 (aprovada 13/11/2026; texto em skill_marcos_e_precedentes.txt)

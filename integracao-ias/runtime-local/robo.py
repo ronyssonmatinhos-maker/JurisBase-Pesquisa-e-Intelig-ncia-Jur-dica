@@ -345,7 +345,7 @@ def comando(payload: dict) -> dict:
         return relatorio(payload.get("limite", 200))
     if action == "conferir_oficial":
         return conferir_achado(payload["id"], payload.get("papel", ""), payload.get("confirmacao", ""), payload.get("agente", "advogado"))
-    if action in ("agentes", "rotear", "preparar_agente", "sanitizar", "auditar_citacoes", "fluxo_agentes", "consultar_fonte", "consultar_agente", "cobertura_fontes"):
+    if action in ("agentes", "rotear", "preparar_agente", "sanitizar", "auditar_citacoes", "fluxo_agentes", "consultar_fonte", "consultar_agente", "cobertura_fontes", "conferir_fonte_oficial", "responder_agente"):
         import agentes
         if action == "agentes":
             return agentes.listar()
@@ -355,6 +355,15 @@ def comando(payload: dict) -> dict:
             return agentes.preparar(payload["agente"], payload.get("caso", ""), payload.get("nomes"), payload.get("marcos"), payload.get("conferencias"))
         if action == "sanitizar":
             return agentes.sanitizar(payload.get("texto", ""), payload.get("nomes"))
+        if action == "conferir_fonte_oficial":
+            import conferencia
+            return conferencia.conferir(payload["item"]) if payload.get("item") else conferencia.listar()
+        if action == "responder_agente":
+            import llm
+            try:
+                return llm.responder(payload["agente"], payload.get("caso", ""), payload.get("nomes"), payload.get("marcos"), payload.get("conferencias"), None, bool(payload.get("dados_reais")))
+            except llm.LLMIndisponivel as e:
+                return {"erro": "modelo indisponivel", "detalhe": str(e), "conferido_oficial": False}
         if action == "auditar_citacoes":
             return agentes.auditar_citacoes(payload.get("citacoes", []), payload.get("evidencias"))
         if action == "fluxo_agentes":

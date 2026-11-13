@@ -88,7 +88,7 @@ class _SemRedirectForaDoHost(HTTPRedirectHandler):
         return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 
-def conector_http(url: str, timeout: float = 10.0, limite_bytes: int = 5_000_000, opener=None) -> dict:
+def conector_http(url: str, timeout: float = 10.0, limite_bytes: int = 5_000_000, opener=None, capturar_texto: bool = False) -> dict:
     """GET somente leitura em URL oficial https. Sem cookies, sem login, sem contornar protecoes.
     Devolve registro de consulta; falha de acesso e explicita (acessivel=False)."""
     reg = {"consulta": url, "fonte": urlparse(url).hostname, "momento_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
@@ -110,6 +110,8 @@ def conector_http(url: str, timeout: float = 10.0, limite_bytes: int = 5_000_000
         reg["erro"] = "resposta acima do limite; nao processada"
         return reg
     reg.update(acessivel=True, bytes=len(dados), sha256_local=hashlib.sha256(dados).hexdigest())
+    if capturar_texto:
+        reg["texto"] = dados.decode("utf-8", "replace")
     return reg
 
 

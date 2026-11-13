@@ -1071,5 +1071,40 @@
    "ANALISE_PRELIMINAR"
   ],
   "conferido_oficial": "somente advogado, ato expresso"
+ },
+ "verifiers": [
+  {
+   "id": "conferidor_fontes_oficiais",
+   "enabled": true,
+   "description": "Confronta normas, temas e atos (ex.: Tema 1184/STF, Res. CNJ 547/2024, Lei 14.133/2021) com portal oficial, somente leitura; nunca marca CONFERIDO_OFICIAL.",
+   "approved_skills": [
+    "skill_marcos_e_precedentes"
+   ],
+   "runtime": "conferencia.py",
+   "states": [
+    "NAO_CONFERIDO",
+    "LOCALIZADO_OFICIAL"
+   ],
+   "output_schema": [
+    "item",
+    "estado",
+    "via",
+    "consultas_ao_vivo",
+    "achados",
+    "pendencias",
+    "conferido_oficial"
+   ]
+  }
+ ],
+ "llm": {
+  "module": "llm.py",
+  "providers": [
+   "anthropic",
+   "claude_cli",
+   "openai"
+  ],
+  "default_data": "texto_sanitizado",
+  "real_data": "somente dados_reais=true por decisao do advogado",
+  "env": "JURISBASE_LLM_PROVIDER"
  }
 }

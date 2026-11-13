@@ -56,7 +56,7 @@ def listar() -> dict:
     c = config()
     ag = [{"id": a["id"], "enabled": a.get("enabled", False), "gatilhos": a["trigger_terms"]}
           for a in c["agents"]]
-    return {"especialistas": ag, "componentes": ["coordenador", "auditor_citacoes"],
+    return {"especialistas": ag, "componentes": ["coordenador", "auditor_citacoes", "conferidor_fontes_oficiais"],
             "adaptadores_fonte": sorted(FONTES), "total_especialistas": len(ag),
             "habilitados": sum(1 for a in ag if a["enabled"])}
 

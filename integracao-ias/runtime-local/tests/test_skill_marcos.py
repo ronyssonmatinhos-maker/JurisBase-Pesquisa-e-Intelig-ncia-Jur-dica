@@ -200,7 +200,7 @@ class TestIntegracaoFichasConfig(Base):
         for a in c["agents"]:
             self.assertIn("skill_marcos_e_precedentes", a.get("approved_skills", []), a["id"])
         self.assertEqual(len(c["agents"]), 20)
-        fichas = list(agentes.FICHAS.glob("*.txt")); self.assertEqual(len(fichas), 32)
+        fichas = list(agentes.FICHAS.glob("*.txt")); self.assertEqual(len(fichas), 33)
         for f in fichas:
             self.assertIn("skill_marcos_e_precedentes", f.read_text(encoding="utf-8"), f.name)
 

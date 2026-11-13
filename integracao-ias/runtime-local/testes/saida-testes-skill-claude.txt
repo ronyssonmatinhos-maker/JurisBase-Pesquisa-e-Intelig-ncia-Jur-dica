@@ -1,5 +1,4 @@
-AMBIENTE: Python 3.10.12 Linux 6.8.0-138-generic (VM Linux sobre C:\JURISBASE; NAO e Windows nativo) | 2026-11-13T10:23:55Z
-COMANDO: ROBO_JULGADOS_DB=<acervo real> python3 -m unittest discover -s tests -v
+AMBIENTE: Python 3.10.12 Linux 6.8.0-138-generic (VM Linux sobre C:\JURISBASE; NAO e Windows nativo) | 2026-11-13T10:56:57Z
 test_app_como_fundamento (test_agentes.TestAuditor) ... ok
 test_cnj_ficticio_e_valido (test_agentes.TestAuditor) ... ok
 test_completa_oficial_continua_nao_conferida (test_agentes.TestAuditor) ... ok
@@ -29,6 +28,18 @@ test_T06 (test_agentes.TestT01aT08) ... ok
 test_T06_nao_destroi_termos_juridicos (test_agentes.TestT01aT08) ... ok
 test_T07 (test_agentes.TestT01aT08) ... ok
 test_T08 (test_agentes.TestT01aT08) ... ok
+test_conferidor_na_config_e_ficha (test_llm_conferencia.TestConferidor) ... ok
+test_item_desconhecido_e_endpoint (test_llm_conferencia.TestConferidor) ... ok
+test_itens_e_nunca_conferido (test_llm_conferencia.TestConferidor) ... ok
+test_marcadores_do_texto_ao_vivo (test_llm_conferencia.TestConferidor) ... ok
+test_portal_indisponivel_nao_vira_verificacao_ao_vivo (test_llm_conferencia.TestConferidor) ... ok
+test_agente_desabilitado_ou_inexistente (test_llm_conferencia.TestLLM) ... ok
+test_citacoes_do_modelo_vao_ao_auditor_e_ficam_nao_conferidas (test_llm_conferencia.TestLLM) ... ok
+test_precondicao_nao_liberada_avisa (test_llm_conferencia.TestLLM) ... ok
+test_prompt_recebe_so_texto_sanitizado (test_llm_conferencia.TestLLM) ... ok
+test_provedores_sem_credencial (test_llm_conferencia.TestLLM) ... ok
+test_saida_invalida_e_chaves_ausentes (test_llm_conferencia.TestLLM) ... ok
+test_sem_provedor_falha_explicita (test_llm_conferencia.TestLLM) ... ok
 test_R06_cnj_valido_sem_registro_oficial (test_skill_marcos.TestAuditorP2) ... ok
 test_R07_url_oficial_sem_documento_verificavel (test_skill_marcos.TestAuditorP2) ... ok
 test_R08_inteiro_teor_contraria_tese (test_skill_marcos.TestAuditorP2) ... ok
@@ -58,6 +69,6 @@ test_originaria_x_intercorrente (test_skill_marcos.TestMarcosP1) ... ok
 test_tema_566_nao_conferido (test_skill_marcos.TestMarcosP1) ... ok
 
 ----------------------------------------------------------------------
-Ran 56 tests in 11.848s
+Ran 68 tests in 11.928s
 
 OK

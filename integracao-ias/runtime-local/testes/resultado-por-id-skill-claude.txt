@@ -1,62 +1,73 @@
-RESULTADO POR ID - skill_marcos_e_precedentes v1.0 - Claude - 2026-11-13
-Ambiente: Python 3.10 Linux (VM sobre C:\JURISBASE). Windows nativo: NAO executado. Modelo real (qualidade juridica): NAO executado. Portais oficiais: NAO consultados (rede da VM restrita; conector testado com opener simulado).
-Tipos: [REGRA] logica pura; [RUNTIME] codigo/endpoint; [FONTE] adaptadores locais. Nenhum teste de qualidade juridica por modelo.
+RESULTADO POR ID - Claude - 2026-11-13
+Ambiente: Python 3.10 Linux (VM). Windows nativo: NAO executado (rodar_testes_windows.bat). Modelo real: NAO executado (rodar_modelo_real_windows.bat); provedor claude_cli indisponivel na VM. Portais: STF/CNJ lidos ao vivo pelo conector_http; Planalto lido pelo navegador Playwright.
 
-Total 56 | ok 56 | skipped 0 | falhas 0
+Total 68 | ok 68 | skipped 0 | falhas 0
 
-OK       test_agentes.TestAuditor.test_app_como_fundamento [RUNTIME/REGRA]
-OK       test_agentes.TestAuditor.test_cnj_ficticio_e_valido [RUNTIME/REGRA]
-OK       test_agentes.TestAuditor.test_completa_oficial_continua_nao_conferida [RUNTIME/REGRA]
-OK       test_agentes.TestAuditor.test_conferir_so_advogado [RUNTIME/REGRA]
-OK       test_agentes.TestAuditor.test_nunca_conferido [RUNTIME/REGRA]
-OK       test_agentes.TestAuditor.test_url_nao_oficial [RUNTIME/REGRA]
-OK       test_agentes.TestEstrutura.test_22_componentes_e_9_fontes [RUNTIME/REGRA]
-OK       test_agentes.TestFontes.test_adaptador_somente_leitura [RUNTIME/REGRA]
-OK       test_agentes.TestPacotes.test_agente_desconhecido [RUNTIME/REGRA]
-OK       test_agentes.TestPacotes.test_pacote_de_cada_agente [RUNTIME/REGRA]
-OK       test_agentes.TestRoteamento.test_ambiguo_vira_cooperacao [RUNTIME/REGRA]
-OK       test_agentes.TestRoteamento.test_cada_especialista_negativo [RUNTIME/REGRA]
-OK       test_agentes.TestRoteamento.test_cada_especialista_positivo [RUNTIME/REGRA]
-OK       test_agentes.TestRoteamento.test_desabilitado_nao_roteia_nem_prepara [RUNTIME/REGRA]
-OK       test_agentes.TestRoteamento.test_licitacao_nao_aciona_citacao [RUNTIME/REGRA]
-OK       test_agentes.TestSanitizacaoAdversarial.test_sanitizador_complementar [RUNTIME/REGRA]
-OK       test_agentes.TestSanitizacaoAdversarial.test_termo_externo_mantem_vocabulario_juridico [RUNTIME/REGRA]
-OK       test_agentes.TestSanitizacaoAdversarial.test_termo_externo_nunca_vaza [RUNTIME/REGRA]
-OK       test_agentes.TestSemEscrita.test_agentes_nao_alteram_banco [RUNTIME/REGRA]
-OK       test_agentes.TestSemEscrita.test_fluxo_completo [RUNTIME/REGRA]
-OK       test_agentes.TestT01aT08.test_T01 [RUNTIME/REGRA]
-OK       test_agentes.TestT01aT08.test_T02 [RUNTIME/REGRA]
-OK       test_agentes.TestT01aT08.test_T03 [RUNTIME/REGRA]
-OK       test_agentes.TestT01aT08.test_T04 [RUNTIME/REGRA]
-OK       test_agentes.TestT01aT08.test_T05 [RUNTIME/REGRA]
-OK       test_agentes.TestT01aT08.test_T06 [RUNTIME/REGRA]
-OK       test_agentes.TestT01aT08.test_T06_nao_destroi_termos_juridicos [RUNTIME/REGRA]
-OK       test_agentes.TestT01aT08.test_T07 [RUNTIME/REGRA]
-OK       test_agentes.TestT01aT08.test_T08 [RUNTIME/REGRA]
-OK       test_skill_marcos.TestAuditorP2.test_R06_cnj_valido_sem_registro_oficial [REGRA]
-OK       test_skill_marcos.TestAuditorP2.test_R07_url_oficial_sem_documento_verificavel [REGRA]
-OK       test_skill_marcos.TestAuditorP2.test_R08_inteiro_teor_contraria_tese [REGRA]
-OK       test_skill_marcos.TestAuditorP2.test_R09_monocratica_como_repetitivo [REGRA]
-OK       test_skill_marcos.TestAuditorP2.test_R10_precedente_superado [REGRA]
-OK       test_skill_marcos.TestAuditorP2.test_R11_portal_indisponivel [REGRA]
-OK       test_skill_marcos.TestAuditorP2.test_conector_http_registra_hash [REGRA]
-OK       test_skill_marcos.TestAuditorP2.test_documento_sem_verificador_e_sem_hash [REGRA]
-OK       test_skill_marcos.TestAuditorP2.test_identificador_divergente_e_cnj_tribunal [REGRA]
-OK       test_skill_marcos.TestAuditorP2.test_nunca_conferido_oficial_nem_minuta [REGRA]
-OK       test_skill_marcos.TestAuditorP2.test_resultado_portal_sem_inteiro_teor [REGRA]
-OK       test_skill_marcos.TestDadosA02A03A06.test_A03_termo_generico_limites [RUNTIME]
-OK       test_skill_marcos.TestDadosA02A03A06.test_A06_nao_escrita_ampla [RUNTIME]
-OK       test_skill_marcos.TestDadosA02A03A06.test_R12_interno_vs_externo [RUNTIME]
-OK       test_skill_marcos.TestDadosA02A03A06.test_gravar_continua_bloqueado [RUNTIME]
-OK       test_skill_marcos.TestIntegracaoFichasConfig.test_skill_na_config_e_fichas [REGRA]
-OK       test_skill_marcos.TestMarcosP1.test_R01_tres_datas_irrelevantes [REGRA]
-OK       test_skill_marcos.TestMarcosP1.test_R02_cronologia_contraditoria [REGRA]
-OK       test_skill_marcos.TestMarcosP1.test_R02b_data_invalida_e_duplicidade [REGRA]
-OK       test_skill_marcos.TestMarcosP1.test_R03_requerimento_infrutifero_vs_constricao [REGRA]
-OK       test_skill_marcos.TestMarcosP1.test_R04_sem_ciencia_da_fazenda [REGRA]
-OK       test_skill_marcos.TestMarcosP1.test_R05_varios_creditos_prazos_distintos [REGRA]
-OK       test_skill_marcos.TestMarcosP1.test_certeza_nao_documental_so_condicional [REGRA]
-OK       test_skill_marcos.TestMarcosP1.test_completo_exige_conferencia_do_advogado [REGRA]
-OK       test_skill_marcos.TestMarcosP1.test_contraditorio_obrigatorio [REGRA]
-OK       test_skill_marcos.TestMarcosP1.test_originaria_x_intercorrente [REGRA]
-OK       test_skill_marcos.TestMarcosP1.test_tema_566_nao_conferido [REGRA]
+OK       test_agentes.TestAuditor.test_app_como_fundamento
+OK       test_agentes.TestAuditor.test_cnj_ficticio_e_valido
+OK       test_agentes.TestAuditor.test_completa_oficial_continua_nao_conferida
+OK       test_agentes.TestAuditor.test_conferir_so_advogado
+OK       test_agentes.TestAuditor.test_nunca_conferido
+OK       test_agentes.TestAuditor.test_url_nao_oficial
+OK       test_agentes.TestEstrutura.test_22_componentes_e_9_fontes
+OK       test_agentes.TestFontes.test_adaptador_somente_leitura
+OK       test_agentes.TestPacotes.test_agente_desconhecido
+OK       test_agentes.TestPacotes.test_pacote_de_cada_agente
+OK       test_agentes.TestRoteamento.test_ambiguo_vira_cooperacao
+OK       test_agentes.TestRoteamento.test_cada_especialista_negativo
+OK       test_agentes.TestRoteamento.test_cada_especialista_positivo
+OK       test_agentes.TestRoteamento.test_desabilitado_nao_roteia_nem_prepara
+OK       test_agentes.TestRoteamento.test_licitacao_nao_aciona_citacao
+OK       test_agentes.TestSanitizacaoAdversarial.test_sanitizador_complementar
+OK       test_agentes.TestSanitizacaoAdversarial.test_termo_externo_mantem_vocabulario_juridico
+OK       test_agentes.TestSanitizacaoAdversarial.test_termo_externo_nunca_vaza
+OK       test_agentes.TestSemEscrita.test_agentes_nao_alteram_banco
+OK       test_agentes.TestSemEscrita.test_fluxo_completo
+OK       test_agentes.TestT01aT08.test_T01
+OK       test_agentes.TestT01aT08.test_T02
+OK       test_agentes.TestT01aT08.test_T03
+OK       test_agentes.TestT01aT08.test_T04
+OK       test_agentes.TestT01aT08.test_T05
+OK       test_agentes.TestT01aT08.test_T06
+OK       test_agentes.TestT01aT08.test_T06_nao_destroi_termos_juridicos
+OK       test_agentes.TestT01aT08.test_T07
+OK       test_agentes.TestT01aT08.test_T08
+OK       test_llm_conferencia.TestConferidor.test_conferidor_na_config_e_ficha
+OK       test_llm_conferencia.TestConferidor.test_item_desconhecido_e_endpoint
+OK       test_llm_conferencia.TestConferidor.test_itens_e_nunca_conferido
+OK       test_llm_conferencia.TestConferidor.test_marcadores_do_texto_ao_vivo
+OK       test_llm_conferencia.TestConferidor.test_portal_indisponivel_nao_vira_verificacao_ao_vivo
+OK       test_llm_conferencia.TestLLM.test_agente_desabilitado_ou_inexistente
+OK       test_llm_conferencia.TestLLM.test_citacoes_do_modelo_vao_ao_auditor_e_ficam_nao_conferidas
+OK       test_llm_conferencia.TestLLM.test_precondicao_nao_liberada_avisa
+OK       test_llm_conferencia.TestLLM.test_prompt_recebe_so_texto_sanitizado
+OK       test_llm_conferencia.TestLLM.test_provedores_sem_credencial
+OK       test_llm_conferencia.TestLLM.test_saida_invalida_e_chaves_ausentes
+OK       test_llm_conferencia.TestLLM.test_sem_provedor_falha_explicita
+OK       test_skill_marcos.TestAuditorP2.test_R06_cnj_valido_sem_registro_oficial
+OK       test_skill_marcos.TestAuditorP2.test_R07_url_oficial_sem_documento_verificavel
+OK       test_skill_marcos.TestAuditorP2.test_R08_inteiro_teor_contraria_tese
+OK       test_skill_marcos.TestAuditorP2.test_R09_monocratica_como_repetitivo
+OK       test_skill_marcos.TestAuditorP2.test_R10_precedente_superado
+OK       test_skill_marcos.TestAuditorP2.test_R11_portal_indisponivel
+OK       test_skill_marcos.TestAuditorP2.test_conector_http_registra_hash
+OK       test_skill_marcos.TestAuditorP2.test_documento_sem_verificador_e_sem_hash
+OK       test_skill_marcos.TestAuditorP2.test_identificador_divergente_e_cnj_tribunal
+OK       test_skill_marcos.TestAuditorP2.test_nunca_conferido_oficial_nem_minuta
+OK       test_skill_marcos.TestAuditorP2.test_resultado_portal_sem_inteiro_teor
+OK       test_skill_marcos.TestDadosA02A03A06.test_A03_termo_generico_limites
+OK       test_skill_marcos.TestDadosA02A03A06.test_A06_nao_escrita_ampla
+OK       test_skill_marcos.TestDadosA02A03A06.test_R12_interno_vs_externo
+OK       test_skill_marcos.TestDadosA02A03A06.test_gravar_continua_bloqueado
+OK       test_skill_marcos.TestIntegracaoFichasConfig.test_skill_na_config_e_fichas
+OK       test_skill_marcos.TestMarcosP1.test_R01_tres_datas_irrelevantes
+OK       test_skill_marcos.TestMarcosP1.test_R02_cronologia_contraditoria
+OK       test_skill_marcos.TestMarcosP1.test_R02b_data_invalida_e_duplicidade
+OK       test_skill_marcos.TestMarcosP1.test_R03_requerimento_infrutifero_vs_constricao
+OK       test_skill_marcos.TestMarcosP1.test_R04_sem_ciencia_da_fazenda
+OK       test_skill_marcos.TestMarcosP1.test_R05_varios_creditos_prazos_distintos
+OK       test_skill_marcos.TestMarcosP1.test_certeza_nao_documental_so_condicional
+OK       test_skill_marcos.TestMarcosP1.test_completo_exige_conferencia_do_advogado
+OK       test_skill_marcos.TestMarcosP1.test_contraditorio_obrigatorio
+OK       test_skill_marcos.TestMarcosP1.test_originaria_x_intercorrente
+OK       test_skill_marcos.TestMarcosP1.test_tema_566_nao_conferido
