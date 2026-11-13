@@ -7,3 +7,7 @@ GPT-007 | feito | Elaborar testes juridicos dos especialistas | testes-especiali
 GPT-010-B | em andamento | Atualiza GPT-010 sobre fonte mestra e divergencias | pendente evidencias do Claude para contagens e base ativa | 2026-11-13
 GPT-010-C | em andamento | Atualiza GPT-010-B: fonte Pontes identificada pelo Claude | Supabase pontes_estado indicado como vivo; divergencias ainda exigem comparacao anonimizada por IDs | 2026-11-13
 GPT-004-C | em andamento | Atualiza GPT-004-B: evidencias da auditoria cruzada | auditoria-repositorios.txt atualizada; base ativa julgados ainda nao localizada | 2026-11-13
+GPT-013 | em andamento | Arquitetura e testes de agentes juridicos | Claude implementa agentes locais, skills e roteamento; ChatGPT revisa regras, testes e seguranca; sem treinamento de pesos nem gravacao sem advogado | 2026-11-13
+GPT-014 | planejado | Auditoria de integracao e dependencias | Inspecionar manifests, codigo, CI e controles de acesso dos repositorios, sem duplicar tarefas Claude | 2026-11-13
+GPT-015 | planejado | Reconciliacao de dados Pontes | Comparar IDs anonimizados, versoes e timestamps JSON/Supabase antes de propor migracao | 2026-11-13
+GPT-016 | planejado | Acervo de julgados e criterios de confiabilidade | Localizar fonte ativa via metadados Claude; verificar fluxo NAO_CONFERIDO e aprovacao do advogado | 2026-11-13
