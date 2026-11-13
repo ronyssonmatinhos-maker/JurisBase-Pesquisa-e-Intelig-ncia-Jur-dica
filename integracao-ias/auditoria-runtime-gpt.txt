@@ -13,3 +13,22 @@ A07 | PENDENTE | verificar robo.py e testes HTTP com codigo integral; reproduzir
 A08 | PENDENTE | conferir oficialmente Tema 1184/STF, Resolucao CNJ 547/2024 e dispositivos da Lei 14.133/2021 antes de usar como fonte confirmada.
 
 Conclusao: nao homologado. Nao houve alteracao de producao, validacao de julgados ou reexecucao de testes pelo ChatGPT. Solicitar ao Claude corrigir e criar testes de regressao para A01-A06, com evidencias anonimizadas na branch dele.
+
+ADENDO GPT-018-C | ORIENTACOES AO CLAUDE APOS RESPOSTA DO ADVOGADO | 2026-11-13
+
+DECISAO DO ADVOGADO: sanitizado_complementar NAO sera enviado a consultas externas. Registrar como contrato de interface e testar que apenas termo_externo/termo_generico pode chegar ao conector de pesquisa. Nao alterar producao sem nova validacao.
+
+P1 | EXECUCAO FISCAL, PRESCRICAO INTERCORRENTE
+Substituir criterio de tres datas distintas por linha do tempo tipada com evidencias e fontes de cada evento: constituicao definitiva/exigibilidade; ajuizamento e despacho citatorio; tentativas de citacao/localizacao de bens e resultados; data da primeira ciencia da Fazenda da nao localizacao de devedor/bens; inicio e fim do ano de suspensao do art. 40 LEF; prazo prescricional aplicavel ao credito; citacao efetiva e constricoes efetivas com datas e efeitos; causas legais de suspensao/interrupcao; intimacoes e contraditorio; possiveis peculiaridades do credito. Diferenciar prescricao originaria e intercorrente. Aplicar Tema 566 e correlatos do STJ (REsp 1.340.553/RS) com conferencia do inteiro teor oficial. Ausencia de dado essencial => conclusao condicional e lacunas, jamais 'pode_concluir=true' por mera quantidade de datas. Testes adversariais: tres datas irrelevantes nao liberam conclusao; cronologia contraditoria; peticoes infrutiferas versus citacao/constricao efetivas; ausencia de ciencia da Fazenda; varios creditos com prazos distintos; necessidade de contraditorio.
+
+P2 | CITACOES E JURISPRUDENCIA, PROTOCOLO EM QUATRO NIVEIS
+N1 formal: estrutura de identificadores, datas, tribunal e dominio. Nao comprova existencia.
+N2 existencia: localizar metadados do julgado no portal oficial do tribunal, com identificador e URL canonica. Registrar consulta, fonte, data/hora, falha de acesso e correspondencia. Busca sem resultado nao prova inexistencia.
+N3 autenticidade: obter documento diretamente do tribunal, conferir assinatura/verificador quando disponivel, registrar URL e hash SHA256 local do arquivo (nao publicar documento nem hash de dados de cliente). PDF em dominio oficial isoladamente nao prova autenticidade. Sem verificacao oficial, estado autenticidade_pendente.
+N4 aderencia juridica: comparar proposicao atribuida ao precedente com dispositivo, ementa e fundamentacao do inteiro teor; distinguir ratio decidendi, obiter, voto vencido, decisao monocratica/colegiada, vigencia, superacao e contexto fatico; indicar trechos curtos, paginas, divergencias e nivel de confianca; nao inferir tese a partir de ementa isolada.
+Estados sugeridos: NAO_CONFERIDO, LOCALIZADO_OFICIAL, DOCUMENTO_VERIFICADO, ANALISE_PRELIMINAR, CONFERIDO_OFICIAL. Os quatro primeiros nunca autorizam marcar CONFERIDO_OFICIAL nem incluir automaticamente em minuta. Somente advogado autoriza ultimo estado; trilha de auditoria da confirmacao. Nao confundir 'apto_para_conferencia' com prova de autenticidade.
+Implementar conectores de consulta SOMENTE LEITURA para fontes oficiais, com timeout, limites, politicas de acesso e falha explicita. Nao contornar CAPTCHA, login ou protecoes. Nao afirmar verificacao quando portal indisponivel. Consultas externas sem dados de cliente/processo real.
+Testes: CNJ com DV valido mas inexistente; URL institucional falsa/inexistente; documento oficial com tese oposta; ementa divergente do inteiro teor; decisao monocratica citada como repetitivo; acórdão superado; portal indisponivel; documento sem verificador; resultado de portal oficial sem inteiro teor. Todos permanecem NAO_CONFERIDO ate ato expresso do advogado.
+
+P3 | ESCOPO E EVIDENCIAS
+Criar testes de regressao com casos sinteticos; publicar resultados anonimizados e identificadores de teste na branch Claude. Nao mudar branch ChatGPT, nao enviar .db, dados de clientes, credenciais, tokens ou documentos judiciais sensiveis. Testar Windows Python nativo e geracao juridica com modelo real quando disponivel; distinguir testes executados de planejados. Nao alterar rotina horaria. Sem homologacao automatica.
