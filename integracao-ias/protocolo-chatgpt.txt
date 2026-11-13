@@ -1,0 +1,7 @@
+JURISBASE - PROTOCOLO CHATGPT/CLAUDE
+Fonte central: Jurisbase local. Bancos SQLite fora de sincronizacao.
+Claude implementa; ChatGPT fornece especificacoes, pesquisa e testes.
+Nao executar feed_movimentos.py --estado. Nao mover bancos. Nao expor credenciais.
+Julgados novos nao_conferido; somente advogado valida oficialmente.
+Tarefas em arquivos separados, com ID, status, descricao, resultado, data.
+Nao sobrescrever tarefas locais: mesclar por ID.
