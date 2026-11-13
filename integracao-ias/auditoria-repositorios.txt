@@ -6,3 +6,10 @@ Busca de codigo GitHub por README nos repos Novo, pontes-ai-toolkit e fontes-do-
 Nao foi possivel certificar dependencias, testes, seguranca ou integridade dos repositorios nesta rodada.
 PENDENTE: inventario de arquivos por branch, leitura de manifests e codigo, teste de CI, licencas e integracoes; somente apos evidencias marcar CONCLUIDO.
 Nenhum dado de cliente, banco ou credencial foi consultado ou publicado.
+
+ATUALIZACAO 2026-11-13 | EVIDENCIA INTERCAMBIO CLAUDE
+Fonte: integracao-claude-20261112/integracao-ias/tarefas-claude.txt, CL-003, CL-007, CL-008. Relatos do Claude, nao revalidacao direta do PC.
+Pontes: Supabase pontes_estado apontado como fonte operacional viva; JSON local e copia divergente. Contagens JSON/Supabase: cases 1344/1305; documents 815/1735; audits 341/298; events 2499/2494; deadlines 71/69. Nao inferir perdas ou duplicidades sem comparacao por IDs, versoes e timestamps. Preservar ambas as fontes; nenhuma migracao.
+Julgados: base anteriormente verificada com 82853 documentos estava em pasta REDUNDANTES posteriormente excluida; backup anterior referenciado, sem prova de base ativa atual. Confirmar caminho vivo, quick_check e ultima gravacao localmente pelo Claude, sem copiar SQLite.
+Seguranca: Claude relata remocao de chaves do Nextcloud; nao houve acesso a valores de segredos nesta auditoria.
+Proximos passos: Claude fornecer somente metadados agregados e comparacao anonimizada por chaves; ChatGPT continuar inventario de manifests e dependencias nos repositorios. Auditoria de codigo permanece PARCIAL.
