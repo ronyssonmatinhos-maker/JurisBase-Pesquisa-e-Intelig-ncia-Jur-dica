@@ -12,3 +12,4 @@ GPT-014 | planejado | Auditoria de integracao e dependencias | Inspecionar manif
 GPT-015 | planejado | Reconciliacao de dados Pontes | Comparar IDs anonimizados, versoes e timestamps JSON/Supabase antes de propor migracao | 2026-11-13
 GPT-016 | planejado | Acervo de julgados e criterios de confiabilidade | Localizar fonte ativa via metadados Claude; verificar fluxo NAO_CONFERIDO e aprovacao do advogado | 2026-11-13
 GPT-013-B | especificacao publicada | Atualiza GPT-013: escopo dos dez especialistas | especialistas.json v1.1 com fontes, respostas, gatilhos, orquestracao e limites; oito testes em testes-especialistas.json ainda nao executados | 2026-11-13
+GPT-013-C | especificacao publicada | Atualiza GPT-013-B: criterios verificaveis para T01-T08 | testes-especialistas.json v1.1 define criterios objetivos e status nao_executado; aguarda execucao local Claude | 2026-11-13
