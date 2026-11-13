@@ -1,5 +1,5 @@
 {
-  "versao": "1.2",
+  "versao": "1.3",
   "politica": {
     "julgados": "nao_conferido_ate_validacao_do_advogado",
     "pesquisa_externa": "sem_dados_de_clientes",
@@ -114,5 +114,86 @@
     "fonte": "Claude CL-007, testes-especialistas-resultado-claude.txt",
     "resultado": "Quatro lacunas de desenho T01 T02 T03 T05 enderecadas na especificacao; nao constitui execucao dos testes",
     "instrucao_claude": "Atualizar fichas locais na branch Claude, executar T01-T08 com dados sinteticos, reportar evidencias e falhas sem sigilo"
+  },
+  "expansao": {
+    "estado": "dez_novos_escopos_propostos_sem_implementacao_ou_testes",
+    "quantidade_atual": 10,
+    "quantidade_proposta": 10,
+    "total_se_implementados": 20,
+    "criterio": "especialidades distintas dos dez existentes; disponibilidade de fontes no acervo nao comprovada por tema; consultar fontes oficiais e medir cobertura antes de ativar",
+    "novos": {
+      "previdenciario_assistencial": {
+        "responde": "INSS, BPC/LOAS, incapacidade e revisoes",
+        "fontes_prioritarias": "CF, Lei 8213/91, Lei 8742/93, decretos, INSS, TRF4, STJ",
+        "acionamento": "beneficio, aposentadoria, pensao, BPC, INSS",
+        "saida": "fatos, lacunas, norma vigente, precedentes com fonte oficial e status, teses contrarias, riscos e providencias",
+        "estado": "proposto_nao_testado"
+      },
+      "trabalhista": {
+        "responde": "vinculo, verbas, jornada, rescisao e execucao trabalhista",
+        "fontes_prioritarias": "CLT, CF, TST, TRT9, normas coletivas fornecidas",
+        "acionamento": "emprego, trabalhador, horas extras, rescisao, FGTS",
+        "saida": "fatos, lacunas, norma vigente, precedentes com fonte oficial e status, teses contrarias, riscos e providencias",
+        "estado": "proposto_nao_testado"
+      },
+      "consumidor_bancario": {
+        "responde": "contratos bancarios, credito, busca e apreensao e CDC",
+        "fontes_prioritarias": "CDC, Decreto-Lei 911/69, CC, STJ, TJPR, BACEN",
+        "acionamento": "financiamento, banco, consumidor, busca e apreensao",
+        "saida": "fatos, lacunas, norma vigente, precedentes com fonte oficial e status, teses contrarias, riscos e providencias",
+        "estado": "proposto_nao_testado"
+      },
+      "empresarial_contratual": {
+        "responde": "sociedades, contratos privados, inadimplemento e responsabilidade",
+        "fontes_prioritarias": "CC, Lei 11101/05, juntas comerciais, STJ, TJPR",
+        "acionamento": "sociedade, empresa, contrato privado, recuperacao",
+        "saida": "fatos, lacunas, norma vigente, precedentes com fonte oficial e status, teses contrarias, riscos e providencias",
+        "estado": "proposto_nao_testado"
+      },
+      "servidor_publico": {
+        "responde": "regime estatutario, remuneracao, processo disciplinar e aposentadoria propria",
+        "fontes_prioritarias": "CF, estatutos aplicaveis, leis municipais/estaduais, STF/STJ/TJPR",
+        "acionamento": "servidor, estatuto, concurso, PAD, vencimentos",
+        "saida": "fatos, lacunas, norma vigente, precedentes com fonte oficial e status, teses contrarias, riscos e providencias",
+        "estado": "proposto_nao_testado"
+      },
+      "municipal_legislativo": {
+        "responde": "competencias municipais, leis locais, camara, controle e processo legislativo",
+        "fontes_prioritarias": "CF, Lei Organica, regimento, legislacao_matinhos, diarios oficiais, STF/TJPR",
+        "acionamento": "municipio, lei municipal, camara, vereador, CPI",
+        "saida": "fatos, lacunas, norma vigente, precedentes com fonte oficial e status, teses contrarias, riscos e providencias",
+        "estado": "proposto_nao_testado"
+      },
+      "fazenda_publica_processual": {
+        "responde": "prerrogativas processuais, precatorios, cumprimento e tutela contra poder publico",
+        "fontes_prioritarias": "CPC, CF, STF, STJ, TJPR, CNJ",
+        "acionamento": "fazenda publica, precatorio, RPV, cumprimento contra municipio",
+        "saida": "fatos, lacunas, norma vigente, precedentes com fonte oficial e status, teses contrarias, riscos e providencias",
+        "estado": "proposto_nao_testado"
+      },
+      "direito_digital_dados": {
+        "responde": "LGPD, prova digital, contratos de tecnologia e incidentes",
+        "fontes_prioritarias": "LGPD, Marco Civil, CPC, ANPD, STJ",
+        "acionamento": "dados pessoais, LGPD, prova digital, aplicativo, incidente",
+        "saida": "fatos, lacunas, norma vigente, precedentes com fonte oficial e status, teses contrarias, riscos e providencias",
+        "estado": "proposto_nao_testado"
+      },
+      "saude_publica": {
+        "responde": "SUS, medicamentos, tratamentos, judicializacao e evidencia clinica",
+        "fontes_prioritarias": "CF, Lei 8080/90, protocolos SUS, CONITEC, STF/STJ",
+        "acionamento": "SUS, medicamento, tratamento, saude publica",
+        "saida": "fatos, lacunas, norma vigente, precedentes com fonte oficial e status, teses contrarias, riscos e providencias",
+        "estado": "proposto_nao_testado"
+      },
+      "direitos_crianca_adolescente": {
+        "responde": "ECA, educacao inclusiva, protecao e medidas judiciais",
+        "fontes_prioritarias": "ECA, LDB, LBI, CF, STF/STJ/TJPR",
+        "acionamento": "crianca, adolescente, escola, inclusao, conselho tutelar",
+        "saida": "fatos, lacunas, norma vigente, precedentes com fonte oficial e status, teses contrarias, riscos e providencias",
+        "estado": "proposto_nao_testado"
+      }
+    },
+    "instrucao_claude": "Inventariar agentes locais; medir cobertura por assunto usando somente contagens agregadas em julgados.db, pesquisas.db, fontes do direito e legislacao_matinhos; implementar como modulos independentes com roteamento e testes sinteticos; nao afirmar cobertura por contagem total de arquivos; nao criar duplicatas; nao expor dados ou escrever bancos; publicar status e falhas na branch Claude",
+    "controle_qualidade": "nenhuma citacao sem identificacao da fonte original; julgado NAO_CONFERIDO ate validacao do advogado; sem escrita sem autorizacao"
   }
 }
