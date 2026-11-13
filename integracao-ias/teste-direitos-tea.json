@@ -22,5 +22,35 @@
     "Lei PR 22262/2024: texto oficial e aplicabilidade",
     "tese de teto mensalidade: identificar acordao, ratio decidendi e limites"
   ],
-  "instrucao_claude": "Executar o teste no agente direitos_tea em ambiente isolado; guardar relatorio completo apenas no ambiente privado do advogado; publicar na branch Claude somente status por criterio e falhas sem dados do caso. Nao habilitar producao."
+  "instrucao_claude": "Executar o teste no agente direitos_tea em ambiente isolado; guardar relatorio completo apenas no ambiente privado do advogado; publicar na branch Claude somente status por criterio e falhas sem dados do caso. Nao habilitar producao. Priorizar TEA-PRIV-01 a 04 e bloquear chamadas externas enquanto falharem. Diferenciar ambiente interno de exportacao. Nao enviar dados reais nos testes.",
+  "regressoes_privacidade_sinteticas": [
+    {
+      "id": "TEA-PRIV-01",
+      "funcao": "sanitizar",
+      "entrada": "CPF ficticio 123.456.789-09 em pedido de terapia.",
+      "esperado": "texto_externo nao contem 123.456.789-09 nem sequencia numerica equivalente; indicar remocao",
+      "estado": "pendente_execucao"
+    },
+    {
+      "id": "TEA-PRIV-02",
+      "funcao": "validar_termo_externo",
+      "entrada": "Maria Exemplo Silva",
+      "esperado": "rejeitar nome completo, mesmo sem identificador numerico",
+      "estado": "pendente_execucao"
+    },
+    {
+      "id": "TEA-PRIV-03",
+      "funcao": "sanitizar",
+      "entrada": "A autora Maria Exemplo Silva requer terapia; contato ficticio maria.exemplo@example.org",
+      "esperado": "remover nome e email; preservar apenas informacao juridica necessaria",
+      "estado": "pendente_execucao"
+    },
+    {
+      "id": "TEA-PRIV-04",
+      "funcao": "consulta_externa",
+      "entrada": "Maria Exemplo Silva coparticipacao",
+      "esperado": "nao chamar conector; negar termo identificavel",
+      "estado": "pendente_execucao"
+    }
+  ]
 }
