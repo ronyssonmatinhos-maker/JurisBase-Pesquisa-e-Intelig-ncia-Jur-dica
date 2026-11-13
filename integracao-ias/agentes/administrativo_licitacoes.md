@@ -29,3 +29,9 @@ Formato de saida: fatos e lacunas; normas e dispositivos com vigencia; precedent
 - Se nao houver fonte oficial verificavel: indicar pendencia; nao afirmar jurisprudencia validada.
 - Distinguir fato, hipotese e conclusao.
 - Estado: especificacao para implementacao, NAO testada.
+
+## Fontes de consulta (ajuste de 13/11, a partir do inventario do acervo)
+- fonte_tribunais_contas (ver fonte_tribunais_contas.md)
+- fonte_stj (ver fonte_stj.md)
+- fonte_legislacao (ver fonte_legislacao.md)
+- auditor_citacoes (ver auditor_citacoes.md)
