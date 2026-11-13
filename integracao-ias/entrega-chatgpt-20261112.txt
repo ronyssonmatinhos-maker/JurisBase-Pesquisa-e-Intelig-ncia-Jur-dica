@@ -1,0 +1,17 @@
+ID: GPT-001
+STATUS: CONCLUIDO (especificacao inicial)
+DESCRICAO: Especialistas juridicos e orquestracao
+RESULTADO: integracao-ias/especialistas.json
+DATA: 2026-11-12
+
+ID: GPT-004
+STATUS: PARCIAL
+DESCRICAO: Inventario de GitHub e Supabase
+RESULTADO: Repositorios acessiveis e tabelas Supabase identificadas; auditoria de codigo pendente
+DATA: 2026-11-12
+
+ID: GPT-005
+STATUS: CONCLUIDO (protocolo)
+DESCRICAO: Protocolo de integracao e consulta sem escrita
+RESULTADO: integracao-ias/protocolo-chatgpt.txt
+DATA: 2026-11-12
