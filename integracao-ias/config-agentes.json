@@ -29,7 +29,8 @@
         "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
         "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
         "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
-        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa.",
+        "Aplique a skill_marcos_e_precedentes: cronologia com marcos tipados e evidencias; auditoria de precedentes N1-N4; nenhuma conclusao automatica por quantidade de datas; somente advogado confirma julgados."
       ],
       "output_schema": [
         "fatos",
@@ -42,7 +43,10 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "nao_executado",
+      "approved_skills": [
+        "skill_marcos_e_precedentes"
+      ]
     },
     {
       "id": "tributario",
@@ -72,7 +76,8 @@
         "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
         "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
         "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
-        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa.",
+        "Aplique a skill_marcos_e_precedentes: cronologia com marcos tipados e evidencias; auditoria de precedentes N1-N4; nenhuma conclusao automatica por quantidade de datas; somente advogado confirma julgados."
       ],
       "output_schema": [
         "fatos",
@@ -85,7 +90,10 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "nao_executado",
+      "approved_skills": [
+        "skill_marcos_e_precedentes"
+      ]
     },
     {
       "id": "administrativo_licitacoes",
@@ -114,7 +122,8 @@
         "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
         "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
         "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
-        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa.",
+        "Aplique a skill_marcos_e_precedentes: cronologia com marcos tipados e evidencias; auditoria de precedentes N1-N4; nenhuma conclusao automatica por quantidade de datas; somente advogado confirma julgados."
       ],
       "output_schema": [
         "fatos",
@@ -127,7 +136,10 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "nao_executado",
+      "approved_skills": [
+        "skill_marcos_e_precedentes"
+      ]
     },
     {
       "id": "civil_processual",
@@ -156,7 +168,8 @@
         "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
         "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
         "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
-        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa.",
+        "Aplique a skill_marcos_e_precedentes: cronologia com marcos tipados e evidencias; auditoria de precedentes N1-N4; nenhuma conclusao automatica por quantidade de datas; somente advogado confirma julgados."
       ],
       "output_schema": [
         "fatos",
@@ -169,7 +182,10 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "nao_executado",
+      "approved_skills": [
+        "skill_marcos_e_precedentes"
+      ]
     },
     {
       "id": "imobiliario_registral",
@@ -199,7 +215,8 @@
         "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
         "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
         "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
-        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa.",
+        "Aplique a skill_marcos_e_precedentes: cronologia com marcos tipados e evidencias; auditoria de precedentes N1-N4; nenhuma conclusao automatica por quantidade de datas; somente advogado confirma julgados."
       ],
       "output_schema": [
         "fatos",
@@ -212,7 +229,10 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "nao_executado",
+      "approved_skills": [
+        "skill_marcos_e_precedentes"
+      ]
     },
     {
       "id": "familia_sucessoes",
@@ -241,7 +261,8 @@
         "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
         "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
         "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
-        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa.",
+        "Aplique a skill_marcos_e_precedentes: cronologia com marcos tipados e evidencias; auditoria de precedentes N1-N4; nenhuma conclusao automatica por quantidade de datas; somente advogado confirma julgados."
       ],
       "output_schema": [
         "fatos",
@@ -254,7 +275,10 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "nao_executado",
+      "approved_skills": [
+        "skill_marcos_e_precedentes"
+      ]
     },
     {
       "id": "eleitoral",
@@ -283,7 +307,8 @@
         "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
         "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
         "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
-        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa.",
+        "Aplique a skill_marcos_e_precedentes: cronologia com marcos tipados e evidencias; auditoria de precedentes N1-N4; nenhuma conclusao automatica por quantidade de datas; somente advogado confirma julgados."
       ],
       "output_schema": [
         "fatos",
@@ -296,7 +321,10 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "nao_executado",
+      "approved_skills": [
+        "skill_marcos_e_precedentes"
+      ]
     },
     {
       "id": "penal_processual",
@@ -325,7 +353,8 @@
         "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
         "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
         "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
-        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa.",
+        "Aplique a skill_marcos_e_precedentes: cronologia com marcos tipados e evidencias; auditoria de precedentes N1-N4; nenhuma conclusao automatica por quantidade de datas; somente advogado confirma julgados."
       ],
       "output_schema": [
         "fatos",
@@ -338,7 +367,10 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "nao_executado",
+      "approved_skills": [
+        "skill_marcos_e_precedentes"
+      ]
     },
     {
       "id": "constitucional",
@@ -367,7 +399,8 @@
         "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
         "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
         "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
-        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa.",
+        "Aplique a skill_marcos_e_precedentes: cronologia com marcos tipados e evidencias; auditoria de precedentes N1-N4; nenhuma conclusao automatica por quantidade de datas; somente advogado confirma julgados."
       ],
       "output_schema": [
         "fatos",
@@ -380,7 +413,10 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "nao_executado",
+      "approved_skills": [
+        "skill_marcos_e_precedentes"
+      ]
     },
     {
       "id": "ambiental_urbanistico",
@@ -410,7 +446,8 @@
         "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
         "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
         "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
-        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa.",
+        "Aplique a skill_marcos_e_precedentes: cronologia com marcos tipados e evidencias; auditoria de precedentes N1-N4; nenhuma conclusao automatica por quantidade de datas; somente advogado confirma julgados."
       ],
       "output_schema": [
         "fatos",
@@ -423,7 +460,10 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "nao_executado",
+      "approved_skills": [
+        "skill_marcos_e_precedentes"
+      ]
     },
     {
       "id": "previdenciario_assistencial",
@@ -453,7 +493,8 @@
         "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
         "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
         "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
-        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa.",
+        "Aplique a skill_marcos_e_precedentes: cronologia com marcos tipados e evidencias; auditoria de precedentes N1-N4; nenhuma conclusao automatica por quantidade de datas; somente advogado confirma julgados."
       ],
       "output_schema": [
         "fatos",
@@ -466,7 +507,10 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "nao_executado",
+      "approved_skills": [
+        "skill_marcos_e_precedentes"
+      ]
     },
     {
       "id": "trabalhista",
@@ -496,7 +540,8 @@
         "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
         "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
         "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
-        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa.",
+        "Aplique a skill_marcos_e_precedentes: cronologia com marcos tipados e evidencias; auditoria de precedentes N1-N4; nenhuma conclusao automatica por quantidade de datas; somente advogado confirma julgados."
       ],
       "output_schema": [
         "fatos",
@@ -509,7 +554,10 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "nao_executado",
+      "approved_skills": [
+        "skill_marcos_e_precedentes"
+      ]
     },
     {
       "id": "consumidor_bancario",
@@ -538,7 +586,8 @@
         "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
         "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
         "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
-        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa.",
+        "Aplique a skill_marcos_e_precedentes: cronologia com marcos tipados e evidencias; auditoria de precedentes N1-N4; nenhuma conclusao automatica por quantidade de datas; somente advogado confirma julgados."
       ],
       "output_schema": [
         "fatos",
@@ -551,7 +600,10 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "nao_executado",
+      "approved_skills": [
+        "skill_marcos_e_precedentes"
+      ]
     },
     {
       "id": "empresarial_contratual",
@@ -580,7 +632,8 @@
         "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
         "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
         "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
-        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa.",
+        "Aplique a skill_marcos_e_precedentes: cronologia com marcos tipados e evidencias; auditoria de precedentes N1-N4; nenhuma conclusao automatica por quantidade de datas; somente advogado confirma julgados."
       ],
       "output_schema": [
         "fatos",
@@ -593,7 +646,10 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "nao_executado",
+      "approved_skills": [
+        "skill_marcos_e_precedentes"
+      ]
     },
     {
       "id": "servidor_publico",
@@ -623,7 +679,8 @@
         "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
         "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
         "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
-        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa.",
+        "Aplique a skill_marcos_e_precedentes: cronologia com marcos tipados e evidencias; auditoria de precedentes N1-N4; nenhuma conclusao automatica por quantidade de datas; somente advogado confirma julgados."
       ],
       "output_schema": [
         "fatos",
@@ -636,7 +693,10 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "nao_executado",
+      "approved_skills": [
+        "skill_marcos_e_precedentes"
+      ]
     },
     {
       "id": "municipal_legislativo",
@@ -666,7 +726,8 @@
         "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
         "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
         "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
-        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa.",
+        "Aplique a skill_marcos_e_precedentes: cronologia com marcos tipados e evidencias; auditoria de precedentes N1-N4; nenhuma conclusao automatica por quantidade de datas; somente advogado confirma julgados."
       ],
       "output_schema": [
         "fatos",
@@ -679,7 +740,10 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "nao_executado",
+      "approved_skills": [
+        "skill_marcos_e_precedentes"
+      ]
     },
     {
       "id": "fazenda_publica_processual",
@@ -708,7 +772,8 @@
         "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
         "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
         "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
-        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa.",
+        "Aplique a skill_marcos_e_precedentes: cronologia com marcos tipados e evidencias; auditoria de precedentes N1-N4; nenhuma conclusao automatica por quantidade de datas; somente advogado confirma julgados."
       ],
       "output_schema": [
         "fatos",
@@ -721,7 +786,10 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "nao_executado",
+      "approved_skills": [
+        "skill_marcos_e_precedentes"
+      ]
     },
     {
       "id": "direito_digital_dados",
@@ -751,7 +819,8 @@
         "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
         "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
         "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
-        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa.",
+        "Aplique a skill_marcos_e_precedentes: cronologia com marcos tipados e evidencias; auditoria de precedentes N1-N4; nenhuma conclusao automatica por quantidade de datas; somente advogado confirma julgados."
       ],
       "output_schema": [
         "fatos",
@@ -764,7 +833,10 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "nao_executado",
+      "approved_skills": [
+        "skill_marcos_e_precedentes"
+      ]
     },
     {
       "id": "saude_publica",
@@ -793,7 +865,8 @@
         "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
         "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
         "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
-        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa.",
+        "Aplique a skill_marcos_e_precedentes: cronologia com marcos tipados e evidencias; auditoria de precedentes N1-N4; nenhuma conclusao automatica por quantidade de datas; somente advogado confirma julgados."
       ],
       "output_schema": [
         "fatos",
@@ -806,7 +879,10 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "nao_executado",
+      "approved_skills": [
+        "skill_marcos_e_precedentes"
+      ]
     },
     {
       "id": "direitos_crianca_adolescente",
@@ -836,7 +912,8 @@
         "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
         "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
         "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
-        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa.",
+        "Aplique a skill_marcos_e_precedentes: cronologia com marcos tipados e evidencias; auditoria de precedentes N1-N4; nenhuma conclusao automatica por quantidade de datas; somente advogado confirma julgados."
       ],
       "output_schema": [
         "fatos",
@@ -849,7 +926,10 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "nao_executado",
+      "approved_skills": [
+        "skill_marcos_e_precedentes"
+      ]
     }
   ],
   "coordinator": {
@@ -866,7 +946,10 @@
       "ambiguity": "se mais de um especialista corresponder, registrar ambos e pedir decisao humana quando necessario",
       "regression": "licitacao nao pode acionar citacao; citacao nao pode acionar licitacao",
       "status": "especificacao_nao_implementada_no_runtime"
-    }
+    },
+    "approved_skills": [
+      "skill_marcos_e_precedentes"
+    ]
   },
   "acceptance": {
     "existing_tests": "testes-especialistas.json T01-T08",
@@ -886,5 +969,14 @@
     "merge_policy": "reaproveitar as 12 fichas Claude, conferir requisitos de especialistas.json v1.3 e incorporar gatilhos da config; nao sobrescrever implementacoes existentes sem comparacao",
     "testing": "usuario autorizou instalar e testar; Claude pode executar somente em ambiente local isolado com dados sinteticos e sem escrita em producao; habilitacao produtiva continua bloqueada ate aprovacao",
     "state": "decisao_arquitetural_publicada_sem_instalacao_local"
+  },
+  "approved_skills": [
+    "skill_marcos_e_precedentes"
+  ],
+  "data_access_policy": {
+    "internal_authorized_use": "dados necessarios permitidos no ambiente autorizado, com controles de sigilo",
+    "external_queries": "minimizacao e canal autorizado; preferir termos genericos",
+    "github": "somente testes sinteticos e resultados anonimizados; proibido dados de clientes",
+    "writes": "confirmacao expressa do advogado"
   }
 }
