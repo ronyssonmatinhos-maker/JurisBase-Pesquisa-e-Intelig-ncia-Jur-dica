@@ -1,0 +1,199 @@
+{
+  "versao": "1.3",
+  "politica": {
+    "julgados": "nao_conferido_ate_validacao_do_advogado",
+    "pesquisa_externa": "sem_dados_de_clientes",
+    "gravacao": "somente_apos_confirmacao"
+  },
+  "especialistas": [
+    "execucao_fiscal",
+    "tributario",
+    "administrativo_licitacoes",
+    "civil_processual",
+    "imobiliario_registral",
+    "familia_sucessoes",
+    "eleitoral",
+    "penal_processual",
+    "constitucional",
+    "ambiental_urbanistico"
+  ],
+  "orquestracao": {
+    "selecao": "manual ou por termos e classificacao, com confirmacao quando ambiguo",
+    "cooperacao": true,
+    "coordenador": "distribui demanda, evita respostas conflitantes, consolida e registra trilha",
+    "limites": "nenhuma peticao, validacao, gravacao, protocolo ou alteracao produtiva sem autorizacao expressa",
+    "fallback": "se nao houver fonte oficial verificavel, indicar pendencia e nao afirmar jurisprudencia validada"
+  },
+  "estado": "especificacao_para_implementacao_nao_testada",
+  "fontes_comuns": {
+    "julgados_db": "indice local; recuperar metadados e verificar origem oficial antes de citar",
+    "pesquisas_db": "historico de pesquisa; nao prova juridica",
+    "fontes_do_direito": "acervo de apoio; conferir norma e versao na fonte oficial",
+    "legislacao_matinhos": "indice municipal; confirmar vigencia e teor no diario ou portal oficial",
+    "fontes_oficiais": "tribunais, diarios oficiais, Planalto, CNJ e portais normativos competentes"
+  },
+  "escopos": {
+    "execucao_fiscal": {
+      "fontes_prioritarias": "CDA, LEF, CTN, CPC, STF/STJ/TJPR e julgados locais",
+      "responde": "prescricao, citacao, penhora, nulidades, baixo valor e estrategia defensiva",
+      "acionamento": "execucao fiscal, CDA, prescricao intercorrente, leilao fiscal",
+      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais",
+      "verificacoes_obrigatorias": [
+        "T01: antes de concluir prescricao intercorrente, pedir linha do tempo com ciencia da Fazenda, suspensao, arquivamento, citacao/constricao e interrupcoes; nao presumir marcos ausentes",
+        "T02: para execucao de baixo valor, examinar Tema 1184/STF, Res. CNJ 547/2024 e alteracoes, requisitos, marco temporal, atos uteis, excecoes e regras locais na versao oficial vigente; nao declarar extincao automatica"
+      ]
+    },
+    "tributario": {
+      "fontes_prioritarias": "CTN, legislacao tributaria competente, STF/STJ/TJPR",
+      "responde": "incidencia, lancamento, imunidade, isencao, decadencia e repeticao",
+      "acionamento": "tributos, ICMS, IPTU, ISS, creditos tributarios",
+      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais"
+    },
+    "administrativo_licitacoes": {
+      "fontes_prioritarias": "leis 8666/1993 e 14133/2021 conforme regime, editais, contratos, TCU e tribunais",
+      "responde": "legalidade de contratacao, execucao, sancoes, rescisao e controle",
+      "acionamento": "licitacao, contrato publico, PAD, improbidade",
+      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais"
+    },
+    "civil_processual": {
+      "fontes_prioritarias": "CPC, tribunais e atos processuais disponibilizados",
+      "responde": "competencia, citacao, recursos, prazos, nulidades e prova",
+      "acionamento": "citacao, agravo, contestacao, cumprimento de sentenca",
+      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais",
+      "verificacoes_obrigatorias": [
+        "T03: identificar CPC aplicavel e data dos atos, diferenciar citacao invalida de comparecimento espontaneo, verificar representacao, finalidade do ato e prejuizo concreto; nao afirmar convalidacao automatica"
+      ]
+    },
+    "imobiliario_registral": {
+      "fontes_prioritarias": "Codigo Civil, CPC, LRP, matriculas fornecidas e precedentes oficiais",
+      "responde": "dominio, posse, usucapiao, registro, constricoes e terceiros",
+      "acionamento": "imovel, matricula, posse, reintegracao, registro",
+      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais",
+      "verificacoes_obrigatorias": [
+        "T05: separar titularidade e posse do rito de conflitos fundiarios coletivos; verificar CPC, ADPF 828 e Res. CNJ 510/2023 e eventuais alteracoes na fonte oficial; mediacao e medidas procedimentais nao implicam automaticamente desapropriacao, perda do dominio ou acordo obrigatorio"
+      ]
+    },
+    "familia_sucessoes": {
+      "fontes_prioritarias": "Codigo Civil, CPC, ECA, legislacao correlata e precedentes oficiais",
+      "responde": "alimentos, filiacao, uniao estavel, inventario e partilha",
+      "acionamento": "familia, alimentos, sucessao, inventario",
+      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais"
+    },
+    "eleitoral": {
+      "fontes_prioritarias": "Constituicao, Codigo Eleitoral, leis eleitorais, resolucoes TSE e TRE",
+      "responde": "elegibilidade, propaganda, prestacao de contas, recursos eleitorais",
+      "acionamento": "eleicao, candidatura, TRE, TSE",
+      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais"
+    },
+    "penal_processual": {
+      "fontes_prioritarias": "CP, CPP, leis penais especiais e STF/STJ",
+      "responde": "tipicidade, provas, nulidades, cautelares, recursos e dosimetria",
+      "acionamento": "crime, denuncia, prisao, habeas corpus",
+      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais"
+    },
+    "constitucional": {
+      "fontes_prioritarias": "Constituicao, STF, normas de controle e precedentes oficiais",
+      "responde": "competencia, direitos fundamentais, controle de constitucionalidade e remedios",
+      "acionamento": "ADI, mandado de seguranca, direito fundamental, competencia constitucional",
+      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais"
+    },
+    "ambiental_urbanistico": {
+      "fontes_prioritarias": "legislacao ambiental e urbanistica federal, estadual e municipal, atos de licenciamento e tribunais",
+      "responde": "licenciamento, APP, ocupacao, regularizacao, sancoes e urbanismo",
+      "acionamento": "meio ambiente, APP, demoliçao, zoneamento, licenca",
+      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais"
+    }
+  },
+  "testes": {
+    "arquivo": "integracao-ias/testes-especialistas.json",
+    "quantidade": 8,
+    "estado": "nao_executados",
+    "instrucao": "Claude deve obter arquivos via GitHub branch integracao-chatgpt-20261112; nao presumir existencia em C:\\JURISBASE"
+  },
+  "revisao": {
+    "fonte": "Claude CL-007, testes-especialistas-resultado-claude.txt",
+    "resultado": "Quatro lacunas de desenho T01 T02 T03 T05 enderecadas na especificacao; nao constitui execucao dos testes",
+    "instrucao_claude": "Atualizar fichas locais na branch Claude, executar T01-T08 com dados sinteticos, reportar evidencias e falhas sem sigilo"
+  },
+  "expansao": {
+    "estado": "dez_novos_escopos_propostos_sem_implementacao_ou_testes",
+    "quantidade_atual": 10,
+    "quantidade_proposta": 10,
+    "total_se_implementados": 20,
+    "criterio": "especialidades distintas dos dez existentes; disponibilidade de fontes no acervo nao comprovada por tema; consultar fontes oficiais e medir cobertura antes de ativar",
+    "novos": {
+      "previdenciario_assistencial": {
+        "responde": "INSS, BPC/LOAS, incapacidade e revisoes",
+        "fontes_prioritarias": "CF, Lei 8213/91, Lei 8742/93, decretos, INSS, TRF4, STJ",
+        "acionamento": "beneficio, aposentadoria, pensao, BPC, INSS",
+        "saida": "fatos, lacunas, norma vigente, precedentes com fonte oficial e status, teses contrarias, riscos e providencias",
+        "estado": "proposto_nao_testado"
+      },
+      "trabalhista": {
+        "responde": "vinculo, verbas, jornada, rescisao e execucao trabalhista",
+        "fontes_prioritarias": "CLT, CF, TST, TRT9, normas coletivas fornecidas",
+        "acionamento": "emprego, trabalhador, horas extras, rescisao, FGTS",
+        "saida": "fatos, lacunas, norma vigente, precedentes com fonte oficial e status, teses contrarias, riscos e providencias",
+        "estado": "proposto_nao_testado"
+      },
+      "consumidor_bancario": {
+        "responde": "contratos bancarios, credito, busca e apreensao e CDC",
+        "fontes_prioritarias": "CDC, Decreto-Lei 911/69, CC, STJ, TJPR, BACEN",
+        "acionamento": "financiamento, banco, consumidor, busca e apreensao",
+        "saida": "fatos, lacunas, norma vigente, precedentes com fonte oficial e status, teses contrarias, riscos e providencias",
+        "estado": "proposto_nao_testado"
+      },
+      "empresarial_contratual": {
+        "responde": "sociedades, contratos privados, inadimplemento e responsabilidade",
+        "fontes_prioritarias": "CC, Lei 11101/05, juntas comerciais, STJ, TJPR",
+        "acionamento": "sociedade, empresa, contrato privado, recuperacao",
+        "saida": "fatos, lacunas, norma vigente, precedentes com fonte oficial e status, teses contrarias, riscos e providencias",
+        "estado": "proposto_nao_testado"
+      },
+      "servidor_publico": {
+        "responde": "regime estatutario, remuneracao, processo disciplinar e aposentadoria propria",
+        "fontes_prioritarias": "CF, estatutos aplicaveis, leis municipais/estaduais, STF/STJ/TJPR",
+        "acionamento": "servidor, estatuto, concurso, PAD, vencimentos",
+        "saida": "fatos, lacunas, norma vigente, precedentes com fonte oficial e status, teses contrarias, riscos e providencias",
+        "estado": "proposto_nao_testado"
+      },
+      "municipal_legislativo": {
+        "responde": "competencias municipais, leis locais, camara, controle e processo legislativo",
+        "fontes_prioritarias": "CF, Lei Organica, regimento, legislacao_matinhos, diarios oficiais, STF/TJPR",
+        "acionamento": "municipio, lei municipal, camara, vereador, CPI",
+        "saida": "fatos, lacunas, norma vigente, precedentes com fonte oficial e status, teses contrarias, riscos e providencias",
+        "estado": "proposto_nao_testado"
+      },
+      "fazenda_publica_processual": {
+        "responde": "prerrogativas processuais, precatorios, cumprimento e tutela contra poder publico",
+        "fontes_prioritarias": "CPC, CF, STF, STJ, TJPR, CNJ",
+        "acionamento": "fazenda publica, precatorio, RPV, cumprimento contra municipio",
+        "saida": "fatos, lacunas, norma vigente, precedentes com fonte oficial e status, teses contrarias, riscos e providencias",
+        "estado": "proposto_nao_testado"
+      },
+      "direito_digital_dados": {
+        "responde": "LGPD, prova digital, contratos de tecnologia e incidentes",
+        "fontes_prioritarias": "LGPD, Marco Civil, CPC, ANPD, STJ",
+        "acionamento": "dados pessoais, LGPD, prova digital, aplicativo, incidente",
+        "saida": "fatos, lacunas, norma vigente, precedentes com fonte oficial e status, teses contrarias, riscos e providencias",
+        "estado": "proposto_nao_testado"
+      },
+      "saude_publica": {
+        "responde": "SUS, medicamentos, tratamentos, judicializacao e evidencia clinica",
+        "fontes_prioritarias": "CF, Lei 8080/90, protocolos SUS, CONITEC, STF/STJ",
+        "acionamento": "SUS, medicamento, tratamento, saude publica",
+        "saida": "fatos, lacunas, norma vigente, precedentes com fonte oficial e status, teses contrarias, riscos e providencias",
+        "estado": "proposto_nao_testado"
+      },
+      "direitos_crianca_adolescente": {
+        "responde": "ECA, educacao inclusiva, protecao e medidas judiciais",
+        "fontes_prioritarias": "ECA, LDB, LBI, CF, STF/STJ/TJPR",
+        "acionamento": "crianca, adolescente, escola, inclusao, conselho tutelar",
+        "saida": "fatos, lacunas, norma vigente, precedentes com fonte oficial e status, teses contrarias, riscos e providencias",
+        "estado": "proposto_nao_testado"
+      }
+    },
+    "instrucao_claude": "Inventariar agentes locais; medir cobertura por assunto usando somente contagens agregadas em julgados.db, pesquisas.db, fontes do direito e legislacao_matinhos; implementar como modulos independentes com roteamento e testes sinteticos; nao afirmar cobertura por contagem total de arquivos; nao criar duplicatas; nao expor dados ou escrever bancos; publicar status e falhas na branch Claude",
+    "controle_qualidade": "nenhuma citacao sem identificacao da fonte original; julgado NAO_CONFERIDO ate validacao do advogado; sem escrita sem autorizacao"
+  }
+}
