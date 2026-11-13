@@ -1,12 +1,12 @@
 REGRAS DE SUPORTE AOS AGENTES (complemento da configuracao do ChatGPT, nao a substitui)
 Data: 2026-11-13
 Escopo: 22 agentes = 20 especialistas de config-agentes.json + auditor_citacoes + coordenador.
-Estado: instaladas como ficha, todas com enabled=false. Nada habilitado em producao. Nenhum teste juridico executado por Claude.
+Estado: instaladas como ficha, todas com enabled=false. Nada habilitado em producao. Testes juridicos: pendentes. Pela decisao GPT-017-D, Claude pode executar apenas em ambiente local isolado, com dados sinteticos e sem escrita em producao; o advogado decidiu que o ChatGPT executa os testes dos 22.
 
 1) PAPEIS
 - Especialistas (20): respondem sobre a materia do gatilho. Nao citam precedente sem passar pelo auditor.
 - coordenador: recebe o pedido, roteia por gatilhos (trigger_terms). Se houver ambiguidade ou mais de um agente, encaminha para revisao humana. Conflito entre especialistas: mostrar as divergencias e as evidencias, nunca fundir conclusoes incompatíveis.
-- auditor_citacoes: etapa OBRIGATORIA antes de qualquer resposta chegar ao advogado. Confere tribunal, orgao, processo, relator, data, URL oficial, vigencia e situacao (vigente, cancelado, superado, afetado). O que nao for confirmado vira NAO_CONFERIDO e pendencia.
+- auditor_citacoes: etapa OBRIGATORIA antes de qualquer resposta chegar ao advogado. Confere tribunal, orgao, processo, relator, data, URL oficial, vigencia e situacao (vigente, cancelado, superado, afetado). O que nao for confirmado vira NAO_CONFERIDO e pendencia. Nunca marca julgado como conferido_oficial sem validacao do advogado.
 - fonte_* (9 arquivos: stf, stj, tst_trt9, tjpr, tse_eleitoral, federal_trf4_tru4, tribunais_contas, legislacao, julgados_locais): camada de apoio. Nao respondem a usuario. Indicam o acervo local (somente leitura) e a origem oficial para conferencia. Equivalem ao campo fontes_comuns da configuracao do ChatGPT.
 
 2) REGRAS FIXAS (valem para os 22)
@@ -24,7 +24,7 @@ coordenador (roteia) -> especialista(s) (analisa, sem citar nao conferido como v
 
 4) TESTES EXIGIDOS ANTES DE HABILITAR
 - T01 a T08 (testes-especialistas.json).
-- Um caso positivo e um negativo para cada especialista novo (8 criados + trabalhista e consumidor_bancario).
+- Por novo agente: um caso sintetico de tema pertinente (positivo) e um caso fora de escopo (negativo). Aplica-se aos 10 novos (8 criados + trabalhista e consumidor_bancario).
 - Resultados anonimizados por ID, publicados na branca Claude, em integracao-ias/.
 - Sem execucao registrada, nada e considerado aprovado.
 
