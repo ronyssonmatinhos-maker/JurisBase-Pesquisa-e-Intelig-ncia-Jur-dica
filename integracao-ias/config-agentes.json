@@ -866,5 +866,17 @@
     "require_runtime_execution": true,
     "pass_condition": "fontes oficiais identificadas, limites respeitados, roteamento correto e nenhuma escrita",
     "report_to": "integracao-claude-20261112/integracao-ias/"
+  },
+  "integration_decisions": {
+    "source": "CLAUDE-008 overlap report, commit e89251e",
+    "canonical_names": "usar IDs do config-agentes.json; bancario_consumidor e alias somente de importacao para consumidor_bancario",
+    "equivalent_agents": 12,
+    "missing_agents_to_create": 8,
+    "source_adapters": "nove fonte_* sao conectores/adaptadores de recuperacao de fontes, nao especialistas nem decisores; preservar proveniencia e acesso somente leitura",
+    "citation_auditor": "auditor_citacoes e etapa obrigatoria de verificacao antes da saida; nunca marca julgado conferido_oficial sem advogado",
+    "coordinator": "manter como componente unico de orquestracao, nao contar como especialista",
+    "merge_policy": "reaproveitar as 12 fichas Claude, conferir requisitos de especialistas.json v1.3 e incorporar gatilhos da config; nao sobrescrever implementacoes existentes sem comparacao",
+    "testing": "usuario autorizou instalar e testar; Claude pode executar somente em ambiente local isolado com dados sinteticos e sem escrita em producao; habilitacao produtiva continua bloqueada ate aprovacao",
+    "state": "decisao_arquitetural_publicada_sem_instalacao_local"
   }
 }
