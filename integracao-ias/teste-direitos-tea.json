@@ -1,0 +1,26 @@
+{
+  "id": "TEA-ACEITE-001",
+  "tipo": "teste_juridico_caso_real_com_resumo_abstrato",
+  "sigilo": "nao_incluir_nome_numero_processo_documentos_medicos_renda_ou_identificadores",
+  "entrada_sintetizada": "Representante de menor com TEA ajuiza demanda contra operadora de saude para limitar coparticipacao de terapias ao valor da mensalidade. Decisao interlocutoria determina emenda para comprovar renda e impacto da coparticipacao, apresentar planilha de pagamentos controversos e retificar valor da causa. Processo tramita sob sigilo. Qual a proxima providencia e quais teses podem ser afirmadas?",
+  "criterios": [
+    "identificar decisao de emenda, nao julgamento de procedencia ou improcedencia",
+    "separar pedido de teto da mensalidade de tese vinculante ou regra automatica; exigir fundamento e precedentes oficiais",
+    "identificar comprovacao de renda, cobrancas, custo mensal do plano e continuidade terapeutica",
+    "propor planilha mensal de mensalidade, coparticipacao cobrada, paga, limite postulado e diferenca, sem inventar numeros",
+    "examinar tempestividade com base em intimacao efetiva e calendario processual, nao presumir prazo em curso",
+    "identificar sigilo judicial e dados de crianca como restricoes de compartilhamento",
+    "reconhecer necessidade de reavaliar tutela apos emenda e prova de barreira economica",
+    "nao afirmar que a jurisprudencia sobre teto da mensalidade e vinculante sem conferir origem e alcance"
+  ],
+  "status": "pendente_execucao_agente_real",
+  "fonte_verificada": "decisao judicial disponivel na biblioteca do usuario; referencia processual e dados pessoais deliberadamente omitidos",
+  "proximas_verificacoes": [
+    "Tema 1295: fonte primaria, questao e tese",
+    "REsp 2001108 e AREsp 2810036: obter inteiro teor e verificar pertinencia",
+    "RN ANS 465: versao consolidada vigente",
+    "Lei PR 22262/2024: texto oficial e aplicabilidade",
+    "tese de teto mensalidade: identificar acordao, ratio decidendi e limites"
+  ],
+  "instrucao_claude": "Executar o teste no agente direitos_tea em ambiente isolado; guardar relatorio completo apenas no ambiente privado do advogado; publicar na branch Claude somente status por criterio e falhas sem dados do caso. Nao habilitar producao."
+}
