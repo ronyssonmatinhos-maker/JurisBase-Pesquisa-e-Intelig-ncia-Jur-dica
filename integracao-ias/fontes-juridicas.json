@@ -1,0 +1,46 @@
+{
+  "versao": "1.0",
+  "criterios": [
+    "fonte_oficial",
+    "url_estavel",
+    "integra_do_julgado",
+    "data_e_orgao",
+    "vigencia_normativa",
+    "conferencia_de_repercussao_ou_repetitivo",
+    "registro_de_acesso"
+  ],
+  "fontes": [
+    {
+      "nome": "STF",
+      "dominio": "stf.jus.br",
+      "uso": "precedentes e temas de repercussao geral"
+    },
+    {
+      "nome": "STJ",
+      "dominio": "stj.jus.br",
+      "uso": "repetitivos e jurisprudencia"
+    },
+    {
+      "nome": "TJPR",
+      "dominio": "tjpr.jus.br",
+      "uso": "jurisprudencia estadual"
+    },
+    {
+      "nome": "Planalto",
+      "dominio": "planalto.gov.br",
+      "uso": "legislacao federal"
+    },
+    {
+      "nome": "CNJ",
+      "dominio": "cnj.jus.br",
+      "uso": "resolucoes e atos normativos"
+    },
+    {
+      "nome": "Diario Oficial da Uniao",
+      "dominio": "in.gov.br",
+      "uso": "publicacoes oficiais"
+    }
+  ],
+  "regra": "Metadados e ementas nao substituem inteiro teor; nao afirmar precedente validado sem URL e conferencia oficial.",
+  "estado": "catalogo de fontes, nao verificacao de disponibilidade atual"
+}
