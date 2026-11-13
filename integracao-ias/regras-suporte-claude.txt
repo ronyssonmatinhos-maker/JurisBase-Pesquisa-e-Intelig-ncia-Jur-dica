@@ -1,0 +1,34 @@
+REGRAS DE SUPORTE AOS AGENTES (complemento da configuracao do ChatGPT, nao a substitui)
+Data: 2026-11-13
+Escopo: 22 agentes = 20 especialistas de config-agentes.json + auditor_citacoes + coordenador.
+Estado: instaladas como ficha, todas com enabled=false. Nada habilitado em producao. Nenhum teste juridico executado por Claude.
+
+1) PAPEIS
+- Especialistas (20): respondem sobre a materia do gatilho. Nao citam precedente sem passar pelo auditor.
+- coordenador: recebe o pedido, roteia por gatilhos (trigger_terms). Se houver ambiguidade ou mais de um agente, encaminha para revisao humana. Conflito entre especialistas: mostrar as divergencias e as evidencias, nunca fundir conclusoes incompatíveis.
+- auditor_citacoes: etapa OBRIGATORIA antes de qualquer resposta chegar ao advogado. Confere tribunal, orgao, processo, relator, data, URL oficial, vigencia e situacao (vigente, cancelado, superado, afetado). O que nao for confirmado vira NAO_CONFERIDO e pendencia.
+- fonte_* (9 arquivos: stf, stj, tst_trt9, tjpr, tse_eleitoral, federal_trf4_tru4, tribunais_contas, legislacao, julgados_locais): camada de apoio. Nao respondem a usuario. Indicam o acervo local (somente leitura) e a origem oficial para conferencia. Equivalem ao campo fontes_comuns da configuracao do ChatGPT.
+
+2) REGRAS FIXAS (valem para os 22)
+- Somente leitura: nenhum agente altera, move ou grava arquivos ou bancos.
+- Indice local (julgados.db, pesquisas.db, acervo) nao e fonte oficial.
+- Toda citacao exige tribunal, orgao, processo, relator, data e URL oficial conferida. Sem isso: NAO_CONFERIDO, nao citar como validado.
+- Julgado novo fica NAO_CONFERIDO ate validacao expressa do advogado. Nenhum campo resultado_confiavel e preenchido automaticamente.
+- Nunca citar JurisBase, acervo ou IA como fundamento (ver AGENTS.md).
+- Consultas externas: sem nomes, CPF, numeros de processo ou dados de cliente.
+- Nenhuma gravacao automatica de resultado; exige confirmacao expressa do advogado.
+- Distinguir fato, hipotese e conclusao; verificar vigencia antes de citar.
+
+3) FLUXO DE RESPOSTA
+coordenador (roteia) -> especialista(s) (analisa, sem citar nao conferido como validado) -> auditor_citacoes (confere cada citacao) -> advogado (decide).
+
+4) TESTES EXIGIDOS ANTES DE HABILITAR
+- T01 a T08 (testes-especialistas.json).
+- Um caso positivo e um negativo para cada especialista novo (8 criados + trabalhista e consumidor_bancario).
+- Resultados anonimizados por ID, publicados na branca Claude, em integracao-ias/.
+- Sem execucao registrada, nada e considerado aprovado.
+
+5) PENDENCIAS DO ADVOGADO
+- Aprovar a adocao dos nomes canonicos do ChatGPT (ja aplicados).
+- Confirmar se fonte_* permanecem como camada de apoio (proposta desta versao).
+- Autorizar a ativacao, que hoje esta bloqueada por enabled=false.

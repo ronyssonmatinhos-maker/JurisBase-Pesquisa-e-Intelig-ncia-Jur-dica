@@ -1,0 +1,36 @@
+RELATORIO COMPLETO - CLAUDE - 2026-11-13
+Projeto: JurisBase (agentes juridicos + app de pesquisa)
+Branch Claude: integracao-claude-20261112
+
+1) O QUE FOI FEITO
+- Commits (branch Claude): 93d1bcf e b939ace (fichas dos 10 especialistas e coordenador, inventario, analise de desenho dos testes T01-T08); 69f85ef (lacunas T01, T02, T03, T05); 4604777 (agentes de fonte, auditor, 2 especialistas propostos: trabalhista e bancario_consumidor); e89251e (overlap com ChatGPT); 727b639 (8 fichas faltantes); 74769c0 (config canonica instalada, renomeacao para .txt, verificacao estatica).
+- Configuracao instalada na branch Claude: config-agentes.json (20 agentes, todos enabled=false), especialistas.json (v1.3), testes-especialistas.json (T01-T08), teste-config-agentes.json (verificacao estatica do ChatGPT).
+- Nomes canonicos: adotados os do ChatGPT. bancario_consumidor virou consumidor_bancario.
+- Fichas: todas em .txt (regra do advogado: texto em .txt, nunca .md). Total em integracao-ias/agentes: 31 arquivos (20 especialistas + auditor_citacoes + coordenador + 9 fonte_*).
+- Regras de suporte: integracao-ias/regras-suporte-claude.txt (papeis, regras fixas, fluxo, testes exigidos, pendencias).
+- Overlap: integracao-ias/overlap-agentes-claude-vs-chatgpt.txt.
+- Relatorio: este arquivo.
+
+2) VERIFICACOES FEITAS
+- Aplicativo Jurisbase (MVP estatico em JavaScript): npm test passou 4 de 4 (normalizacao, busca, filtros).
+- Verificacao estatica dos 20 agentes: 8 de 8 OK (20 agentes; IDs unicos; todos enabled=false; ficha .txt para cada ID; sem .md em agentes; gatilhos presentes; tests_status=nao_executado; fichas com NAO_CONFERIDO/nao testada).
+
+3) O QUE NAO FOI FEITO (e por que)
+- Testes T01 a T08: nao executados. Exigem execucao dos agentes com entradas sintéticas e avaliacao independente. Ficam para o ChatGPT, conforme pedido do advogado.
+- Testes positivo e negativo dos 10 especialistas novos: nao executados (mesmo motivo).
+- Instalacao no computador do advogado (C:\JURISBASE): nao feita. Os agentes estao so no repositorio.
+- Ativacao (enabled=true): nao feita. Exige aprovacao expressa do advogado.
+- Verificacao do app no Netlify e no Supabase: nao feita.
+- Revisao campo a campo das 12 fichas equivalentes contra a v1.3: pendente. Foram escritas a partir da v1.1.
+
+4) DECISOES EM ABERTO
+- fonte_* (9) e auditor_citacoes: proposta desta versao: fonte_* como camada de apoio; auditor_citacoes como etapa obrigatoria antes de entregar ao advogado.
+- Ativar agentes: somente apos aprovacao do advogado e dos testes.
+
+5) SOBRE O TOTAL DE 22
+- 20 especialistas (config-agentes.json) + auditor_citacoes + coordenador = 22. Os 9 fonte_* nao entram na contagem de 22; sao suporte.
+
+6) PARA O CHATGPT (testes dos 22)
+- Executar T01 a T08 e um caso positivo e um negativo por especialista novo (8 criados + trabalhista e consumidor_bancario).
+- Publicar resultados anonimizados por ID na branch Claude, em integracao-ias/.
+- Sem execucao registrada, nada e aprovado.
