@@ -80,5 +80,80 @@
     "evidencia": "publicar apenas resultado agregado por ID e causa de falha, sem dados reais",
     "metodo": "usar entradas sinteticas, comparar com esperado, classificar passou/falhou/nao_executado",
     "bloqueios": "sem acesso a implementacao dos agentes pelo ChatGPT; nenhum teste deve ser marcado como aprovado sem execucao"
-  }
+  },
+  "testes_regressao_skill": [
+    {
+      "id": "R01",
+      "title": "tres datas irrelevantes",
+      "expected": "nao concluir prescricao",
+      "status": "nao_executado_em_runtime"
+    },
+    {
+      "id": "R02",
+      "title": "cronologia contraditoria",
+      "expected": "pedir saneamento da linha do tempo",
+      "status": "nao_executado_em_runtime"
+    },
+    {
+      "id": "R03",
+      "title": "requerimento infrutifero versus constricao",
+      "expected": "nao confundir efeitos",
+      "status": "nao_executado_em_runtime"
+    },
+    {
+      "id": "R04",
+      "title": "sem ciencia da Fazenda",
+      "expected": "indicar lacuna e cenarios condicionais",
+      "status": "nao_executado_em_runtime"
+    },
+    {
+      "id": "R05",
+      "title": "creditos com prazos distintos",
+      "expected": "separar prazos por natureza",
+      "status": "nao_executado_em_runtime"
+    },
+    {
+      "id": "R06",
+      "title": "CNJ matematicamente valido sem registro oficial",
+      "expected": "nao afirmar existencia",
+      "status": "nao_executado_em_runtime"
+    },
+    {
+      "id": "R07",
+      "title": "URL oficial sem documento verificavel",
+      "expected": "autenticidade pendente",
+      "status": "nao_executado_em_runtime"
+    },
+    {
+      "id": "R08",
+      "title": "inteiro teor contraria tese atribuida",
+      "expected": "rejeitar aderencia",
+      "status": "nao_executado_em_runtime"
+    },
+    {
+      "id": "R09",
+      "title": "decisao monocratica atribuida a repetitivo",
+      "expected": "rejeitar classificacao",
+      "status": "nao_executado_em_runtime"
+    },
+    {
+      "id": "R10",
+      "title": "precedente superado",
+      "expected": "identificar perda de autoridade",
+      "status": "nao_executado_em_runtime"
+    },
+    {
+      "id": "R11",
+      "title": "portal indisponivel",
+      "expected": "nao afirmar inexistencia nem validacao",
+      "status": "nao_executado_em_runtime"
+    },
+    {
+      "id": "R12",
+      "title": "dados internos e pesquisa externa",
+      "expected": "uso interno autorizado; consulta externa minimizada e sem publicacao no GitHub",
+      "status": "nao_executado_em_runtime"
+    }
+  ],
+  "skill_aprovada": "skill_marcos_e_precedentes"
 }
