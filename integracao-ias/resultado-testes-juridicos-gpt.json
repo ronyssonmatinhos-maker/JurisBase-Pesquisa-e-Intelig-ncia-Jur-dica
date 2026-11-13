@@ -1,0 +1,300 @@
+{
+  "data": "2026-11-13",
+  "tipo": "execucao_independente_de_testes_deterministicos_sobre_artefatos_git",
+  "fontes": [
+    "integracao-ias/config-agentes.json",
+    "integracao-ias/especialistas.json"
+  ],
+  "resumo": {
+    "agentes": 20,
+    "roteamento_positivo_identificado": 20,
+    "roteamento_negativo_sem_correspondencia": 20,
+    "casos_com_ambiguidade": 1,
+    "regras_juridicas_T01_T08_presentes": 8,
+    "respostas_juridicas_reais_testadas": 0
+  },
+  "roteamento": [
+    {
+      "id": "execucao_fiscal",
+      "input": "execucao fiscal",
+      "expected": "execucao_fiscal",
+      "found": [
+        "execucao_fiscal"
+      ],
+      "contains_expected": true,
+      "ambiguous": false,
+      "negative_test": true
+    },
+    {
+      "id": "tributario",
+      "input": "tributos",
+      "expected": "tributario",
+      "found": [
+        "tributario"
+      ],
+      "contains_expected": true,
+      "ambiguous": false,
+      "negative_test": true
+    },
+    {
+      "id": "administrativo_licitacoes",
+      "input": "licitacao",
+      "expected": "administrativo_licitacoes",
+      "found": [
+        "administrativo_licitacoes",
+        "civil_processual"
+      ],
+      "contains_expected": true,
+      "ambiguous": true,
+      "negative_test": true
+    },
+    {
+      "id": "civil_processual",
+      "input": "citacao",
+      "expected": "civil_processual",
+      "found": [
+        "civil_processual"
+      ],
+      "contains_expected": true,
+      "ambiguous": false,
+      "negative_test": true
+    },
+    {
+      "id": "imobiliario_registral",
+      "input": "imovel",
+      "expected": "imobiliario_registral",
+      "found": [
+        "imobiliario_registral"
+      ],
+      "contains_expected": true,
+      "ambiguous": false,
+      "negative_test": true
+    },
+    {
+      "id": "familia_sucessoes",
+      "input": "familia",
+      "expected": "familia_sucessoes",
+      "found": [
+        "familia_sucessoes"
+      ],
+      "contains_expected": true,
+      "ambiguous": false,
+      "negative_test": true
+    },
+    {
+      "id": "eleitoral",
+      "input": "eleicao",
+      "expected": "eleitoral",
+      "found": [
+        "eleitoral"
+      ],
+      "contains_expected": true,
+      "ambiguous": false,
+      "negative_test": true
+    },
+    {
+      "id": "penal_processual",
+      "input": "crime",
+      "expected": "penal_processual",
+      "found": [
+        "penal_processual"
+      ],
+      "contains_expected": true,
+      "ambiguous": false,
+      "negative_test": true
+    },
+    {
+      "id": "constitucional",
+      "input": "ADI",
+      "expected": "constitucional",
+      "found": [
+        "constitucional"
+      ],
+      "contains_expected": true,
+      "ambiguous": false,
+      "negative_test": true
+    },
+    {
+      "id": "ambiental_urbanistico",
+      "input": "meio ambiente",
+      "expected": "ambiental_urbanistico",
+      "found": [
+        "ambiental_urbanistico"
+      ],
+      "contains_expected": true,
+      "ambiguous": false,
+      "negative_test": true
+    },
+    {
+      "id": "previdenciario_assistencial",
+      "input": "beneficio",
+      "expected": "previdenciario_assistencial",
+      "found": [
+        "previdenciario_assistencial"
+      ],
+      "contains_expected": true,
+      "ambiguous": false,
+      "negative_test": true
+    },
+    {
+      "id": "trabalhista",
+      "input": "emprego",
+      "expected": "trabalhista",
+      "found": [
+        "trabalhista"
+      ],
+      "contains_expected": true,
+      "ambiguous": false,
+      "negative_test": true
+    },
+    {
+      "id": "consumidor_bancario",
+      "input": "financiamento",
+      "expected": "consumidor_bancario",
+      "found": [
+        "consumidor_bancario"
+      ],
+      "contains_expected": true,
+      "ambiguous": false,
+      "negative_test": true
+    },
+    {
+      "id": "empresarial_contratual",
+      "input": "sociedade",
+      "expected": "empresarial_contratual",
+      "found": [
+        "empresarial_contratual"
+      ],
+      "contains_expected": true,
+      "ambiguous": false,
+      "negative_test": true
+    },
+    {
+      "id": "servidor_publico",
+      "input": "servidor",
+      "expected": "servidor_publico",
+      "found": [
+        "servidor_publico"
+      ],
+      "contains_expected": true,
+      "ambiguous": false,
+      "negative_test": true
+    },
+    {
+      "id": "municipal_legislativo",
+      "input": "municipio",
+      "expected": "municipal_legislativo",
+      "found": [
+        "municipal_legislativo"
+      ],
+      "contains_expected": true,
+      "ambiguous": false,
+      "negative_test": true
+    },
+    {
+      "id": "fazenda_publica_processual",
+      "input": "fazenda publica",
+      "expected": "fazenda_publica_processual",
+      "found": [
+        "fazenda_publica_processual"
+      ],
+      "contains_expected": true,
+      "ambiguous": false,
+      "negative_test": true
+    },
+    {
+      "id": "direito_digital_dados",
+      "input": "dados pessoais",
+      "expected": "direito_digital_dados",
+      "found": [
+        "direito_digital_dados"
+      ],
+      "contains_expected": true,
+      "ambiguous": false,
+      "negative_test": true
+    },
+    {
+      "id": "saude_publica",
+      "input": "SUS",
+      "expected": "saude_publica",
+      "found": [
+        "saude_publica"
+      ],
+      "contains_expected": true,
+      "ambiguous": false,
+      "negative_test": true
+    },
+    {
+      "id": "direitos_crianca_adolescente",
+      "input": "crianca",
+      "expected": "direitos_crianca_adolescente",
+      "found": [
+        "direitos_crianca_adolescente"
+      ],
+      "contains_expected": true,
+      "ambiguous": false,
+      "negative_test": true
+    }
+  ],
+  "testes_juridicos": [
+    {
+      "id": "T01",
+      "agent": "execucao_fiscal",
+      "design_rule_present": true,
+      "response_test": "nao_executado"
+    },
+    {
+      "id": "T02",
+      "agent": "execucao_fiscal",
+      "design_rule_present": true,
+      "response_test": "nao_executado"
+    },
+    {
+      "id": "T03",
+      "agent": "civil_processual",
+      "design_rule_present": true,
+      "response_test": "nao_executado"
+    },
+    {
+      "id": "T04",
+      "agent": "administrativo_licitacoes",
+      "design_rule_present": true,
+      "response_test": "nao_executado"
+    },
+    {
+      "id": "T05",
+      "agent": "imobiliario_registral",
+      "design_rule_present": true,
+      "response_test": "nao_executado"
+    },
+    {
+      "id": "T06",
+      "design_rule_present": true,
+      "response_test": "nao_executado"
+    },
+    {
+      "id": "T07",
+      "design_rule_present": true,
+      "response_test": "nao_executado"
+    },
+    {
+      "id": "T08",
+      "design_rule_present": true,
+      "response_test": "nao_executado"
+    }
+  ],
+  "limitacoes": [
+    "Testes de texto e regras, nao execucao de modelo de linguagem ou agentes locais",
+    "Roteamento por substring e simulacao de verificacao, nao algoritmo comprovado no aplicativo",
+    "Todos os agentes enabled=false; nenhum agente instalado em C:\\JURISBASE por este executor",
+    "T01-T08 precisam de resposta real de cada agente e avaliacao por advogado antes de afirmar funcionamento juridico"
+  ],
+  "proximos_passos_claude": [
+    "Instalar no ambiente de testes isolado sem acesso de escrita a producao",
+    "Executar os oito casos sinteticos T01-T08 contra agentes reais e anexar saida redigida sem dados pessoais",
+    "Executar um caso positivo e um negativo para cada um dos 20 especialistas, nao apenas os dez novos",
+    "Resolver ou justificar ambiguidades de roteamento no coordenador, sem descartar especialista relevante",
+    "Testar auditor_citacoes com julgado ficticio e sem URL oficial; exigir NAO_CONFERIDO",
+    "Publicar evidencias e contagens na branch Claude; nao ativar producao antes de aprovacao"
+  ]
+}
