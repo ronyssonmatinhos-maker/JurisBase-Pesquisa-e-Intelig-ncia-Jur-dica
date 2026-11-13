@@ -1,0 +1,41 @@
+{
+  "versao": "1.0",
+  "tipo": "inventario_preliminar_sem_inspecao_local",
+  "origens": [
+    {
+      "local": "Nextcloud/I.A/04-CONFIGURAÇÕES/CLAUDE/Mods",
+      "evidencia": "relato de inventario local: ZIP com 10 mods; README cita 11",
+      "status": "pendente_conferencia"
+    },
+    {
+      "local": "Nextcloud/I.A/02-CLAUDE/apps/Pontes Juridico",
+      "conteudo": "fluxos de casos e julgados",
+      "status": "pendente_conferencia"
+    },
+    {
+      "local": "Nextcloud/I.A/03-ROBOS/Julgados",
+      "conteudo": "ingerir_pesquisas.py e robos",
+      "status": "pendente_conferencia"
+    },
+    {
+      "local": "Nextcloud/I.A/06-NORMATIVAS/GPT-Pontes",
+      "conteudo": "instrucoes normativas",
+      "status": "pendente_conferencia"
+    },
+    {
+      "local": "Novo",
+      "conteudo": "11 mods documentados",
+      "status": "pendente_conferencia"
+    }
+  ],
+  "regras": [
+    "Nao importar mod sem comparar hash, versao e dependencias",
+    "Nao carregar segredos nem identificadores de clientes",
+    "Nao substituir arquivos ativos automaticamente"
+  ],
+  "solicitacao_claude": [
+    "listar nomes, hashes e versoes dos mods",
+    "identificar divergencia 10 versus 11",
+    "informar dependencias e conflitos sem copiar dados confidenciais"
+  ]
+}
