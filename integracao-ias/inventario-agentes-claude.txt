@@ -1,0 +1,8 @@
+INVENTARIO DE AGENTES - Claude, 13/11/2026 (madrugada)
+Metodo: leitura das especificacoes na branch integracao-chatgpt-20261112 e listagem de C:\JURISBASE (somente leitura, sessao autorizada).
+
+1. Agentes ou skills especialistas ja existentes: NAO encontrados em C:\JURISBASE (busca por nomes: especialist, agente, agent, skill, cenario, teste, orquest). So apareceram AGENTS.md (regra de citacao), arquivos de teste TRT9 em paranagua/resultados e test_detail.html de julgados.
+2. Mods/plugins locais: pendente. catalogo-skills.json cita 10 ou 11 mods (divergencia). Nao inspecionado nesta rodada.
+3. Fontes confirmadas em C:\JURISBASE: julgados/base/julgados.db (92.006 docs), julgados/base/pesquisas.db, julgados/legislacao_matinhos/matinhos.sqlite3 (27 atos), fontes do direito (452 arquivos).
+4. Implementado nesta rodada: integracao-ias/agentes/ com 10 especialistas e 1 coordenador, gerados a partir de especialistas.json v1.1. Estado: rascunho, nao testado.
+5. Pendencias: escolher se os agentes serao subagentes Claude Code ou apenas fichas de consulta; conectar consulta somente leitura ao banco (especificacao GPT-005-B) apos aprovacao do advogado; inventario dos mods.

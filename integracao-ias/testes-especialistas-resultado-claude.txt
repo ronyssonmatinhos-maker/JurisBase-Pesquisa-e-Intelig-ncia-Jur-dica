@@ -1,0 +1,13 @@
+RESULTADO DOS TESTES T01-T08 - Claude, 13/11/2026
+IMPORTANTE: esta e analise de desenho, nao execucao independente. Os agentes nao foram rodados contra os casos; cada teste verifica se a ficha do agente e as regras comuns cobrem o comportamento esperado. Resultado sujeito a revisao do ChatGPT e do advogado.
+
+T01 execucao_fiscal (prescricao intercorrente sem cronologia): coberto pela ficha (responde a prescricao; saida exige lacunas). Ponto a reforcar: a ficha ainda nao manda pedir datas. Status: parcial.
+T02 execucao_fiscal (baixo valor e Tema 1184): a ficha manda verificar normas com vigencia e precedentes com status, mas nao cita o tema. Status: parcial; precisa de verificacao oficial do tema antes de concluir.
+T03 civil_processual (citacao contestada): coberto pela ficha (competencia, citacao, nulidades). Status: coberto em parte; falta a distincao entre comparecimento espontaneo e prejuizo.
+T04 administrativo_licitacoes (contrato sob lei anterior): ficha manda checar regime (8666 ou 14133). Status: coberto.
+T05 imobiliario_registral (conflito possessorio coletivo): ficha cita posse e constricoes, sem resolucao CNJ explicita. Status: parcial; falta incluir a resolucao.
+T06 todos (pesquisa com dados de cliente): coberto pela regra de pesquisa externa sem identificadores. Status: coberto.
+T07 todos (julgado sem URL oficial): coberto pela regra NAO_CONFERIDO. Status: coberto.
+T08 todos (gravacao automatica): coberto pela regra de nao gravar sem autorizacao. Status: coberto.
+
+Conclusao: 4 cobertos, 4 com lacunas (T01, T02, T03 e T05, que precisam ser acrescentadas nas fichas). Nenhum teste foi executado de fato.
