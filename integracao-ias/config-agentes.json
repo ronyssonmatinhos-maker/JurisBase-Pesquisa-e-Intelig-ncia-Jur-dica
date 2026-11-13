@@ -1,0 +1,870 @@
+{
+  "version": "1.0",
+  "status": "implementacao_de_configuracao_sem_execucao_local",
+  "agents": [
+    {
+      "id": "execucao_fiscal",
+      "enabled": false,
+      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "description": "prescricao, citacao, penhora, nulidades, baixo valor e estrategia defensiva",
+      "trigger_terms": [
+        "execucao fiscal",
+        "CDA",
+        "prescricao intercorrente",
+        "leilao fiscal"
+      ],
+      "source_policy": {
+        "preferred": "CDA, LEF, CTN, CPC, STF/STJ/TJPR e julgados locais",
+        "local_indexes": [
+          "julgados.db",
+          "pesquisas.db",
+          "fontes do direito",
+          "legislacao_matinhos/matinhos.sqlite3"
+        ],
+        "require_official_original": true
+      },
+      "system_instructions": [
+        "Atue somente no escopo indicado e encaminhe materia externa ao coordenador.",
+        "Identifique fatos comprovados, lacunas e questoes juridicas antes de concluir.",
+        "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
+        "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
+        "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+      ],
+      "output_schema": [
+        "fatos",
+        "lacunas",
+        "normas_oficiais",
+        "julgados_nao_conferidos",
+        "teses_favoraveis",
+        "teses_contrarias",
+        "riscos",
+        "providencias",
+        "pendencias_validacao"
+      ],
+      "tests_status": "nao_executado"
+    },
+    {
+      "id": "tributario",
+      "enabled": false,
+      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "description": "incidencia, lancamento, imunidade, isencao, decadencia e repeticao",
+      "trigger_terms": [
+        "tributos",
+        "ICMS",
+        "IPTU",
+        "ISS",
+        "creditos tributarios"
+      ],
+      "source_policy": {
+        "preferred": "CTN, legislacao tributaria competente, STF/STJ/TJPR",
+        "local_indexes": [
+          "julgados.db",
+          "pesquisas.db",
+          "fontes do direito",
+          "legislacao_matinhos/matinhos.sqlite3"
+        ],
+        "require_official_original": true
+      },
+      "system_instructions": [
+        "Atue somente no escopo indicado e encaminhe materia externa ao coordenador.",
+        "Identifique fatos comprovados, lacunas e questoes juridicas antes de concluir.",
+        "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
+        "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
+        "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+      ],
+      "output_schema": [
+        "fatos",
+        "lacunas",
+        "normas_oficiais",
+        "julgados_nao_conferidos",
+        "teses_favoraveis",
+        "teses_contrarias",
+        "riscos",
+        "providencias",
+        "pendencias_validacao"
+      ],
+      "tests_status": "nao_executado"
+    },
+    {
+      "id": "administrativo_licitacoes",
+      "enabled": false,
+      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "description": "legalidade de contratacao, execucao, sancoes, rescisao e controle",
+      "trigger_terms": [
+        "licitacao",
+        "contrato publico",
+        "PAD",
+        "improbidade"
+      ],
+      "source_policy": {
+        "preferred": "leis 8666/1993 e 14133/2021 conforme regime, editais, contratos, TCU e tribunais",
+        "local_indexes": [
+          "julgados.db",
+          "pesquisas.db",
+          "fontes do direito",
+          "legislacao_matinhos/matinhos.sqlite3"
+        ],
+        "require_official_original": true
+      },
+      "system_instructions": [
+        "Atue somente no escopo indicado e encaminhe materia externa ao coordenador.",
+        "Identifique fatos comprovados, lacunas e questoes juridicas antes de concluir.",
+        "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
+        "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
+        "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+      ],
+      "output_schema": [
+        "fatos",
+        "lacunas",
+        "normas_oficiais",
+        "julgados_nao_conferidos",
+        "teses_favoraveis",
+        "teses_contrarias",
+        "riscos",
+        "providencias",
+        "pendencias_validacao"
+      ],
+      "tests_status": "nao_executado"
+    },
+    {
+      "id": "civil_processual",
+      "enabled": false,
+      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "description": "competencia, citacao, recursos, prazos, nulidades e prova",
+      "trigger_terms": [
+        "citacao",
+        "agravo",
+        "contestacao",
+        "cumprimento de sentenca"
+      ],
+      "source_policy": {
+        "preferred": "CPC, tribunais e atos processuais disponibilizados",
+        "local_indexes": [
+          "julgados.db",
+          "pesquisas.db",
+          "fontes do direito",
+          "legislacao_matinhos/matinhos.sqlite3"
+        ],
+        "require_official_original": true
+      },
+      "system_instructions": [
+        "Atue somente no escopo indicado e encaminhe materia externa ao coordenador.",
+        "Identifique fatos comprovados, lacunas e questoes juridicas antes de concluir.",
+        "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
+        "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
+        "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+      ],
+      "output_schema": [
+        "fatos",
+        "lacunas",
+        "normas_oficiais",
+        "julgados_nao_conferidos",
+        "teses_favoraveis",
+        "teses_contrarias",
+        "riscos",
+        "providencias",
+        "pendencias_validacao"
+      ],
+      "tests_status": "nao_executado"
+    },
+    {
+      "id": "imobiliario_registral",
+      "enabled": false,
+      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "description": "dominio, posse, usucapiao, registro, constricoes e terceiros",
+      "trigger_terms": [
+        "imovel",
+        "matricula",
+        "posse",
+        "reintegracao",
+        "registro"
+      ],
+      "source_policy": {
+        "preferred": "Codigo Civil, CPC, LRP, matriculas fornecidas e precedentes oficiais",
+        "local_indexes": [
+          "julgados.db",
+          "pesquisas.db",
+          "fontes do direito",
+          "legislacao_matinhos/matinhos.sqlite3"
+        ],
+        "require_official_original": true
+      },
+      "system_instructions": [
+        "Atue somente no escopo indicado e encaminhe materia externa ao coordenador.",
+        "Identifique fatos comprovados, lacunas e questoes juridicas antes de concluir.",
+        "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
+        "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
+        "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+      ],
+      "output_schema": [
+        "fatos",
+        "lacunas",
+        "normas_oficiais",
+        "julgados_nao_conferidos",
+        "teses_favoraveis",
+        "teses_contrarias",
+        "riscos",
+        "providencias",
+        "pendencias_validacao"
+      ],
+      "tests_status": "nao_executado"
+    },
+    {
+      "id": "familia_sucessoes",
+      "enabled": false,
+      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "description": "alimentos, filiacao, uniao estavel, inventario e partilha",
+      "trigger_terms": [
+        "familia",
+        "alimentos",
+        "sucessao",
+        "inventario"
+      ],
+      "source_policy": {
+        "preferred": "Codigo Civil, CPC, ECA, legislacao correlata e precedentes oficiais",
+        "local_indexes": [
+          "julgados.db",
+          "pesquisas.db",
+          "fontes do direito",
+          "legislacao_matinhos/matinhos.sqlite3"
+        ],
+        "require_official_original": true
+      },
+      "system_instructions": [
+        "Atue somente no escopo indicado e encaminhe materia externa ao coordenador.",
+        "Identifique fatos comprovados, lacunas e questoes juridicas antes de concluir.",
+        "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
+        "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
+        "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+      ],
+      "output_schema": [
+        "fatos",
+        "lacunas",
+        "normas_oficiais",
+        "julgados_nao_conferidos",
+        "teses_favoraveis",
+        "teses_contrarias",
+        "riscos",
+        "providencias",
+        "pendencias_validacao"
+      ],
+      "tests_status": "nao_executado"
+    },
+    {
+      "id": "eleitoral",
+      "enabled": false,
+      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "description": "elegibilidade, propaganda, prestacao de contas, recursos eleitorais",
+      "trigger_terms": [
+        "eleicao",
+        "candidatura",
+        "TRE",
+        "TSE"
+      ],
+      "source_policy": {
+        "preferred": "Constituicao, Codigo Eleitoral, leis eleitorais, resolucoes TSE e TRE",
+        "local_indexes": [
+          "julgados.db",
+          "pesquisas.db",
+          "fontes do direito",
+          "legislacao_matinhos/matinhos.sqlite3"
+        ],
+        "require_official_original": true
+      },
+      "system_instructions": [
+        "Atue somente no escopo indicado e encaminhe materia externa ao coordenador.",
+        "Identifique fatos comprovados, lacunas e questoes juridicas antes de concluir.",
+        "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
+        "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
+        "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+      ],
+      "output_schema": [
+        "fatos",
+        "lacunas",
+        "normas_oficiais",
+        "julgados_nao_conferidos",
+        "teses_favoraveis",
+        "teses_contrarias",
+        "riscos",
+        "providencias",
+        "pendencias_validacao"
+      ],
+      "tests_status": "nao_executado"
+    },
+    {
+      "id": "penal_processual",
+      "enabled": false,
+      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "description": "tipicidade, provas, nulidades, cautelares, recursos e dosimetria",
+      "trigger_terms": [
+        "crime",
+        "denuncia",
+        "prisao",
+        "habeas corpus"
+      ],
+      "source_policy": {
+        "preferred": "CP, CPP, leis penais especiais e STF/STJ",
+        "local_indexes": [
+          "julgados.db",
+          "pesquisas.db",
+          "fontes do direito",
+          "legislacao_matinhos/matinhos.sqlite3"
+        ],
+        "require_official_original": true
+      },
+      "system_instructions": [
+        "Atue somente no escopo indicado e encaminhe materia externa ao coordenador.",
+        "Identifique fatos comprovados, lacunas e questoes juridicas antes de concluir.",
+        "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
+        "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
+        "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+      ],
+      "output_schema": [
+        "fatos",
+        "lacunas",
+        "normas_oficiais",
+        "julgados_nao_conferidos",
+        "teses_favoraveis",
+        "teses_contrarias",
+        "riscos",
+        "providencias",
+        "pendencias_validacao"
+      ],
+      "tests_status": "nao_executado"
+    },
+    {
+      "id": "constitucional",
+      "enabled": false,
+      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "description": "competencia, direitos fundamentais, controle de constitucionalidade e remedios",
+      "trigger_terms": [
+        "ADI",
+        "mandado de seguranca",
+        "direito fundamental",
+        "competencia constitucional"
+      ],
+      "source_policy": {
+        "preferred": "Constituicao, STF, normas de controle e precedentes oficiais",
+        "local_indexes": [
+          "julgados.db",
+          "pesquisas.db",
+          "fontes do direito",
+          "legislacao_matinhos/matinhos.sqlite3"
+        ],
+        "require_official_original": true
+      },
+      "system_instructions": [
+        "Atue somente no escopo indicado e encaminhe materia externa ao coordenador.",
+        "Identifique fatos comprovados, lacunas e questoes juridicas antes de concluir.",
+        "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
+        "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
+        "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+      ],
+      "output_schema": [
+        "fatos",
+        "lacunas",
+        "normas_oficiais",
+        "julgados_nao_conferidos",
+        "teses_favoraveis",
+        "teses_contrarias",
+        "riscos",
+        "providencias",
+        "pendencias_validacao"
+      ],
+      "tests_status": "nao_executado"
+    },
+    {
+      "id": "ambiental_urbanistico",
+      "enabled": false,
+      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "description": "licenciamento, APP, ocupacao, regularizacao, sancoes e urbanismo",
+      "trigger_terms": [
+        "meio ambiente",
+        "APP",
+        "demoliçao",
+        "zoneamento",
+        "licenca"
+      ],
+      "source_policy": {
+        "preferred": "legislacao ambiental e urbanistica federal, estadual e municipal, atos de licenciamento e tribunais",
+        "local_indexes": [
+          "julgados.db",
+          "pesquisas.db",
+          "fontes do direito",
+          "legislacao_matinhos/matinhos.sqlite3"
+        ],
+        "require_official_original": true
+      },
+      "system_instructions": [
+        "Atue somente no escopo indicado e encaminhe materia externa ao coordenador.",
+        "Identifique fatos comprovados, lacunas e questoes juridicas antes de concluir.",
+        "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
+        "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
+        "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+      ],
+      "output_schema": [
+        "fatos",
+        "lacunas",
+        "normas_oficiais",
+        "julgados_nao_conferidos",
+        "teses_favoraveis",
+        "teses_contrarias",
+        "riscos",
+        "providencias",
+        "pendencias_validacao"
+      ],
+      "tests_status": "nao_executado"
+    },
+    {
+      "id": "previdenciario_assistencial",
+      "enabled": false,
+      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "description": "INSS, BPC/LOAS, incapacidade e revisoes",
+      "trigger_terms": [
+        "beneficio",
+        "aposentadoria",
+        "pensao",
+        "BPC",
+        "INSS"
+      ],
+      "source_policy": {
+        "preferred": "CF, Lei 8213/91, Lei 8742/93, decretos, INSS, TRF4, STJ",
+        "local_indexes": [
+          "julgados.db",
+          "pesquisas.db",
+          "fontes do direito",
+          "legislacao_matinhos/matinhos.sqlite3"
+        ],
+        "require_official_original": true
+      },
+      "system_instructions": [
+        "Atue somente no escopo indicado e encaminhe materia externa ao coordenador.",
+        "Identifique fatos comprovados, lacunas e questoes juridicas antes de concluir.",
+        "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
+        "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
+        "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+      ],
+      "output_schema": [
+        "fatos",
+        "lacunas",
+        "normas_oficiais",
+        "julgados_nao_conferidos",
+        "teses_favoraveis",
+        "teses_contrarias",
+        "riscos",
+        "providencias",
+        "pendencias_validacao"
+      ],
+      "tests_status": "nao_executado"
+    },
+    {
+      "id": "trabalhista",
+      "enabled": false,
+      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "description": "vinculo, verbas, jornada, rescisao e execucao trabalhista",
+      "trigger_terms": [
+        "emprego",
+        "trabalhador",
+        "horas extras",
+        "rescisao",
+        "FGTS"
+      ],
+      "source_policy": {
+        "preferred": "CLT, CF, TST, TRT9, normas coletivas fornecidas",
+        "local_indexes": [
+          "julgados.db",
+          "pesquisas.db",
+          "fontes do direito",
+          "legislacao_matinhos/matinhos.sqlite3"
+        ],
+        "require_official_original": true
+      },
+      "system_instructions": [
+        "Atue somente no escopo indicado e encaminhe materia externa ao coordenador.",
+        "Identifique fatos comprovados, lacunas e questoes juridicas antes de concluir.",
+        "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
+        "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
+        "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+      ],
+      "output_schema": [
+        "fatos",
+        "lacunas",
+        "normas_oficiais",
+        "julgados_nao_conferidos",
+        "teses_favoraveis",
+        "teses_contrarias",
+        "riscos",
+        "providencias",
+        "pendencias_validacao"
+      ],
+      "tests_status": "nao_executado"
+    },
+    {
+      "id": "consumidor_bancario",
+      "enabled": false,
+      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "description": "contratos bancarios, credito, busca e apreensao e CDC",
+      "trigger_terms": [
+        "financiamento",
+        "banco",
+        "consumidor",
+        "busca e apreensao"
+      ],
+      "source_policy": {
+        "preferred": "CDC, Decreto-Lei 911/69, CC, STJ, TJPR, BACEN",
+        "local_indexes": [
+          "julgados.db",
+          "pesquisas.db",
+          "fontes do direito",
+          "legislacao_matinhos/matinhos.sqlite3"
+        ],
+        "require_official_original": true
+      },
+      "system_instructions": [
+        "Atue somente no escopo indicado e encaminhe materia externa ao coordenador.",
+        "Identifique fatos comprovados, lacunas e questoes juridicas antes de concluir.",
+        "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
+        "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
+        "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+      ],
+      "output_schema": [
+        "fatos",
+        "lacunas",
+        "normas_oficiais",
+        "julgados_nao_conferidos",
+        "teses_favoraveis",
+        "teses_contrarias",
+        "riscos",
+        "providencias",
+        "pendencias_validacao"
+      ],
+      "tests_status": "nao_executado"
+    },
+    {
+      "id": "empresarial_contratual",
+      "enabled": false,
+      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "description": "sociedades, contratos privados, inadimplemento e responsabilidade",
+      "trigger_terms": [
+        "sociedade",
+        "empresa",
+        "contrato privado",
+        "recuperacao"
+      ],
+      "source_policy": {
+        "preferred": "CC, Lei 11101/05, juntas comerciais, STJ, TJPR",
+        "local_indexes": [
+          "julgados.db",
+          "pesquisas.db",
+          "fontes do direito",
+          "legislacao_matinhos/matinhos.sqlite3"
+        ],
+        "require_official_original": true
+      },
+      "system_instructions": [
+        "Atue somente no escopo indicado e encaminhe materia externa ao coordenador.",
+        "Identifique fatos comprovados, lacunas e questoes juridicas antes de concluir.",
+        "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
+        "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
+        "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+      ],
+      "output_schema": [
+        "fatos",
+        "lacunas",
+        "normas_oficiais",
+        "julgados_nao_conferidos",
+        "teses_favoraveis",
+        "teses_contrarias",
+        "riscos",
+        "providencias",
+        "pendencias_validacao"
+      ],
+      "tests_status": "nao_executado"
+    },
+    {
+      "id": "servidor_publico",
+      "enabled": false,
+      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "description": "regime estatutario, remuneracao, processo disciplinar e aposentadoria propria",
+      "trigger_terms": [
+        "servidor",
+        "estatuto",
+        "concurso",
+        "PAD",
+        "vencimentos"
+      ],
+      "source_policy": {
+        "preferred": "CF, estatutos aplicaveis, leis municipais/estaduais, STF/STJ/TJPR",
+        "local_indexes": [
+          "julgados.db",
+          "pesquisas.db",
+          "fontes do direito",
+          "legislacao_matinhos/matinhos.sqlite3"
+        ],
+        "require_official_original": true
+      },
+      "system_instructions": [
+        "Atue somente no escopo indicado e encaminhe materia externa ao coordenador.",
+        "Identifique fatos comprovados, lacunas e questoes juridicas antes de concluir.",
+        "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
+        "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
+        "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+      ],
+      "output_schema": [
+        "fatos",
+        "lacunas",
+        "normas_oficiais",
+        "julgados_nao_conferidos",
+        "teses_favoraveis",
+        "teses_contrarias",
+        "riscos",
+        "providencias",
+        "pendencias_validacao"
+      ],
+      "tests_status": "nao_executado"
+    },
+    {
+      "id": "municipal_legislativo",
+      "enabled": false,
+      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "description": "competencias municipais, leis locais, camara, controle e processo legislativo",
+      "trigger_terms": [
+        "municipio",
+        "lei municipal",
+        "camara",
+        "vereador",
+        "CPI"
+      ],
+      "source_policy": {
+        "preferred": "CF, Lei Organica, regimento, legislacao_matinhos, diarios oficiais, STF/TJPR",
+        "local_indexes": [
+          "julgados.db",
+          "pesquisas.db",
+          "fontes do direito",
+          "legislacao_matinhos/matinhos.sqlite3"
+        ],
+        "require_official_original": true
+      },
+      "system_instructions": [
+        "Atue somente no escopo indicado e encaminhe materia externa ao coordenador.",
+        "Identifique fatos comprovados, lacunas e questoes juridicas antes de concluir.",
+        "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
+        "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
+        "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+      ],
+      "output_schema": [
+        "fatos",
+        "lacunas",
+        "normas_oficiais",
+        "julgados_nao_conferidos",
+        "teses_favoraveis",
+        "teses_contrarias",
+        "riscos",
+        "providencias",
+        "pendencias_validacao"
+      ],
+      "tests_status": "nao_executado"
+    },
+    {
+      "id": "fazenda_publica_processual",
+      "enabled": false,
+      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "description": "prerrogativas processuais, precatorios, cumprimento e tutela contra poder publico",
+      "trigger_terms": [
+        "fazenda publica",
+        "precatorio",
+        "RPV",
+        "cumprimento contra municipio"
+      ],
+      "source_policy": {
+        "preferred": "CPC, CF, STF, STJ, TJPR, CNJ",
+        "local_indexes": [
+          "julgados.db",
+          "pesquisas.db",
+          "fontes do direito",
+          "legislacao_matinhos/matinhos.sqlite3"
+        ],
+        "require_official_original": true
+      },
+      "system_instructions": [
+        "Atue somente no escopo indicado e encaminhe materia externa ao coordenador.",
+        "Identifique fatos comprovados, lacunas e questoes juridicas antes de concluir.",
+        "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
+        "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
+        "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+      ],
+      "output_schema": [
+        "fatos",
+        "lacunas",
+        "normas_oficiais",
+        "julgados_nao_conferidos",
+        "teses_favoraveis",
+        "teses_contrarias",
+        "riscos",
+        "providencias",
+        "pendencias_validacao"
+      ],
+      "tests_status": "nao_executado"
+    },
+    {
+      "id": "direito_digital_dados",
+      "enabled": false,
+      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "description": "LGPD, prova digital, contratos de tecnologia e incidentes",
+      "trigger_terms": [
+        "dados pessoais",
+        "LGPD",
+        "prova digital",
+        "aplicativo",
+        "incidente"
+      ],
+      "source_policy": {
+        "preferred": "LGPD, Marco Civil, CPC, ANPD, STJ",
+        "local_indexes": [
+          "julgados.db",
+          "pesquisas.db",
+          "fontes do direito",
+          "legislacao_matinhos/matinhos.sqlite3"
+        ],
+        "require_official_original": true
+      },
+      "system_instructions": [
+        "Atue somente no escopo indicado e encaminhe materia externa ao coordenador.",
+        "Identifique fatos comprovados, lacunas e questoes juridicas antes de concluir.",
+        "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
+        "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
+        "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+      ],
+      "output_schema": [
+        "fatos",
+        "lacunas",
+        "normas_oficiais",
+        "julgados_nao_conferidos",
+        "teses_favoraveis",
+        "teses_contrarias",
+        "riscos",
+        "providencias",
+        "pendencias_validacao"
+      ],
+      "tests_status": "nao_executado"
+    },
+    {
+      "id": "saude_publica",
+      "enabled": false,
+      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "description": "SUS, medicamentos, tratamentos, judicializacao e evidencia clinica",
+      "trigger_terms": [
+        "SUS",
+        "medicamento",
+        "tratamento",
+        "saude publica"
+      ],
+      "source_policy": {
+        "preferred": "CF, Lei 8080/90, protocolos SUS, CONITEC, STF/STJ",
+        "local_indexes": [
+          "julgados.db",
+          "pesquisas.db",
+          "fontes do direito",
+          "legislacao_matinhos/matinhos.sqlite3"
+        ],
+        "require_official_original": true
+      },
+      "system_instructions": [
+        "Atue somente no escopo indicado e encaminhe materia externa ao coordenador.",
+        "Identifique fatos comprovados, lacunas e questoes juridicas antes de concluir.",
+        "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
+        "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
+        "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+      ],
+      "output_schema": [
+        "fatos",
+        "lacunas",
+        "normas_oficiais",
+        "julgados_nao_conferidos",
+        "teses_favoraveis",
+        "teses_contrarias",
+        "riscos",
+        "providencias",
+        "pendencias_validacao"
+      ],
+      "tests_status": "nao_executado"
+    },
+    {
+      "id": "direitos_crianca_adolescente",
+      "enabled": false,
+      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "description": "ECA, educacao inclusiva, protecao e medidas judiciais",
+      "trigger_terms": [
+        "crianca",
+        "adolescente",
+        "escola",
+        "inclusao",
+        "conselho tutelar"
+      ],
+      "source_policy": {
+        "preferred": "ECA, LDB, LBI, CF, STF/STJ/TJPR",
+        "local_indexes": [
+          "julgados.db",
+          "pesquisas.db",
+          "fontes do direito",
+          "legislacao_matinhos/matinhos.sqlite3"
+        ],
+        "require_official_original": true
+      },
+      "system_instructions": [
+        "Atue somente no escopo indicado e encaminhe materia externa ao coordenador.",
+        "Identifique fatos comprovados, lacunas e questoes juridicas antes de concluir.",
+        "Identifique norma, artigo, vigencia e origem oficial; nao trate indice JurisBase como fonte primaria.",
+        "Para jurisprudencia, exija tribunal, processo, orgao julgador, relator, data, teor e fonte oficial; sem isso, NAO_CONFERIDO.",
+        "Apresente fundamentos favoraveis e contrarios, riscos, providencias e grau de certeza.",
+        "Nao divulgue dados de clientes em pesquisas externas nem grave, valide, protocole ou modifique dados sem aprovacao expressa."
+      ],
+      "output_schema": [
+        "fatos",
+        "lacunas",
+        "normas_oficiais",
+        "julgados_nao_conferidos",
+        "teses_favoraveis",
+        "teses_contrarias",
+        "riscos",
+        "providencias",
+        "pendencias_validacao"
+      ],
+      "tests_status": "nao_executado"
+    }
+  ],
+  "coordinator": {
+    "selection": "match por termos, revisao humana quando ambiguo; mais de um agente pode cooperar",
+    "fallback": "sem correspondencia -> triagem humana",
+    "conflict_resolution": "mostrar divergencias e evidencias, nunca fundir conclusoes incompatíveis",
+    "external_search": "somente termos genericos anonimizados",
+    "write_policy": "nenhuma escrita sem confirmacao expressa do advogado",
+    "precedent_policy": "NAO_CONFERIDO ate validacao do advogado"
+  },
+  "acceptance": {
+    "existing_tests": "testes-especialistas.json T01-T08",
+    "new_agent_tests": "um caso sintetico de tema pertinente e um caso fora de escopo por novo agente",
+    "require_runtime_execution": true,
+    "pass_condition": "fontes oficiais identificadas, limites respeitados, roteamento correto e nenhuma escrita",
+    "report_to": "integracao-claude-20261112/integracao-ias/"
+  }
+}
