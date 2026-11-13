@@ -858,7 +858,15 @@
     "conflict_resolution": "mostrar divergencias e evidencias, nunca fundir conclusoes incompatíveis",
     "external_search": "somente termos genericos anonimizados",
     "write_policy": "nenhuma escrita sem confirmacao expressa do advogado",
-    "precedent_policy": "NAO_CONFERIDO ate validacao do advogado"
+    "precedent_policy": "NAO_CONFERIDO ate validacao do advogado",
+    "routing_spec": {
+      "normalization": "minusculas, Unicode NFD sem diacriticos, espacos normalizados",
+      "match": "expressao inteira com limites de palavra; nunca substring dentro de outra palavra",
+      "priority": "correspondencia exata de termo composto e especificidade; permitir multiplos especialistas quando diferentes termos completos ocorrerem",
+      "ambiguity": "se mais de um especialista corresponder, registrar ambos e pedir decisao humana quando necessario",
+      "regression": "licitacao nao pode acionar citacao; citacao nao pode acionar licitacao",
+      "status": "especificacao_nao_implementada_no_runtime"
+    }
   },
   "acceptance": {
     "existing_tests": "testes-especialistas.json T01-T08",
