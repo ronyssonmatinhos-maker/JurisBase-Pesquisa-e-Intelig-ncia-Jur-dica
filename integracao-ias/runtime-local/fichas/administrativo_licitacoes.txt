@@ -42,3 +42,8 @@ Formato de saida: fatos e lacunas; normas e dispositivos com vigencia; precedent
   2. Licitacao na convivencia normativa com opcao expressa pelo regime antigo: regido pelo regime escolhido (art. 191 e paragrafo unico; conferir texto).
   3. Revogacao da Lei 8.666/93 pelo art. 193, II (conferir data; fontes secundarias indicam 30/12/2023). A MPV 1.167/2023 alterou os arts. 191 e 193: conferir vigencia e estado atual no Planalto.
   Status: NAO_CONFERIDO ate conferencia na norma oficial. Nao aplicar a Lei 14.133 a contrato sob regime anterior sem verificar o marco.
+
+SKILL APLICADA: skill_marcos_e_precedentes v1.0 (aprovada 13/11/2026; texto em skill_marcos_e_precedentes.txt)
+- Fatos/marcos tipados (tipo, data, fonte, certeza, efeito); nunca concluir por contagem de datas; lacunas => conclusao condicional.
+- Precedentes: N1 formal, N2 existencia em portal oficial, N3 autenticidade, N4 aderencia ao inteiro teor; busca sem resultado nao prova inexistencia; CNJ valido/URL oficial nao provam nada.
+- Nada vira CONFERIDO_OFICIAL sem ato expresso do advogado; precedente nao conferido fora da minuta; sanitizado_complementar e interno, nunca externo.

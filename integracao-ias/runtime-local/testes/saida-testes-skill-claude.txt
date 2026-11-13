@@ -1,0 +1,63 @@
+AMBIENTE: Python 3.10.12 Linux 6.8.0-138-generic (VM Linux sobre C:\JURISBASE; NAO e Windows nativo) | 2026-11-13T10:23:55Z
+COMANDO: ROBO_JULGADOS_DB=<acervo real> python3 -m unittest discover -s tests -v
+test_app_como_fundamento (test_agentes.TestAuditor) ... ok
+test_cnj_ficticio_e_valido (test_agentes.TestAuditor) ... ok
+test_completa_oficial_continua_nao_conferida (test_agentes.TestAuditor) ... ok
+test_conferir_so_advogado (test_agentes.TestAuditor) ... ok
+test_nunca_conferido (test_agentes.TestAuditor) ... ok
+test_url_nao_oficial (test_agentes.TestAuditor) ... ok
+test_22_componentes_e_9_fontes (test_agentes.TestEstrutura) ... ok
+test_adaptador_somente_leitura (test_agentes.TestFontes) ... ok
+test_agente_desconhecido (test_agentes.TestPacotes) ... ok
+test_pacote_de_cada_agente (test_agentes.TestPacotes) ... ok
+test_ambiguo_vira_cooperacao (test_agentes.TestRoteamento) ... ok
+test_cada_especialista_negativo (test_agentes.TestRoteamento) ... ok
+test_cada_especialista_positivo (test_agentes.TestRoteamento) ... ok
+test_desabilitado_nao_roteia_nem_prepara (test_agentes.TestRoteamento) ... ok
+test_licitacao_nao_aciona_citacao (test_agentes.TestRoteamento) ... ok
+test_sanitizador_complementar (test_agentes.TestSanitizacaoAdversarial) ... ok
+test_termo_externo_mantem_vocabulario_juridico (test_agentes.TestSanitizacaoAdversarial) ... ok
+test_termo_externo_nunca_vaza (test_agentes.TestSanitizacaoAdversarial) ... ok
+test_agentes_nao_alteram_banco (test_agentes.TestSemEscrita) ... ok
+test_fluxo_completo (test_agentes.TestSemEscrita) ... ok
+test_T01 (test_agentes.TestT01aT08) ... ok
+test_T02 (test_agentes.TestT01aT08) ... ok
+test_T03 (test_agentes.TestT01aT08) ... ok
+test_T04 (test_agentes.TestT01aT08) ... ok
+test_T05 (test_agentes.TestT01aT08) ... ok
+test_T06 (test_agentes.TestT01aT08) ... ok
+test_T06_nao_destroi_termos_juridicos (test_agentes.TestT01aT08) ... ok
+test_T07 (test_agentes.TestT01aT08) ... ok
+test_T08 (test_agentes.TestT01aT08) ... ok
+test_R06_cnj_valido_sem_registro_oficial (test_skill_marcos.TestAuditorP2) ... ok
+test_R07_url_oficial_sem_documento_verificavel (test_skill_marcos.TestAuditorP2) ... ok
+test_R08_inteiro_teor_contraria_tese (test_skill_marcos.TestAuditorP2) ... ok
+test_R09_monocratica_como_repetitivo (test_skill_marcos.TestAuditorP2) ... ok
+test_R10_precedente_superado (test_skill_marcos.TestAuditorP2) ... ok
+test_R11_portal_indisponivel (test_skill_marcos.TestAuditorP2) ... ok
+test_conector_http_registra_hash (test_skill_marcos.TestAuditorP2) ... ok
+test_documento_sem_verificador_e_sem_hash (test_skill_marcos.TestAuditorP2) ... ok
+test_identificador_divergente_e_cnj_tribunal (test_skill_marcos.TestAuditorP2) ... ok
+test_nunca_conferido_oficial_nem_minuta (test_skill_marcos.TestAuditorP2) ... ok
+test_resultado_portal_sem_inteiro_teor (test_skill_marcos.TestAuditorP2) ... ok
+test_A03_termo_generico_limites (test_skill_marcos.TestDadosA02A03A06) ... ok
+test_A06_nao_escrita_ampla (test_skill_marcos.TestDadosA02A03A06) ... ok
+test_R12_interno_vs_externo (test_skill_marcos.TestDadosA02A03A06) ... ok
+test_gravar_continua_bloqueado (test_skill_marcos.TestDadosA02A03A06) ... ok
+test_skill_na_config_e_fichas (test_skill_marcos.TestIntegracaoFichasConfig) ... ok
+test_R01_tres_datas_irrelevantes (test_skill_marcos.TestMarcosP1) ... ok
+test_R02_cronologia_contraditoria (test_skill_marcos.TestMarcosP1) ... ok
+test_R02b_data_invalida_e_duplicidade (test_skill_marcos.TestMarcosP1) ... ok
+test_R03_requerimento_infrutifero_vs_constricao (test_skill_marcos.TestMarcosP1) ... ok
+test_R04_sem_ciencia_da_fazenda (test_skill_marcos.TestMarcosP1) ... ok
+test_R05_varios_creditos_prazos_distintos (test_skill_marcos.TestMarcosP1) ... ok
+test_certeza_nao_documental_so_condicional (test_skill_marcos.TestMarcosP1) ... ok
+test_completo_exige_conferencia_do_advogado (test_skill_marcos.TestMarcosP1) ... ok
+test_contraditorio_obrigatorio (test_skill_marcos.TestMarcosP1) ... ok
+test_originaria_x_intercorrente (test_skill_marcos.TestMarcosP1) ... ok
+test_tema_566_nao_conferido (test_skill_marcos.TestMarcosP1) ... ok
+
+----------------------------------------------------------------------
+Ran 56 tests in 11.848s
+
+OK

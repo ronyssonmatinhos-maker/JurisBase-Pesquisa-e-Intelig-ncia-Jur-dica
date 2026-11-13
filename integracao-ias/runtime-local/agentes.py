@@ -108,6 +108,29 @@ _PAPEL = re.compile(r"\b(cliente|autor|autora|r[eé]u|r[eé]|requerente|requerid
                     r"\s+(?:d[aeo]s?\s+)?[A-ZÁÉÍÓÚÂÊÔÃÕÇ][\wáéíóúâêôãõç]+")
 
 
+_MAX_TERMOS, _MAX_CHARS = 12, 200
+_REGEX_LEGAIS = (r"\btema\s+\d{1,5}\b", r"\bs[uú]mula\s+(?:vinculante\s+)?\d{1,4}\b",
+                 r"\bart(?:igo)?s?\.?\s*\d{1,4}(?:-[A-Z])?\b",
+                 r"\blei\s+(?:complementar\s+)?(?:n[ºo.]*\s*)?\d{1,2}(?:\.\d{3})?(?:/\d{2,4})?\b")
+_TERMO_OK = re.compile(r"[\w\s.\-/ºª§]+", re.U)
+
+
+def validar_termo_externo(termo: str) -> tuple[bool, list[str]]:
+    """Gate unico para consulta externa: so vocabulario juridico curto, sem identificadores pessoais."""
+    motivos = []
+    t = termo or ""
+    if len(t) > _MAX_CHARS:
+        motivos.append("termo acima do limite de tamanho")
+    if t and not _TERMO_OK.fullmatch(t):
+        motivos.append("caracteres nao permitidos")
+    for tipo, rx in _PADROES:
+        if rx.search(t):
+            motivos.append("padrao de identificador pessoal: " + tipo)
+    if len(t.split()) > 40:
+        motivos.append("termo com texto livre demais")
+    return (not motivos), motivos
+
+
 def termo_generico(caso: str, agente: str | None = None) -> str:
     """Termo de pesquisa externa montado SO com vocabulario juridico (nunca com texto livre)."""
     termos: list[str] = []
@@ -115,15 +138,24 @@ def termo_generico(caso: str, agente: str | None = None) -> str:
         if agente and a["id"] != agente:
             continue
         termos += [x for x in a["trigger_terms"] if _tem(x, caso)]
-    for rx in (r"\btema\s+\d+", r"\bs[uú]mula\s+(?:vinculante\s+)?\d+", r"\bart(?:igo)?s?\.?\s*\d+[\w\-]*",
-               r"\blei\s+(?:complementar\s+)?(?:n[ºo.]*\s*)?\d[\d.]*(?:/\d{2,4})?"):
+    for rx in _REGEX_LEGAIS:
         termos += [m.group(0) for m in re.finditer(rx, caso or "", re.I)]
     visto, out = set(), []
     for t in termos:
         k = norm(t)
-        if k not in visto:
+        ok, _ = validar_termo_externo(t)
+        if k not in visto and ok:
             visto.add(k); out.append(t)
-    return " ".join(out)
+    r = " ".join(out[:_MAX_TERMOS])[:_MAX_CHARS]
+    return r if validar_termo_externo(r)[0] else ""
+
+
+def consulta_externa(termo: str, conector) -> dict:
+    """Unica porta de saida para pesquisa externa: valida o termo e so entao chama o conector."""
+    ok, motivos = validar_termo_externo(termo)
+    if not ok:
+        raise PermissionError("termo externo reprovado: " + "; ".join(motivos))
+    return conector(termo)
 
 
 def sanitizar(texto: str, nomes: list[str] | None = None) -> dict:
@@ -154,15 +186,17 @@ def sanitizar(texto: str, nomes: list[str] | None = None) -> dict:
 _DATA = re.compile(r"\b\d{1,2}/\d{1,2}/\d{4}\b")
 
 
-def pre_condicoes(agente: str, caso: str) -> dict:
+def pre_condicoes(agente: str, caso: str, marcos: list | None = None, conferencias: dict | None = None) -> dict:
     t, lac, avis = norm(caso), [], []
     ok = True
+    extra: dict = {}
     if agente == "execucao_fiscal":
-        if "prescri" in t and len(set(_DATA.findall(caso))) < 3:
-            ok = False
-            lac += ["data de constituicao definitiva do credito", "data da citacao",
-                    "marco de suspensao (art. 40 da LEF) e ciencia da Fazenda", "datas de cada intimacao"]
-            avis.append("nao afirmar prescricao sem marcos; separar prescricao de nulidade")
+        if "prescri" in t:
+            import marcos as _mc
+            av = _mc.avaliar_prescricao(t, marcos, conferencias)
+            ok = av["pode_concluir"]
+            lac += av["lacunas"]; avis += av["avisos"]
+            extra = {"marcos": {k: av[k] for k in ("status", "contradicoes", "cronologia", "regra")}}
         if "1184" in t or "baixo valor" in t:
             avis.append("Tema 1184/STF: conferir tese, requisitos e Resolucao CNJ 547/2024 na fonte oficial; nao presumir extincao automatica")
             lac.append("valor do debito, ente exequente e eventual limite fixado")
@@ -182,7 +216,7 @@ def pre_condicoes(agente: str, caso: str) -> dict:
             ok = False
             lac += ["natureza da posse e do titulo", "fase do procedimento e eventual comissao/mediacao fundiaria"]
             avis.append("nao presumir perda da propriedade, desapropriacao ou acordo compulsorio; conferir resolucao do CNJ aplicavel")
-    return {"agente": agente, "pode_concluir": ok, "lacunas": lac, "avisos": avis}
+    return {"agente": agente, "pode_concluir": ok, "lacunas": lac, "avisos": avis, **extra}
 
 
 # ---------- auditor de citacoes ----------
@@ -206,29 +240,22 @@ def _url_oficial(url: str) -> bool:
 OBRIG = ["tribunal", "orgao_julgador", "processo", "relator", "data_julgamento", "url"]
 
 
-def auditar_citacoes(citacoes: list[dict]) -> dict:
-    """Nunca devolve conferido_oficial: so o advogado confere."""
+def auditar_citacoes(citacoes: list[dict], evidencias: list | None = None) -> dict:
+    """N1 formal sempre; N2-N4 somente com evidencias do operador. Nunca devolve conferido_oficial."""
+    import auditor_oficial as ao
     res = []
-    for c in citacoes or []:
-        falta = [k for k in OBRIG if not str(c.get(k, "")).strip()]
-        prob = []
-        if falta:
-            prob.append("campos ausentes: " + ", ".join(falta))
-        if c.get("url") and not _url_oficial(c["url"]):
-            prob.append("url nao oficial")
-        v = cnj_valido(c.get("processo", ""))
-        if v is False:
-            prob.append("numero CNJ com digito verificador invalido (possivel citacao fictícia)")
-        txt = norm(" ".join(str(x) for x in c.values()))
-        if "jurisbase" in txt or "segundo o acervo" in txt or "a ia " in txt:
-            prob.append("o app/IA nao pode ser citado como fundamento")
-        res.append({"citacao": c.get("processo") or c.get("referencia") or "(sem identificacao)",
-                    "status": "NAO_CONFERIDO", "apto_para_conferencia_do_advogado": not prob,
-                    "pode_constar_na_minuta": False, "problemas": prob})
+    for i, c in enumerate(citacoes or []):
+        ev = (evidencias or [None] * (i + 1))[i] if evidencias and i < len(evidencias) else None
+        r = ao.auditar_niveis(c, ev)
+        prob = r["niveis"]["N1_formal"]["problemas"]
+        res.append({"citacao": r["citacao"], "status": "NAO_CONFERIDO", "estado": r["estado"],
+                    "apto_para_conferencia_do_advogado": not prob,
+                    "aviso_apto": "apto para conferencia NAO e prova de existencia nem de autenticidade",
+                    "pode_constar_na_minuta": False, "problemas": prob, "niveis": r["niveis"]})
     return {"auditoria": res, "regra": "somente o advogado marca conferido_oficial; ate la, fora da minuta"}
 
 
-def preparar(agente: str, caso: str = "", nomes: list[str] | None = None) -> dict:
+def preparar(agente: str, caso: str = "", nomes: list[str] | None = None, marcos: list | None = None, conferencias: dict | None = None) -> dict:
     """Pacote para a IA operar um especialista (nao grava nada)."""
     c = config()
     a = next((x for x in c["agents"] if x["id"] == agente), None)
@@ -240,9 +267,11 @@ def preparar(agente: str, caso: str = "", nomes: list[str] | None = None) -> dic
     san = sanitizar(caso, nomes)
     return {"agente": agente, "instrucoes": a["system_instructions"], "saida": a["output_schema"],
             "ficha": ficha.read_text(encoding="utf-8") if ficha.exists() else "",
-            "politica_fontes": a["source_policy"], "pre_condicoes": pre_condicoes(agente, caso),
+            "politica_fontes": a["source_policy"], "pre_condicoes": pre_condicoes(agente, caso, marcos, conferencias), "adaptadores": a.get("source_adapters", []),
             "termo_externo": termo_generico(caso, agente), "sanitizacao": san["registro"],
-            "sanitizado_complementar": san["texto_externo"],
+            "interno": {"sanitizado_complementar": san["texto_externo"], "uso": "INTERNO_NUNCA_EXTERNO"},
+            "contrato_externo": {"unico_campo_permitido": "termo_externo", "validacao": "validar_termo_externo",
+                                 "proibido_externo": ["interno.sanitizado_complementar", "caso", "marcos", "nomes"]},
             "escrita": "bloqueada sem confirmacao expressa do advogado",
             "auditoria_obrigatoria": "auditar_citacoes antes de qualquer saida com precedente"}
 
@@ -255,19 +284,159 @@ def fluxo(caso: str, nomes: list[str] | None = None) -> dict:
             "proximo": "triagem humana" if not pacotes else "responder e passar por auditar_citacoes"}
 
 
+# ---------- adaptadores de fonte (somente leitura, acervo local de C:\\JURISBASE) ----------
+import threading
+_LOCK = threading.Lock()
+_FULL: dict = {}
+_INDICE: dict = {}
+_CORROMPIDO = re.compile(r"p[aá]gina n[aã]o encontrada|n[aã]o est[aá] dispon[ií]vel neste endere[cç]o|404 not found|error 404", re.I)
+_STOP = {"de", "da", "do", "das", "dos", "para", "com", "que", "uma", "por", "nos", "nas", "em", "ao", "aos", "um", "e", "o", "a", "os", "as"}
+
+
+def _full():
+    with _LOCK:
+        if not _FULL:
+            import server
+            _FULL.update(server.fontes_direito_ler())
+            _FULL["_informativos_stf"] = server.json_read(server.STF_INFORMATIVOS_FILE, {}).get("fontes", [])
+            _FULL["_planalto"] = []
+            for f in sorted((server.FONTES_DIREITO_DIR / "planalto").glob("*.json")):
+                if f.name == "indice.json":
+                    continue
+                d = server.json_read(f, {})
+                for a in d.get("artigos", []):
+                    _FULL["_planalto"].append({"colecao": "planalto:" + d.get("id", f.stem), "titulo": f"{d.get('nome', f.stem)} - {a.get('rotulo', '')}",
+                                               "texto": a.get("texto", ""), "source_url": d.get("fonte", ""), "id": f"{d.get('id', f.stem)}-{a.get('n', '')}"})
+            pr = server.json_read(server.FONTES_DIREITO_DIR / "parana" / "legislacao_parana.json", {}).get("atos", [])
+            _FULL["_parana"] = [{"colecao": "legislacao_parana", "titulo": a.get("nome", ""), "texto": a.get("texto", ""), "source_url": a.get("fonte", ""), "id": a.get("id", "")} for a in pr]
+        return _FULL
+
+
+def _por_tribunal(chave, tribunal):
+    return [x for x in _full().get(chave, []) if x.get("tribunal") == tribunal]
+
+
+# fonte -> lista de (colecao, funcao que devolve os itens)
+def _fontes_def():
+    F = _full
+    return {
+        "fonte_stf": [("stf_sumulas", lambda: F()["normativas_stf"]), ("stf_jurisprudencia", lambda: F()["jurisprudencia_stf"]),
+                      ("stf_informativos", lambda: F()["_informativos_stf"]), ("stf_leis", lambda: F()["leis_stf"])],
+        "fonte_stj": [("stj_teses", lambda: F()["teses_stj"]), ("stj_precedentes", lambda: F()["precedentes_stj"]),
+                      ("stj_sumulas", lambda: [x for x in F()["normativas"] if x.get("tribunal") == "STJ"])],
+        "fonte_tst_trt9": [("tst_livro", lambda: F()["livro"]), ("tst_teses_vinculantes", lambda: F()["precedentes"]),
+                           ("trt9_informativos", lambda: F()["informativos"]), ("trt9_notas", lambda: F()["notas"]),
+                           ("trt9_livros", lambda: F()["trt9_livros"]), ("trt9_repositorios", lambda: F()["trt9_repositorios"]),
+                           ("trt9_precedentes_qualificados", lambda: _por_tribunal("precedentes_qualificados", "TRT9"))],
+        "fonte_federal_trf4_tru4": [("trf4_sumulas", lambda: F()["sumulas_trf4"]), ("tru4_sumulas", lambda: F()["sumulas_tru4"]),
+                                    ("trf4_irdr", lambda: _por_tribunal("precedentes_qualificados", "TRF4"))],
+        "fonte_tribunais_contas": [("tribunais_contas", lambda: F()["tribunais_contas"])],
+        "fonte_tse_eleitoral": [("tse_sumulas", lambda: F()["sumulas_tse"]), ("tse_legislacao", lambda: F()["legislacao_tse"]),
+                                ("tse_compilada", lambda: F()["tse_compilada"])],
+        "fonte_tjpr": [("tjpr_irdr_iac", lambda: F()["tjpr_irdr_iac"])],
+        "fonte_legislacao": [("planalto", lambda: F()["_planalto"]), ("legislacao_parana", lambda: F()["_parana"])],
+        "fonte_julgados_locais": [],
+    }
+
+
+def _texto(it: dict) -> str:
+    for k in ("texto", "sumula_texto", "texto_bruto", "texto_integral", "ementa", "enunciado", "conteudo"):
+        v = it.get(k)
+        if isinstance(v, str) and v.strip():
+            return v
+    return " ".join(str(v) for v in it.values() if isinstance(v, str))
+
+
+def _titulo(it: dict) -> str:
+    return str(it.get("titulo") or it.get("rotulo") or it.get("nome") or it.get("id") or "")
+
+
+def _indice(fonte: str) -> list:
+    with _LOCK:
+        if fonte in _INDICE:
+            return _INDICE[fonte]
+    out = []
+    for col, fn in _fontes_def()[fonte]:
+        for it in fn():
+            if not isinstance(it, dict):
+                continue
+            txt, tit = _texto(it), _titulo(it)
+            out.append({"col": col, "id": str(it.get("id") or it.get("numero") or ""), "tit": tit, "txt": txt, "ntit": norm(tit),
+                        "ntxt": norm(txt)[:60000], "url": it.get("source_url") or it.get("fonte") or it.get("link") or it.get("url") or "",
+                        "sit": it.get("situacao") or "", "corrompido": bool(_CORROMPIDO.search(txt[:800]))})
+    with _LOCK:
+        _INDICE[fonte] = out
+    return out
+
+
+def cobertura() -> dict:
+    """Quantidade de itens por colecao de cada adaptador e quantos estao corrompidos."""
+    res = {}
+    for f in FONTES:
+        idx = _indice(f) if _fontes_def()[f] else []
+        por = {}
+        for x in idx:
+            d = por.setdefault(x["col"], {"itens": 0, "corrompidos": 0})
+            d["itens"] += 1
+            d["corrompidos"] += x["corrompido"]
+        res[f] = por
+    return res
+
+
 def consultar_fonte(fonte: str, termo: str, limite: int = 20) -> dict:
-    """Adaptador de leitura: usa o buscar() existente, com termo sanitizado."""
+    """Adaptador de leitura sobre o acervo local. Nunca grava; tudo volta NAO_CONFERIDO."""
     if fonte not in FONTES:
         raise LookupError("Fonte desconhecida")
-    from robo import buscar
+    limite = max(1, min(int(limite), 100))
     s = sanitizar(termo)
-    r = buscar(s["texto_externo"], FONTES[fonte], limite, {})
-    r["termo_enviado"] = s["texto_externo"]
-    r["fonte_adaptador"] = fonte
-    if fonte in PORTAIS:
-        r["portal_oficial"] = PORTAIS[fonte]
-    if fonte not in LOCAL_COM_BASE:
-        r["aviso_base"] = ("Sem base local para esta fonte (o acervo local tem TJPR e DJEN). "
-                           "Resultado vazio NAO significa inexistencia: consultar o portal oficial.")
-    r["verificacao"] = "nao_conferido"
+    tokens = [t for t in re.findall(r"\w+", norm(termo_generico(termo) or s["texto_externo"])) if len(t) >= 3 and t not in _STOP]
+    if not tokens:
+        tokens = [t for t in re.findall(r"\w+", norm(s["texto_externo"])) if len(t) >= 3 and t not in _STOP]
+    r = {"fonte_adaptador": fonte, "termo_enviado": " ".join(tokens), "resultados": [], "corrompidos_ignorados": 0,
+         "verificacao": "nao_conferido", "portal_oficial": PORTAIS.get(fonte, "")}
+    achados = []
+    for x in _indice(fonte) if _fontes_def()[fonte] else []:
+        if not tokens:
+            break
+        if not all(t in x["ntit"] or t in x["ntxt"] for t in tokens):
+            continue
+        if x["corrompido"]:
+            r["corrompidos_ignorados"] += 1
+            continue
+        pontos = sum(3 for t in tokens if t in x["ntit"]) + sum(min(x["ntxt"].count(t), 5) for t in tokens)
+        achados.append((pontos, x))
+    achados.sort(key=lambda a: -a[0])
+    for _, x in achados[:limite]:
+        pos = x["ntxt"].find(tokens[0]) if tokens else 0
+        ini = max(0, pos - 150)
+        r["resultados"].append({"colecao": x["col"], "id": x["id"], "titulo": x["tit"], "trecho": x["txt"][ini:ini + 500].strip(),
+                                "url": x["url"], "situacao": x["sit"], "verificacao": "nao_conferido"})
+    if fonte in ("fonte_tjpr", "fonte_julgados_locais"):
+        from robo import buscar
+        b = buscar(" ".join(tokens), "TJPR" if fonte == "fonte_tjpr" else "", limite, {})
+        for j in b.get("resultados", []):
+            r["resultados"].append({"colecao": "julgados_db", "id": str(j.get("id", "")), "titulo": f"{j.get('classe', '')} {j.get('processo', '')}".strip(),
+                                    "trecho": (j.get("texto") or "")[:500], "url": j.get("link") or "", "situacao": j.get("resultado") or "",
+                                    "verificacao": "nao_conferido", "fonte_db": j.get("fonte")})
+        if b.get("aviso"):
+            r["aviso_base"] = b["aviso"]
+    r["total"] = len(r["resultados"])
+    if r["corrompidos_ignorados"]:
+        r["aviso_dados"] = f"{r['corrompidos_ignorados']} item(ns) com texto corrompido (pagina de erro) ignorado(s); recoletar da fonte oficial"
+    if r["total"] == 0:
+        r["aviso"] = "Sem resultado no acervo local; isso NAO significa inexistencia: consultar o portal oficial."
     return r
+
+
+def adaptadores_do_agente(agente: str) -> list:
+    a = next((x for x in config()["agents"] if x["id"] == agente), None)
+    if a is None:
+        raise LookupError(f"Agente desconhecido: {agente}")
+    return list(a.get("source_adapters", []))
+
+
+def consultar_agente(agente: str, termo: str, limite: int = 10) -> dict:
+    """Consulta todos os adaptadores vinculados ao especialista (somente leitura)."""
+    ad = adaptadores_do_agente(agente)
+    return {"agente": agente, "adaptadores": ad, "resultados": {f: consultar_fonte(f, termo, limite) for f in ad},
+            "proximo": "auditar_citacoes antes de qualquer uso; nada vira conferido sem o advogado"}

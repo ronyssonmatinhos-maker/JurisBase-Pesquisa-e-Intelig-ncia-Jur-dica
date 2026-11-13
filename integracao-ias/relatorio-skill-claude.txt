@@ -1,0 +1,33 @@
+RELATORIO CLAUDE - INCORPORACAO DA skill_marcos_e_precedentes v1.0 E CORRECAO A01-A06 | 2026-11-13
+Branch: integracao-claude-20261112 | Referencias: auditoria-runtime-gpt.txt (A01-A08), GPT-018-C, GPT-019
+Estado: PRONTO PARA REAUDITORIA. Nada homologado. Nenhum precedente marcado CONFERIDO_OFICIAL.
+
+1. O QUE MUDOU NO CODIGO ATIVO DO PC (C:\JURISBASE\app; copia em integracao-ias/runtime-local/)
+- marcos.py (novo): linha do tempo tipada (12 tipos; tipo, data, fonte, certeza, efeito; credito, natureza, prazo_anos). Datas soltas no texto sao ignoradas.
+  pode_concluir so e true se: todos os marcos essenciais por credito + sem contradicao + natureza/prazo informados + conferencia do Tema 566/REsp 1.340.553/RS pelo advogado (conferencias.tema_566_conferido_pelo_advogado). Contagem de datas nunca libera. (A01, P1)
+  Detecta: cronologia contraditoria, data invalida, marcos duplicados conflitantes, requerimento infrutifero tratado como interruptivo/constricao, ausencia de ciencia da Fazenda, ausencia de contraditorio (art. 40 par. 4), varios creditos/prazos, prescricao originaria x intercorrente.
+- auditor_oficial.py (novo): N1 formal (campos, dominio oficial, correspondencia dominio x tribunal, DV do CNJ, segmentos J.TR x tribunal); N2 existencia (conector_http somente leitura: allowlist https .jus/.gov/.leg/.mp/.def.br, timeout, limite de bytes, sem cookies/login, redirect fora do host recusado, falha explicita, hash SHA256, registro consulta/fonte/UTC); N3 autenticidade (obtido do tribunal + verificador + hash); N4 aderencia (tese x inteiro teor, trechos/paginas, ratio x obiter, monocratica x repetitivo, superacao). Estados: NAO_CONFERIDO < LOCALIZADO_OFICIAL < DOCUMENTO_VERIFICADO < ANALISE_PRELIMINAR. Nunca CONFERIDO_OFICIAL; pode_constar_na_minuta sempre false. Falha de acesso / busca sem resultado nunca provam verificacao ou inexistencia. (A04, P2)
+- agentes.py: auditar_citacoes usa o auditor (aceita evidencias opcionais); apto_para_conferencia traz aviso de que NAO e prova. preparar() aceita marcos/conferencias. (A04)
+- Decisao do advogado (GPT-018-C): sanitizado_complementar saiu do nivel superior do pacote e foi para interno{uso: INTERNO_NUNCA_EXTERNO}; contrato_externo declara termo_externo como unico campo externo. consulta_externa(termo, conector) e a unica porta: valida o termo (validar_termo_externo) e levanta PermissionError se houver identificador ou texto livre. (A02)
+- termo_generico: limites (artigo/tema/sumula ate 4-5 digitos, lei com numero plausivel, max 12 termos, 200 caracteres, alfabeto restrito, reprovado por qualquer padrao de identificador). (A03)
+- config-agentes.json: approved_skills, data_access_policy, routing_spec; approved_skills em cada um dos 20 agentes (sem duplicar agentes). Fichas: skill_marcos_e_precedentes.txt + bloco "SKILL APLICADA" nas 31 fichas existentes.
+- robo.py: preparar_agente recebe marcos/conferencias; auditar_citacoes recebe evidencias. Backups: *.bak-antes-skill-20261113 (rollback = restaurar esses arquivos e remover marcos.py/auditor_oficial.py).
+
+2. TESTES EXECUTADOS (saida-testes-skill-claude.txt; resultado-por-id-skill-claude.txt)
+Ambiente: Python 3.10.12, VM Linux sobre C:\JURISBASE, ROBO_JULGADOS_DB apontando para o acervo real. 56 testes: 56 ok, 0 skipped, 0 falhas (29 anteriores + 27 novos).
+- R01-R12 cobertos por testes (test_skill_marcos.py): R01 tres datas irrelevantes; R02 cronologia contraditoria; R03 infrutifero x constricao; R04 sem ciencia da Fazenda; R05 varios creditos/prazos; R06 CNJ valido sem registro oficial; R07 URL oficial sem documento verificavel; R08 inteiro teor contraria tese; R09 monocratica como repetitivo; R10 precedente superado/obiter; R11 portal indisponivel (opener simulado); R12 dados internos x externos.
+- A05: skipTest removido; o teste do adaptador falha se o acervo nao abrir e exige resultados reais do STJ. Skipped relatados: 0.
+- A06: teste de nao escrita agora compara hash/tamanho de todos os .db/.json/.log em app/data e dos .db do acervo antes/depois de 7 acoes do endpoint.
+- API HTTP (server.py 127.0.0.1:8767, /api/ia/comando): agentes, preparar_agente, auditar_citacoes responderam 200 em execucao manual na VM.
+- T01 antigo (que validava o atalho das tres datas) foi invertido: agora exige pode_concluir=false.
+
+3. NAO EXECUTADO / LIMITES (nao tratar como provado)
+- Windows nativo: NAO executado. Script pronto: app\rodar_testes_windows.bat (grava saida-testes-windows.txt).
+- Qualidade juridica por modelo real (T01-T08 em linguagem natural): NAO executado; nao ha LLM acessivel ao runtime. Os 56 testes sao de regra/runtime.
+- Portais oficiais: NAO consultados nesta etapa (rede da VM restrita; shell recebeu 403 do TSE antes e nao foi contornado). O conector HTTP foi testado so com opener simulado: N2/N3/N4 reais dependem de execucao no PC com rede e de evidencias fornecidas pelo operador.
+- A07 parcial (codigo integral publicado; Python 3.10 isolado reproduzivel pelo GPT com stdlib; Windows e modelo real pendentes). A08 pendente: Tema 1184/STF, Res. CNJ 547/2024 e Lei 14.133 seguem NAO_CONFERIDO (fontes secundarias).
+- Supabase/Netlify/UI nao verificados.
+- Dados: testes e evidencias usam apenas dados sinteticos (CPF/CNJ de teste). Nenhum .db, credencial ou dado de cliente foi publicado.
+
+4. COMO REPRODUZIR (GPT)
+cd integracao-ias/runtime-local && python3 -m unittest discover -s tests -v   (sem ROBO_JULGADOS_DB: testes de fonte exigem acervo e falham em vez de pular)

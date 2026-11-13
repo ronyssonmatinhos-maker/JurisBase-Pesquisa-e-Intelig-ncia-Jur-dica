@@ -46,3 +46,8 @@ Formato de saida: fatos e lacunas; normas e dispositivos com vigencia; precedent
 - fonte_julgados_locais (ver fonte_julgados_locais.md)
 - fonte_legislacao (ver fonte_legislacao.md)
 - auditor_citacoes (ver auditor_citacoes.md)
+
+SKILL APLICADA: skill_marcos_e_precedentes v1.0 (aprovada 13/11/2026; texto em skill_marcos_e_precedentes.txt)
+- Fatos/marcos tipados (tipo, data, fonte, certeza, efeito); nunca concluir por contagem de datas; lacunas => conclusao condicional.
+- Precedentes: N1 formal, N2 existencia em portal oficial, N3 autenticidade, N4 aderencia ao inteiro teor; busca sem resultado nao prova inexistencia; CNJ valido/URL oficial nao provam nada.
+- Nada vira CONFERIDO_OFICIAL sem ato expresso do advogado; precedente nao conferido fora da minuta; sanitizado_complementar e interno, nunca externo.

@@ -68,7 +68,7 @@ class TestT01aT08(Base):
         r = agentes.pre_condicoes("execucao_fiscal", "CDA com alegacao de prescricao intercorrente")
         self.assertFalse(r["pode_concluir"]); self.assertTrue(any("art. 40" in x for x in r["lacunas"]))
         ok = agentes.pre_condicoes("execucao_fiscal", "prescricao: CDA 01/02/2015, citacao 03/04/2016, suspensao 05/06/2017, intimacao 07/08/2018")
-        self.assertTrue(ok["pode_concluir"])
+        self.assertFalse(ok["pode_concluir"], "tres datas no texto nunca liberam conclusao (skill_marcos_e_precedentes)")
     def test_T02(self):
         r = agentes.pre_condicoes("execucao_fiscal", "Execucao de baixo valor e Tema 1184")
         self.assertFalse(r["pode_concluir"])
@@ -189,13 +189,11 @@ class TestSemEscrita(Base):
 class TestFontes(Base):
     def test_adaptador_somente_leitura(self):
         with self.assertRaises(LookupError): agentes.consultar_fonte("fonte_inexistente", "x")
-        try:
-            r = agentes.consultar_fonte("fonte_stj", "prescricao intercorrente", 3)
-        except Exception as e:
-            self.skipTest(f"banco de julgados indisponivel: {type(e).__name__}")
+        r = agentes.consultar_fonte("fonte_stj", "prescricao intercorrente", 3)  # sem skip: falha alta se o acervo nao abrir
         self.assertEqual(r["verificacao"], "nao_conferido")
-        self.assertIn("aviso_base", r); self.assertTrue(r["portal_oficial"].startswith("https://"))
-        self.assertNotIn("aviso_base", agentes.consultar_fonte("fonte_tjpr", "prescricao", 1))
+        self.assertGreater(r["total"], 0, "acervo STJ precisa devolver resultados reais")
+        self.assertTrue(r["portal_oficial"].startswith("https://"))
+        self.assertTrue(all(x["verificacao"] == "nao_conferido" for x in r["resultados"]))
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

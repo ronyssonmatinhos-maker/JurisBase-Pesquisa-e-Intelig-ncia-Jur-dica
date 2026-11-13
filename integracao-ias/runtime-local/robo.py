@@ -345,19 +345,23 @@ def comando(payload: dict) -> dict:
         return relatorio(payload.get("limite", 200))
     if action == "conferir_oficial":
         return conferir_achado(payload["id"], payload.get("papel", ""), payload.get("confirmacao", ""), payload.get("agente", "advogado"))
-    if action in ("agentes", "rotear", "preparar_agente", "sanitizar", "auditar_citacoes", "fluxo_agentes", "consultar_fonte"):
+    if action in ("agentes", "rotear", "preparar_agente", "sanitizar", "auditar_citacoes", "fluxo_agentes", "consultar_fonte", "consultar_agente", "cobertura_fontes"):
         import agentes
         if action == "agentes":
             return agentes.listar()
         if action == "rotear":
             return agentes.rotear(payload.get("caso", ""))
         if action == "preparar_agente":
-            return agentes.preparar(payload["agente"], payload.get("caso", ""), payload.get("nomes"))
+            return agentes.preparar(payload["agente"], payload.get("caso", ""), payload.get("nomes"), payload.get("marcos"), payload.get("conferencias"))
         if action == "sanitizar":
             return agentes.sanitizar(payload.get("texto", ""), payload.get("nomes"))
         if action == "auditar_citacoes":
-            return agentes.auditar_citacoes(payload.get("citacoes", []))
+            return agentes.auditar_citacoes(payload.get("citacoes", []), payload.get("evidencias"))
         if action == "fluxo_agentes":
             return agentes.fluxo(payload.get("caso", ""), payload.get("nomes"))
+        if action == "consultar_agente":
+            return agentes.consultar_agente(payload["agente"], payload.get("termo", ""), payload.get("limite", 10))
+        if action == "cobertura_fontes":
+            return agentes.cobertura()
         return agentes.consultar_fonte(payload["fonte"], payload.get("termo", ""), payload.get("limite", 20))
     raise ValueError("Ação não reconhecida. Consulte IA-OPERACAO.md para a lista de comandos.")
