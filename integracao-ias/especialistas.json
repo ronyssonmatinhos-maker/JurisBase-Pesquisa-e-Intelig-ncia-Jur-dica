@@ -1,5 +1,5 @@
 {
-  "versao": "1.1",
+  "versao": "1.2",
   "politica": {
     "julgados": "nao_conferido_ate_validacao_do_advogado",
     "pesquisa_externa": "sem_dados_de_clientes",
@@ -37,7 +37,11 @@
       "fontes_prioritarias": "CDA, LEF, CTN, CPC, STF/STJ/TJPR e julgados locais",
       "responde": "prescricao, citacao, penhora, nulidades, baixo valor e estrategia defensiva",
       "acionamento": "execucao fiscal, CDA, prescricao intercorrente, leilao fiscal",
-      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais"
+      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais",
+      "verificacoes_obrigatorias": [
+        "T01: antes de concluir prescricao intercorrente, pedir linha do tempo com ciencia da Fazenda, suspensao, arquivamento, citacao/constricao e interrupcoes; nao presumir marcos ausentes",
+        "T02: para execucao de baixo valor, examinar Tema 1184/STF, Res. CNJ 547/2024 e alteracoes, requisitos, marco temporal, atos uteis, excecoes e regras locais na versao oficial vigente; nao declarar extincao automatica"
+      ]
     },
     "tributario": {
       "fontes_prioritarias": "CTN, legislacao tributaria competente, STF/STJ/TJPR",
@@ -55,13 +59,19 @@
       "fontes_prioritarias": "CPC, tribunais e atos processuais disponibilizados",
       "responde": "competencia, citacao, recursos, prazos, nulidades e prova",
       "acionamento": "citacao, agravo, contestacao, cumprimento de sentenca",
-      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais"
+      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais",
+      "verificacoes_obrigatorias": [
+        "T03: identificar CPC aplicavel e data dos atos, diferenciar citacao invalida de comparecimento espontaneo, verificar representacao, finalidade do ato e prejuizo concreto; nao afirmar convalidacao automatica"
+      ]
     },
     "imobiliario_registral": {
       "fontes_prioritarias": "Codigo Civil, CPC, LRP, matriculas fornecidas e precedentes oficiais",
       "responde": "dominio, posse, usucapiao, registro, constricoes e terceiros",
       "acionamento": "imovel, matricula, posse, reintegracao, registro",
-      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais"
+      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais",
+      "verificacoes_obrigatorias": [
+        "T05: separar titularidade e posse do rito de conflitos fundiarios coletivos; verificar CPC, ADPF 828 e Res. CNJ 510/2023 e eventuais alteracoes na fonte oficial; mediacao e medidas procedimentais nao implicam automaticamente desapropriacao, perda do dominio ou acordo obrigatorio"
+      ]
     },
     "familia_sucessoes": {
       "fontes_prioritarias": "Codigo Civil, CPC, ECA, legislacao correlata e precedentes oficiais",
@@ -99,5 +109,10 @@
     "quantidade": 8,
     "estado": "nao_executados",
     "instrucao": "Claude deve obter arquivos via GitHub branch integracao-chatgpt-20261112; nao presumir existencia em C:\\JURISBASE"
+  },
+  "revisao": {
+    "fonte": "Claude CL-007, testes-especialistas-resultado-claude.txt",
+    "resultado": "Quatro lacunas de desenho T01 T02 T03 T05 enderecadas na especificacao; nao constitui execucao dos testes",
+    "instrucao_claude": "Atualizar fichas locais na branch Claude, executar T01-T08 com dados sinteticos, reportar evidencias e falhas sem sigilo"
   }
 }
