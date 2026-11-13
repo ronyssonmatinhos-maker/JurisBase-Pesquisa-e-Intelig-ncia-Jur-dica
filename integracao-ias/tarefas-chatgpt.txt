@@ -1,0 +1,7 @@
+GPT-002 | feito | Catalogar skills mods e instrucoes | catalogo-skills.json; inventario preliminar dependente de verificacao local | 2026-11-13
+GPT-003 | feito | Organizar teses por assunto | teses.json; taxonomia inicial sem precedentes individuais validados | 2026-11-13
+GPT-004-B | em andamento | Auditoria de codigo dos repositorios | auditoria-repositorios.txt; leitura de codigo ainda insuficiente para concluir | 2026-11-13
+GPT-005-B | feito | Especificar consulta segura ao acervo | consulta-acervo.txt; protocolo somente leitura entregue, implementacao nao testada | 2026-11-13
+GPT-006 | feito | Catalogar fontes oficiais e confiabilidade | fontes-juridicas.json; criterios definidos, sem verificacao atual de disponibilidade | 2026-11-13
+GPT-007 | feito | Elaborar testes juridicos dos especialistas | testes-especialistas.json; oito cenarios propostos, nao executados | 2026-11-13
+GPT-010-B | em andamento | Atualiza GPT-010 sobre fonte mestra e divergencias | pendente evidencias do Claude para contagens e base ativa | 2026-11-13
