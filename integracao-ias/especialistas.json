@@ -1,0 +1,24 @@
+{
+  "versao": "1.0",
+  "politica": {
+    "julgados": "nao_conferido_ate_validacao_do_advogado",
+    "pesquisa_externa": "sem_dados_de_clientes",
+    "gravacao": "somente_apos_confirmacao"
+  },
+  "especialistas": [
+    "execucao_fiscal",
+    "tributario",
+    "administrativo_licitacoes",
+    "civil_processual",
+    "imobiliario_registral",
+    "familia_sucessoes",
+    "eleitoral",
+    "penal_processual",
+    "constitucional",
+    "ambiental_urbanistico"
+  ],
+  "orquestracao": {
+    "selecao": "automatica_ou_manual",
+    "cooperacao": true
+  }
+}
