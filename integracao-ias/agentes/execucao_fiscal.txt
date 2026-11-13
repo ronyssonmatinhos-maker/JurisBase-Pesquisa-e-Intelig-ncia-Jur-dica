@@ -22,7 +22,12 @@ Formato de saida: fatos e lacunas; normas e dispositivos com vigencia; precedent
 
 ## Casos de teste cobertos (ajuste de 13/11, pendente de execucao)
 - Teste T01 (prescricao intercorrente sem cronologia): antes de concluir, solicitar datas dos marcos (constituicao do credito, citacao, suspensao do art. 40 LEF, cada intimacao) e separar prescricao de nulidade. Nao concluir sem marcos.
-- Teste T02 (baixo valor e tema indicado 1184): verificar o tema na fonte oficial (STF ou STJ) antes de citar; verificar requisitos e excecoes; nao presumir extincao automatica.
+- Teste T02 (baixo valor e Tema 1184), resposta atualizada em 13/11/2026:
+  * Tema 1184 do STF: RE 1.355.208, relatora Min. Cármen Lúcia, julgado em 19/12/2023, publicado em 05/02/2024 (dados de fontes secundarias: conferir no site do STF antes de citar).
+  * Tese: é legítima a extinção de execução fiscal de baixo valor pela ausência de interesse de agir, respeitada a competência constitucional de cada ente.
+  * Regulamentação: Resolução CNJ 547/2024 (conferir texto e vigência).
+  * Requisitos a verificar: valor do débito e limite fixado pelo ente credor; ente exequente; eventual protesto prévio (conferir na tese e na resolução).
+  * Status: NAO_CONFERIDO até conferência no site oficial do STF. Não presumir extinção automática.
 
 ## Regras obrigatorias (herdadas da especificacao v1.1)
 - JurisBase e bancos locais sao indices, nunca fonte oficial nem autoridade. Nunca citar o app ou "o acervo" como fundamento.

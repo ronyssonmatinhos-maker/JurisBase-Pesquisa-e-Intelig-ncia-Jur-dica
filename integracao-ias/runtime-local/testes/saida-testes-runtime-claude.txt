@@ -1,0 +1,37 @@
+SAIDA REAL DOS TESTES DE RUNTIME - CLAUDE - 2026-11-13
+Comando: python3 -I tests/test_agentes.py (com ROBO_JULGADOS_DB apontando ao acervo real)
+
+test_app_como_fundamento (__main__.TestAuditor) ... ok
+test_cnj_ficticio_e_valido (__main__.TestAuditor) ... ok
+test_completa_oficial_continua_nao_conferida (__main__.TestAuditor) ... ok
+test_conferir_so_advogado (__main__.TestAuditor) ... ok
+test_nunca_conferido (__main__.TestAuditor) ... ok
+test_url_nao_oficial (__main__.TestAuditor) ... ok
+test_22_componentes_e_9_fontes (__main__.TestEstrutura) ... ok
+test_adaptador_somente_leitura (__main__.TestFontes) ... ok
+test_agente_desconhecido (__main__.TestPacotes) ... ok
+test_pacote_de_cada_agente (__main__.TestPacotes) ... ok
+test_ambiguo_vira_cooperacao (__main__.TestRoteamento) ... ok
+test_cada_especialista_negativo (__main__.TestRoteamento) ... ok
+test_cada_especialista_positivo (__main__.TestRoteamento) ... ok
+test_desabilitado_nao_roteia_nem_prepara (__main__.TestRoteamento) ... ok
+test_licitacao_nao_aciona_citacao (__main__.TestRoteamento) ... ok
+test_sanitizador_complementar (__main__.TestSanitizacaoAdversarial) ... ok
+test_termo_externo_mantem_vocabulario_juridico (__main__.TestSanitizacaoAdversarial) ... ok
+test_termo_externo_nunca_vaza (__main__.TestSanitizacaoAdversarial) ... ok
+test_agentes_nao_alteram_banco (__main__.TestSemEscrita) ... ok
+test_fluxo_completo (__main__.TestSemEscrita) ... ok
+test_T01 (__main__.TestT01aT08) ... ok
+test_T02 (__main__.TestT01aT08) ... ok
+test_T03 (__main__.TestT01aT08) ... ok
+test_T04 (__main__.TestT01aT08) ... ok
+test_T05 (__main__.TestT01aT08) ... ok
+test_T06 (__main__.TestT01aT08) ... ok
+test_T06_nao_destroi_termos_juridicos (__main__.TestT01aT08) ... ok
+test_T07 (__main__.TestT01aT08) ... ok
+test_T08 (__main__.TestT01aT08) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 10.678s
+
+OK

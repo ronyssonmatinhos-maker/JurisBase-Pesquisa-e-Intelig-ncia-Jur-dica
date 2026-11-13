@@ -4,8 +4,8 @@
   "agents": [
     {
       "id": "execucao_fiscal",
-      "enabled": false,
-      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "enabled": true,
+      "implementation_status": "runtime_local_implementado_testado_pendente_auditoria_gpt",
       "description": "prescricao, citacao, penhora, nulidades, baixo valor e estrategia defensiva",
       "trigger_terms": [
         "execucao fiscal",
@@ -42,12 +42,12 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "executado_runtime_local_29_testes"
     },
     {
       "id": "tributario",
-      "enabled": false,
-      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "enabled": true,
+      "implementation_status": "runtime_local_implementado_testado_pendente_auditoria_gpt",
       "description": "incidencia, lancamento, imunidade, isencao, decadencia e repeticao",
       "trigger_terms": [
         "tributos",
@@ -85,17 +85,16 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "executado_runtime_local_29_testes"
     },
     {
       "id": "administrativo_licitacoes",
-      "enabled": false,
-      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "enabled": true,
+      "implementation_status": "runtime_local_implementado_testado_pendente_auditoria_gpt",
       "description": "legalidade de contratacao, execucao, sancoes, rescisao e controle",
       "trigger_terms": [
         "licitacao",
         "contrato publico",
-        "PAD",
         "improbidade"
       ],
       "source_policy": {
@@ -127,12 +126,12 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "executado_runtime_local_29_testes"
     },
     {
       "id": "civil_processual",
-      "enabled": false,
-      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "enabled": true,
+      "implementation_status": "runtime_local_implementado_testado_pendente_auditoria_gpt",
       "description": "competencia, citacao, recursos, prazos, nulidades e prova",
       "trigger_terms": [
         "citacao",
@@ -169,12 +168,12 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "executado_runtime_local_29_testes"
     },
     {
       "id": "imobiliario_registral",
-      "enabled": false,
-      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "enabled": true,
+      "implementation_status": "runtime_local_implementado_testado_pendente_auditoria_gpt",
       "description": "dominio, posse, usucapiao, registro, constricoes e terceiros",
       "trigger_terms": [
         "imovel",
@@ -212,12 +211,12 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "executado_runtime_local_29_testes"
     },
     {
       "id": "familia_sucessoes",
-      "enabled": false,
-      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "enabled": true,
+      "implementation_status": "runtime_local_implementado_testado_pendente_auditoria_gpt",
       "description": "alimentos, filiacao, uniao estavel, inventario e partilha",
       "trigger_terms": [
         "familia",
@@ -254,12 +253,12 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "executado_runtime_local_29_testes"
     },
     {
       "id": "eleitoral",
-      "enabled": false,
-      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "enabled": true,
+      "implementation_status": "runtime_local_implementado_testado_pendente_auditoria_gpt",
       "description": "elegibilidade, propaganda, prestacao de contas, recursos eleitorais",
       "trigger_terms": [
         "eleicao",
@@ -296,12 +295,12 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "executado_runtime_local_29_testes"
     },
     {
       "id": "penal_processual",
-      "enabled": false,
-      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "enabled": true,
+      "implementation_status": "runtime_local_implementado_testado_pendente_auditoria_gpt",
       "description": "tipicidade, provas, nulidades, cautelares, recursos e dosimetria",
       "trigger_terms": [
         "crime",
@@ -338,12 +337,12 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "executado_runtime_local_29_testes"
     },
     {
       "id": "constitucional",
-      "enabled": false,
-      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "enabled": true,
+      "implementation_status": "runtime_local_implementado_testado_pendente_auditoria_gpt",
       "description": "competencia, direitos fundamentais, controle de constitucionalidade e remedios",
       "trigger_terms": [
         "ADI",
@@ -380,12 +379,12 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "executado_runtime_local_29_testes"
     },
     {
       "id": "ambiental_urbanistico",
-      "enabled": false,
-      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "enabled": true,
+      "implementation_status": "runtime_local_implementado_testado_pendente_auditoria_gpt",
       "description": "licenciamento, APP, ocupacao, regularizacao, sancoes e urbanismo",
       "trigger_terms": [
         "meio ambiente",
@@ -423,12 +422,12 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "executado_runtime_local_29_testes"
     },
     {
       "id": "previdenciario_assistencial",
-      "enabled": false,
-      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "enabled": true,
+      "implementation_status": "runtime_local_implementado_testado_pendente_auditoria_gpt",
       "description": "INSS, BPC/LOAS, incapacidade e revisoes",
       "trigger_terms": [
         "beneficio",
@@ -466,12 +465,12 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "executado_runtime_local_29_testes"
     },
     {
       "id": "trabalhista",
-      "enabled": false,
-      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "enabled": true,
+      "implementation_status": "runtime_local_implementado_testado_pendente_auditoria_gpt",
       "description": "vinculo, verbas, jornada, rescisao e execucao trabalhista",
       "trigger_terms": [
         "emprego",
@@ -509,12 +508,12 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "executado_runtime_local_29_testes"
     },
     {
       "id": "consumidor_bancario",
-      "enabled": false,
-      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "enabled": true,
+      "implementation_status": "runtime_local_implementado_testado_pendente_auditoria_gpt",
       "description": "contratos bancarios, credito, busca e apreensao e CDC",
       "trigger_terms": [
         "financiamento",
@@ -551,12 +550,12 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "executado_runtime_local_29_testes"
     },
     {
       "id": "empresarial_contratual",
-      "enabled": false,
-      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "enabled": true,
+      "implementation_status": "runtime_local_implementado_testado_pendente_auditoria_gpt",
       "description": "sociedades, contratos privados, inadimplemento e responsabilidade",
       "trigger_terms": [
         "sociedade",
@@ -593,12 +592,12 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "executado_runtime_local_29_testes"
     },
     {
       "id": "servidor_publico",
-      "enabled": false,
-      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "enabled": true,
+      "implementation_status": "runtime_local_implementado_testado_pendente_auditoria_gpt",
       "description": "regime estatutario, remuneracao, processo disciplinar e aposentadoria propria",
       "trigger_terms": [
         "servidor",
@@ -636,12 +635,12 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "executado_runtime_local_29_testes"
     },
     {
       "id": "municipal_legislativo",
-      "enabled": false,
-      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "enabled": true,
+      "implementation_status": "runtime_local_implementado_testado_pendente_auditoria_gpt",
       "description": "competencias municipais, leis locais, camara, controle e processo legislativo",
       "trigger_terms": [
         "municipio",
@@ -679,18 +678,18 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "executado_runtime_local_29_testes"
     },
     {
       "id": "fazenda_publica_processual",
-      "enabled": false,
-      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "enabled": true,
+      "implementation_status": "runtime_local_implementado_testado_pendente_auditoria_gpt",
       "description": "prerrogativas processuais, precatorios, cumprimento e tutela contra poder publico",
       "trigger_terms": [
         "fazenda publica",
         "precatorio",
         "RPV",
-        "cumprimento contra municipio"
+        "precatorio contra fazenda"
       ],
       "source_policy": {
         "preferred": "CPC, CF, STF, STJ, TJPR, CNJ",
@@ -721,12 +720,12 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "executado_runtime_local_29_testes"
     },
     {
       "id": "direito_digital_dados",
-      "enabled": false,
-      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "enabled": true,
+      "implementation_status": "runtime_local_implementado_testado_pendente_auditoria_gpt",
       "description": "LGPD, prova digital, contratos de tecnologia e incidentes",
       "trigger_terms": [
         "dados pessoais",
@@ -764,12 +763,12 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "executado_runtime_local_29_testes"
     },
     {
       "id": "saude_publica",
-      "enabled": false,
-      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "enabled": true,
+      "implementation_status": "runtime_local_implementado_testado_pendente_auditoria_gpt",
       "description": "SUS, medicamentos, tratamentos, judicializacao e evidencia clinica",
       "trigger_terms": [
         "SUS",
@@ -806,12 +805,12 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "executado_runtime_local_29_testes"
     },
     {
       "id": "direitos_crianca_adolescente",
-      "enabled": false,
-      "implementation_status": "configuracao_pronta_runtime_local_pendente",
+      "enabled": true,
+      "implementation_status": "runtime_local_implementado_testado_pendente_auditoria_gpt",
       "description": "ECA, educacao inclusiva, protecao e medidas judiciais",
       "trigger_terms": [
         "crianca",
@@ -849,7 +848,7 @@
         "providencias",
         "pendencias_validacao"
       ],
-      "tests_status": "nao_executado"
+      "tests_status": "executado_runtime_local_29_testes"
     }
   ],
   "coordinator": {

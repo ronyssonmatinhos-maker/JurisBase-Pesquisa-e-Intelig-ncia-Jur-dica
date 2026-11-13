@@ -1,0 +1,49 @@
+RELATORIO FINAL DO CLAUDE PARA AUDITORIA DO CHATGPT - 2026-11-13
+Autorizacao do advogado (13/11): instalar, testar, corrigir e deixar funcionando. Habilitacao concedida.
+
+1. O QUE FOI FEITO
+- Instalacao em C:\JURISBASE\app: agentes.py (runtime), config/agentes/ (config + 31 fichas), tests/test_agentes.py,
+  ligacao ao comando() do robo.py (acoes: agentes, rotear, preparar_agente, fluxo_agentes, sanitizar,
+  auditar_citacoes, consultar_fonte). Backup do robo.py original: robo.py.bak-antes-agentes-20261113.
+- Componentes: 20 especialistas, coordenador (roteamento), auditor_citacoes, 9 adaptadores fonte_* (somente leitura).
+- 20 especialistas com enabled=true no computador do advogado (aprovado). Nenhuma outra producao alterada.
+- Nada foi gravado no banco de trabalho pelos testes (hash do robo-julgados.db conferido antes/depois).
+
+2. TESTES EXECUTADOS (codigo real, nao simulacao): 29/29 passaram
+   (python tests/test_agentes.py; saida integral em runtime-local/testes/saida-testes-runtime-claude.txt)
+- Roteamento positivo para cada gatilho de cada um dos 20 especialistas; negativo; ambiguo -> cooperacao com revisao humana;
+  "licitacao" nao aciona "citacao"; agente desabilitado nao roteia nem prepara.
+- Pacote de cada especialista (instrucoes, saida, ficha com NAO_CONFERIDO, escrita bloqueada).
+- T01-T08 em runtime (pre-condicoes e bloqueios), incl. T06 sanitizacao e T08 gravacao sem confirmacao (PermissionError).
+- Auditor: nunca devolve conferido_oficial; URL nao oficial/http; campos ausentes; numero CNJ com digito verificador
+  invalido (detecta citacao ficticia por calculo mod 97); app/IA citado como fundamento; conferir_oficial so com papel advogado.
+- Fluxo completo e teste de nao-escrita no banco.
+- Teste pelo endpoint HTTP real (/api/ia/comando): agentes, fluxo, gravar sem confirmacao (403), auditor.
+- Adaptadores com o acervo real (julgados.db): TJPR, julgados locais e legislacao retornam dados; os demais retornam 0.
+
+3. FALHAS ENCONTRADAS E CORRIGIDAS
+- 3 colisoes de roteamento (PAD, cumprimento contra municipio): gatilhos ajustados.
+- Teste meu errado (procurava texto da regra): corrigido.
+- Sanitizador vazava: nome isolado (Pedro), nome em minusculas, CAIXA ALTA, RG, CEP, endereco.
+  Correcao estrutural: termo de pesquisa externa passa a ser montado SO com vocabulario juridico (termo_generico);
+  sanitizador ampliado como camada complementar. Teste adversarial adicionado.
+- T02: Tema 1184 do STF (RE 1.355.208, rel. Min. Carmen Lucia, j. 19/12/2023) incluido na ficha, NAO_CONFERIDO.
+- T04: regras de transicao (arts. 190, 191, 193 II da Lei 14.133/2021; MPV 1.167/2023) incluidas, NAO_CONFERIDO.
+- Adaptadores sem base local retornavam lista vazia sem aviso: agora trazem aviso_base e portal_oficial.
+
+4. LIMITES (para o GPT auditar e testar do jeito dele)
+- Os testes provam roteamento, pre-condicoes, sanitizacao, auditoria formal e bloqueio de escrita. NAO medem a qualidade
+  do texto juridico que um modelo gera ao seguir a ficha; nao havia modelo acessivel no ambiente (CLI headless nao autenticou).
+  Pedido ao GPT: rodar casos sinteticos T01-T08 e por especialista com modelo real e avaliar as respostas.
+- Testes rodaram em Python 3.10 no ambiente Linux que monta C:\JURISBASE, nao em Python nativo do Windows.
+  Pendente: rodar python tests\test_agentes.py no Windows do advogado.
+- Acervo local so tem TJPR (2o grau), DJEN e Escritorio. STF, STJ, TST/TRT9, TRF4, TCE e TSE nao tem base local:
+  consultar portal oficial.
+- Sanitizador heuristico nao detecta nome em minusculas sem papel; mitigado porque o termo externo nunca usa texto livre.
+- Auditor checa forma (campos, URL oficial, digito CNJ); nao confirma que o julgado existe. So o advogado confere.
+- Tema 1184, Res. CNJ 547/2024 e arts. 190/191/193 foram obtidos de fontes secundarias: conferir nas oficiais.
+- Nao foi testada a interface visual; app Netlify/Supabase nao verificado nesta rodada.
+
+5. ONDE ESTA TUDO
+- GitHub (branch integracao-claude-20261112): integracao-ias/runtime-local/ (codigo, testes, evidencias, fichas, config).
+- Computador: C:\JURISBASE\app\ e C:\JURISBASE\app\config\agentes\testes\.
