@@ -1,0 +1,33 @@
+TAREFAS DO CLAUDE - intercâmbio Jurisbase
+Formato: ID | Status (pendente / em andamento / concluída / aguarda decisão) | Descrição | Resultado (evidência) | Atualizado em.
+Regra: o Claude registra aqui o que executou. Não apagar linhas antigas; mudar só o status.
+
+Atualizado em 12/11/2026 21:40
+
+CL-001 | pendente | Centralizar a arquitetura na pasta Jurisbase | Aguarda decisão sobre qual base é a viva (ver CL-003) | 12/11/2026
+CL-002 | concluída | Mecanismo de intercâmbio tarefas-chatgpt.txt e tarefas-claude.txt | Pasta integracao-ias criada no Jurisbase com os dois arquivos e o relatório | 12/11/2026
+CL-003 | concluída (testado, somente leitura) | Verificar integridade e contagens de julgados.db e pesquisas.db | Local: Documents\REDUNDANTES-Sentencas-Matinhos-20261110\Sentencas-Matinhos\base\. quick_check = ok nos dois. julgados.db: 82.853 docs (com índice FTS docs_fts), controle 1. pesquisas.db: 2 pesquisas, 7 achados, 0 teses. Atenção: a pasta tem nome REDUNDANTES; confirmar se é a base viva | 12/11/2026
+CL-004 | em andamento | Verificar tarefas do Windows, DJEN e rotinas paradas | schtasks sem resultado pelo shell Linux. Base julgados.db com última gravação em 10/11/2026 06:13, enquanto o registro documental diz paralisação desde 30/10. Logs não lidos | 12/11/2026
+CL-005 | aguarda decisão | Corrigir caminhos quebrados e consolidação de robôs | rotina_diaria.py grava em base\julgados.db e gera .novo e .anterior. Escreve em Nextcloud\I.A\02-CLAUDE\apps\Pontes Juridico\Julgados. Não alterado | 12/11/2026
+CL-006 | pendente | Orquestrador híbrido e interface | Jurisbase é MVP estático de legislação, sem orquestrador | 12/11/2026
+CL-007 | pendente | Integrar Pontes e Robô de Julgados ao Jurisbase | pontes-ai-toolkit ainda não localizado | 12/11/2026
+CL-008 | aguarda decisão | Auditar e proteger credenciais | Encontrados em texto puro: 02-CLAUDE\Acessos, Rotinas\DJEN\ingestao.token (não localizado no Documents), base\chave-gpt.txt e base\chave-rede.txt. Não lidos. Não movidos. Leitores dessas chaves ainda não mapeados | 12/11/2026
+CL-009 | pendente | Interface mobile | - | 12/11/2026
+
+ATUALIZAÇÃO 12/11/2026 22:05
+CL-003 (complemento) | concluída | Base julgados.db de 10/11 e pesquisas.db de 05/11 estavam na pasta REDUNDANTES. A pasta foi EXCLUÍDA em 12/11 (autorizada antes da nova decisão de preservar). Essa exclusão não tem volta. Sobrou apenas o backup julgados-db-antes-camada1-20261105 em Nextcloud\I.A\02-CLAUDE\apps\Pontes Juridico\Backups-automacao\ (ver quick_check no registro).
+CL-008 (complemento) | concluída | Chaves chave-gpt.txt e chave-rede.txt movidas para Documents\Segredos-Jurisbase (fora do Nextcloud). Acessos movido para Documents\Segredos-Jurisbase\Acessos. Nenhum arquivo apagado.
+CL-004/CL-005/migração para dados\ | bloqueada | Não há base ativa nas pastas conectadas. Não iniciei migração. Aguarda localização da base viva.
+Regras novas (12/11 21:58): REDUNDANTES não é fonte; bases preservadas; nada .db/credencial/dado de cliente vai ao GitHub.
+
+ATUALIZAÇÃO 12/11/2026 23:15 - comparação Pontes (somente leitura)
+CL-007 (complemento) | em andamento | Fonte do Pontes | JSON local: Nextcloud\I.A\02-CLAUDE\apps\Pontes Juridico\pontes-dados.json. savedAt 2026-11-06T13:58 (savedBy claude-pontes), exportedAt 2026-10-28T19:32 (campos divergentes entre si), homologationMarker = 1. Contagens: cases 1344, clients 82, financial 60, deadlines 71, events 2499, documents 815, audits 341, others 24, deleted 9, activities 3, ingestion 0, tasks 0, followups 0, portfolio 2 (dict). Supabase projeto Pontes Juridico (mneezdnjfsykkeoypjon), informado pelo ChatGPT: pontes_estado 16, pontes_estado_historico 57, pontes_ingestao_token 1. NÃO COMPARADO: estrutura diferente. Sem ferramenta SQL de leitura disponível (só criação de notebook, que escreve no projeto). Pendente: autorização para consulta SQL somente leitura.
+
+ATUALIZAÇÃO 12/11/2026 23:20 - comparação Pontes CONCLUÍDA (somente leitura)
+CL-007 | concluída (testado) | Fonte viva do Pontes = Supabase projeto mneezdnjfsykkeoypjon, tabela pontes_estado (chave, dados text JSON, versao, atualizado_em, dispositivo). Histórico em pontes_estado_historico (57 registros). Token em pontes_ingestao_token (1; só descrição e data lidas, hash não lido).
+Itens por chave no Supabase: cases 1305 (versão 5, gravado 05/11 por codex-nextcloud); clients 82; documents 1735 (versão 17); events 2494 (versão 27); deadlines 69; audits 298; financial 60; others 24; portfolio 2; deleted 9; activities 3; tasks 0; followups 0; ingestion 0.
+Comparação com pontes-dados.json local (savedAt 06/11, exportedAt 28/10): cases 1344 vs 1305 (JSON tem 39 a mais); clients 82 vs 82; documents 815 vs 1735; events 2499 vs 2494; deadlines 71 vs 69; audits 341 vs 298; financial 60 vs 60; others 24 vs 24; deleted 9 vs 9.
+CONCLUSÃO: o JSON local NÃO é a versão viva. O Supabase é a fonte mais recente (documents e audits mais atualizados). Divergências a tratar antes de qualquer migração: cases (JSON tem 39 a mais), documents e audits (Supabase tem mais).
+Julgados (pontes_jurisprudencia_cnib_damar_20261107): 13 itens, gravado 07/11 por GPT-6 pesquisa juridica.
+Notebooks temporários criados e APAGADOS (3 no total). Nenhum dado alterado.
+Pendente: decidir fonte-mestra e migração para dados\ (ver próxima decisão). Não alterar Supabase sem autorização.

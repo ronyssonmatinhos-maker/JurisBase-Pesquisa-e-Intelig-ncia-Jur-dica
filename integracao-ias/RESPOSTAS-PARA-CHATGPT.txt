@@ -1,0 +1,156 @@
+RESPOSTAS PARA O CHATGPT - LEVANTAMENTO TECNICO VERIFICADO
+Data: 12/11/2026 (levantamento somente leitura)
+Equipamento: note-ronysson-2 (Windows), pastas conectadas: JurisBase e Nextcloud.
+Escopo: caminhos, git, contagens e leitura de documentacao. Nada foi alterado, movido, apagado ou executado (exceto testes do JurisBase em copia temporaria fora da pasta do usuario). Pastas de clientes nao foram lidas.
+
+LEGENDA
+[TESTADO] = verificado no sistema nesta sessao.
+[DOCUMENTAÇÃO] = consta apenas em arquivo de documentacao; nao verificado.
+[NÃO VERIFICADO] = sem acesso ou sem como checar.
+
+LIMITES DESTA SESSAO
+- Pasta C:\Users\mts25\Documents NAO esta conectada. Bancos julgados.db e pesquisas.db nao podem ser abertos.
+- Nao ha acesso ao Agendador de Tarefas do Windows, ao %USERPROFILE%\.claude nem a registros de plugins.
+- Conectores Supabase: somente ferramentas de notebook carregaveis; nenhuma ferramenta de projeto/SQL disponivel.
+- Repositorios GitHub (novo, fontes-do-direito-brasil, fontes-do-direito-brasil-mvp): nao existem clones em /home/claude nesta sessao.
+
+=====================================================================
+1. JURISBASE
+=====================================================================
+- Caminho: C:\Users\mts25\JurisBase-Pesquisa-e-Intelig-ncia-Jur-dica [TESTADO]
+- Git: HEAD em refs/heads/main. Dois commits: b1a64f2 "Implementa busca local, validação e testes" e e0fe504 "Initial commit". origin/main aponta para b1a64f2. Origem: clone do GitHub (ronyssonmatinhos-maker). [TESTADO pelo .git]
+- Versao mais atual: b1a64f2 (igual ao origin/main). [TESTADO]
+- Status da arvore de trabalho: NAO VERIFICADO (nao foi rodado git status na pasta real).
+- Estrutura: index.html, styles.css, package.json (jurisbase-mvp 1.0.0), src/app.js, src/data.js, src/search.js, test/search.test.js. [TESTADO]
+- Natureza: aplicacao estatica (HTML/JS) de pesquisa local em catalogo demonstrativo de legislacao federal. Os links apontam para planalto.gov.br. Nao ha chamadas a API, IA ou banco. [TESTADO nos arquivos src; README: DOCUMENTAÇÃO]
+- Testes: npm test (node --test) em copia temporaria: 4 de 4 passaram. [TESTADO]
+- Modulos funcionais na interface: NAO TESTADO no navegador (somente os testes unitarios de busca, validacao e filtros).
+
+=====================================================================
+2. SKILLS, MODS, AGENTES E INSTRUCOES
+=====================================================================
+- Mods: arquivo Novo-main.zip em I.A\04-CONFIGURAÇÕES\CLAUDE\Mods (72 KB, 27/10/2026). [TESTADO]
+- Mods contidos no zip: 10 diretorios (case-summary, complexity-router, decision-log, legal-shortcuts, petition-guard, secret-guard, source-auditor, token-alert, turn-sound, work-mode). A documentacao cita 11; a diferenca precisa ser conferida. [TESTADO no zip]
+- Pasta Novo-mods (extraida): contem apenas APAGAR, com .mcp.json.antes-remover-glif e README.md.antes-remover-glif. Nao ha mods extraidos ativos. [TESTADO]
+- Instalacao dos mods no Claude: NAO VERIFICADO (sem acesso ao perfil do Claude nem ao registro de plugins).
+- Comando de projeto: C:\Users\mts25\Nextcloud\.claude\commands\buscar-orgaos.md (1 arquivo). [TESTADO]
+- Pasta 05-PLUGINS: vazia. [TESTADO]
+- Arsenal: I.A\04-CONFIGURAÇÕES\CLAUDE\Arsenal\arsenal-claude-2026-10-27.html (existe; conteudo nao aberto). [TESTADO existencia]
+- Skills e agentes nao versionados: nao localizados como pastas de skill; existe 00 LEIA-ME em 04-CONFIGURAÇÕES\CLAUDE e a pasta Pontes Juridico\Ferramentas com ler_pdf.py. [TESTADO]
+- Instrucoes para o GPT: 06-NORMATIVAS\GPT-Pontes\11.11.2026 (arquivos 02 a 09 .txt) e as versoes 11.11.2026-v2 e -v3. [TESTADO existencia]
+- Como disponibilizar ao ChatGPT sem afetar o Claude: nao ha mecanismo automatico encontrado. A separacao atual e por pasta: GPT usa 06-NORMATIVAS\GPT-Pontes e 01-GPT; Claude usa 02-CLAUDE e 04-CONFIGURAÇÕES. Recomendo manter copias em pasta propria e nao editar a origem do Claude. [TESTADO estrutura; eficacia NAO VERIFICADO]
+
+=====================================================================
+3. ACERVO (JULGADOS.DB E PESQUISAS.DB)
+=====================================================================
+- Caminho documentado: C:\Users\mts25\Documents\Sentencas-Matinhos\base\julgados.db e \pesquisas.db. [DOCUMENTAÇÃO: 03-ROBOS\LEIA-ME.txt; caminhos.json]
+- Existencia, tamanho e integridade: NAO VERIFICADO (pasta Documents nao conectada).
+- Contagem documentada: 81.766 registros em julgados.db, 229 MB, data de 30/10/2026 (arquivo de controle base\ultima-atualizacao.txt). [DOCUMENTAÇÃO: RELATORIO-AUDITORIA-05.11.26.txt; afirmado como confirmado pelo proprio relatorio, nao verificado por mim]
+- Indexacao textual: FTS5 (tabela docs_fts) documentada. [DOCUMENTAÇÃO]
+- Pesquisas.db: contagem NAO VERIFICADA.
+- Biblioteca de entendimentos: I.A\02-CLAUDE\apps\Pontes Juridico\Julgados\entendimentos (pasta existe, modificada em 04/11/2026). [TESTADO existencia; conteudo e numero de grupos documentados como 2.252 e 26 temas, NAO VERIFICADO]
+- Pastas de pesquisa: Julgados\pesquisas e Julgados\pesquisas-entrada existem. [TESTADO]
+- Arquivos de julgados em HTML na pasta Julgados (4 arquivos, de 5 a 7 MB cada, de 14/10/2026). [TESTADO]
+- Forma segura de consulta: o conector MCP de julgados (mcp_julgados.py) abre a base em leitura, conforme o codigo; fluxo de escrita via JSON em pesquisas-entrada e ingestao por um unico script (ingerir_pesquisas.py). [TESTADO no codigo do conector; execucao NAO VERIFICADO]
+- Bibliotecas de legislacao, modelos e teses: existem como pastas e textos, mas nao foram auditadas. [NÃO VERIFICADO]
+
+=====================================================================
+4. APLICATIVOS E ROBOS
+=====================================================================
+- Modulos do Pontes incorporados ao JurisBase: NENHUM. A pasta do JurisBase so tem a busca de legislacao. [TESTADO]
+- App Pontes: C:\Users\mts25\Nextcloud\I.A\02-CLAUDE\apps\Pontes Juridico (contem feed_movimentos.py, pontes_baixas_20261028.py, importar_projudi.py, Rotinas e outros). [TESTADO]
+- Robo de Julgados: codigo em Pontes Juridico\Julgados\Conector Claude e GPT\robo_julgados.py. Linha 19 aponta para I.A\02-CLAUDE\apps\Pontes Juridico\Julgados\pesquisas (correcao de 05/11, com backup .bak-05nov). A gravacao nao foi provada. [TESTADO no codigo; funcionamento NAO VERIFICADO]
+- Rotina do acervo: parada desde 30/10/2026 segundo o documento de pendencias. [DOCUMENTAÇÃO]
+- Robo DJEN: pasta Rotinas\DJEN contem arquivos consulta-djen-*.txt com datas de 09/11, 10/11, 11/11 e 12/11/2026 (12/11 as 06:00). Isso indica que a rotina voltou a gerar saida apos a pendencia de 05/11 (que dizia erro de diretorio). Conteudo nao aberto. [TESTADO pelos nomes e datas; causa do erro documentada como ERROR_DIRECTORY por ESCRITÓRIO\CLAUDE: DOCUMENTAÇÃO]
+- Tarefas agendadas: lista e estado NAO VERIFICADOS (sem acesso ao Agendador). O script Criar_tarefa_DJEN_diaria.ps1 e CORRIGIR-TAREFAS-05.11.26.ps1 existem. [TESTADO existencia]
+- Consolidacao de I.A\03-ROBOS: NAO CONCLUIDA. Pastas Pontes, Arlindo, Integracao-Claude-GPT, Rotinas-Windows e Logs estao vazias. _CONFIG e Julgados estao preenchidos. O LEIA-ME diz que nada foi movido. [TESTADO]
+- Comparacao por tamanho: auditar_fontes.py, exportar_pesquisas.py e ingerir_pesquisas.py existem apenas em 03-ROBOS\Julgados (nao existem em Pontes Juridico\Julgados). Nao ha copia divergente desses tres. [TESTADO por tamanho e presenca]
+- Robos ainda nos locais originais (Pontes Juridico, Conector). [TESTADO]
+- Integracoes quebradas: caminho ESCRITÓRIO\CLAUDE (tarefa DJEN e rotina_diaria.py) - correcao documentada, NAO VERIFICADO. Divergencia de bases do app PC x nuvem (1.344 x 1.305 casos) - DOCUMENTAÇÃO.
+
+=====================================================================
+5. BANCOS E INTEGRACOES
+=====================================================================
+- Supabase, projeto "Pontes Juridico": funcao documentada como base do app. [NÃO VERIFICADO]
+- Supabase, projeto "robo-julgados": tabelas vazias; causa, migracoes e contagens NAO VERIFICADAS (sem ferramentas de projeto).
+- Conectores MCP listados na sessao: Claude_Docs, Notion, Google_Drive, Supabase (apenas notebook), claude-in-chrome, Playwright e PDF (locais). Operacao real NAO TESTADA nesta sessao.
+- Nextcloud: pasta sincronizada acessivel e com arquivos recentes (cliente de sync ativo, arquivos .sync_*.db presentes). [TESTADO]
+- Google Drive: NAO VERIFICADO.
+- GitHub: JurisBase verificado localmente (origin). Repositorios Novo e fontes-do-direito-brasil: NAO VERIFICADO.
+- Origem do compartilhamento WebDAV: NAO VERIFICADO; o documento de pendencias pede resposta do GPT sobre o WebDAV. [DOCUMENTAÇÃO]
+- Mecanismo funcional de sincronizacao de configuracoes entre ChatGPT e Claude: NAO ENCONTRADO. Ha pastas compartilhadas e documentos de entrega, sem automacao verificada. [TESTADO estrutura]
+
+=====================================================================
+6. ARQUITETURA DOS ESPECIALISTAS
+=====================================================================
+- Orquestrador aproveitavel: NAO ENCONTRADO no JurisBase (aplicacao estatica). No app Pontes nao foi localizado orquestrador por leitura de nomes. [TESTADO pela ausencia nos nomes]
+- Tecnologia do JurisBase: HTML, CSS, JavaScript puro, Node para testes. Sem modelo de IA. [TESTADO]
+- Tecnologia do conector de julgados: Python com biblioteca MCP (versao 1.x ou 2.x conforme o codigo). [TESTADO no codigo]
+- Autenticacao, permissoes e auditoria: JurisBase nao possui. Pontes e conectores: NAO VERIFICADO.
+- Pacote de 7 repositorios (GPT-Claude-Integracao\Pacote-Claude-7-Repositorios.zip): o roteiro diz que nada foi instalado ou executado neste ambiente. [DOCUMENTAÇÃO]
+
+=====================================================================
+7. PENDENCIAS TECNICAS ANTERIORES
+=====================================================================
+- Caminhos quebrados: tarefa DJEN apontava para ESCRITÓRIO\CLAUDE (inexistente). Correcoes documentadas em 05/11 (rotina_diaria.py, varredura_clientes.py, robo_julgados.py). Verificacao pendente. [DOCUMENTAÇÃO]
+- Estado do DJEN: arquivos de saida diarios ate 12/11/2026. Conteudo nao verificado. [TESTADO pelos nomes]
+- Rotina do acervo: parada desde 30/10. [DOCUMENTAÇÃO]
+- Divergencia entre copias: PC 1.344 casos e 325 audits; nuvem 1.305 e 300, 1.735 documentos. Cliente de id 82 pode estar duplicado. [DOCUMENTAÇÃO]
+- Pendencia de reparo: REPARO-05.11.26.cmd nao foi confirmado como executado. [DOCUMENTAÇÃO]
+- WebDAV: aguarda resposta do GPT. [DOCUMENTAÇÃO]
+- Risco de seguranca 1: existe arquivo de texto com acessos e tokens dentro da pasta sincronizada 02-CLAUDE\Acessos (ACESSOS-SENHAS-E-TOKENS.txt). O conteudo NAO foi lido. Recomenda-se mover credenciais para cofre de senhas fora do Nextcloud. [TESTADO existencia]
+- Risco de seguranca 2: existe arquivo ingestao.token na pasta Rotinas\DJEN (conteudo NAO lido). Mesma recomendacao. [TESTADO existencia]
+- Regras divergentes: 06-NORMATIVAS\GPT-Pontes\11.11.2026\07_PENDENCIAS_conflitos.txt registra conflitos de pasta de saida e de atuacao; o criterio e a data mais recente. [TESTADO]
+
+=====================================================================
+8. DIVISAO DE TRABALHO
+=====================================================================
+Concluido (conforme documentos, com verificacao parcial):
+- Auditoria de infraestrutura de 05/11/2026. [DOCUMENTAÇÃO]
+- _CONFIG (caminhos) e scripts de julgados em 03-ROBOS. [TESTADO]
+- Testes do JurisBase: 4 de 4 aprovados. [TESTADO]
+- Regras normativas de 11/11/2026 na pasta GPT-Pontes. [TESTADO]
+
+Em execucao ou nao concluido:
+- Consolidacao dos robos em 03-ROBOS (fases A a D nao iniciadas). [TESTADO]
+- Reparo das tarefas e do robo de julgados. [NÃO VERIFICADO]
+- Rotina do acervo. [DOCUMENTAÇÃO]
+
+Pode ser assumido pelo ChatGPT agora (sem depender do Claude):
+- Organizacao e catalogacao de jurisprudencia, pelas bases e pastas listadas nas secoes 3 e 4.
+- Estruturacao de teses a partir do acervo de entendimentos.
+- Configuracao dos especialistas e catalogacao de skills e mods (secoes 2 e 6).
+- Auditoria de fontes oficiais (auditar_fontes.py, com a ressalva de que nao foi executado).
+- Integracao de repositorios e bancos, com o diagnostico das secoes 5 e 7.
+Observacao: nao alterar arquivos de Claude, nao mover robos sem reapontar as tarefas e nao aplicar python feed_movimentos.py --estado (proibido pelo documento de pendencias).
+
+=====================================================================
+PENDENCIAS
+=====================================================================
+1. Confirmar se a pasta Documents\Sentencas-Matinhos sera conectada para verificar julgados.db e pesquisas.db.
+2. Confirmar o estado das tarefas agendadas no Windows (sem acesso desta sessao).
+3. Mover credenciais para fora do Nextcloud (secao 7, riscos 1 e 2).
+4. Conferir se os 11 mods documentados correspondem aos 10 do zip.
+5. Verificar a rotina de julgados e o robo DJEN por conteudo, nao apenas por nome de arquivo.
+
+=====================================================================
+TAREFAS RECOMENDADAS AO CHATGPT
+=====================================================================
+1. Mapear jurisprudencia por tema a partir da biblioteca de entendimentos (somente leitura).
+2. Estruturar teses com base nas regras de 11/11/2026 e registrar o numero de fonte de cada uma.
+3. Catalogar os 10 mods do zip e as skills existentes, marcando o que esta instalado e o que nao esta.
+4. Revisar o conector de julgados e propor o teste de leitura (sem escrita).
+5. Auditar as fontes oficiais citadas nas teses.
+6. Integrar o repositorio Novo e o JurisBase, com diagnostico antes de qualquer alteracao.
+
+=====================================================================
+NAO VERIFICADO
+=====================================================================
+- Conteudo e integridade de julgados.db e pesquisas.db; contagens de pesquisas.db.
+- Status git do JurisBase e funcionamento da interface no navegador.
+- Instalacao real dos mods no Claude; skills e agentes em execucao.
+- Tarefas agendadas, rotina do acervo, reparo de 05/11 e robo de julgados.
+- Projetos Supabase (Pontes Juridico e robo-julgados) e conectores MCP em uso real.
+- Google Drive, repositorios Novo e fontes-do-direito-brasil.
+- Autenticacao, permissoes e auditoria do Pontes.
+- Conteudo de arquivos de credenciais e tokens (nao lidos de proposito).
