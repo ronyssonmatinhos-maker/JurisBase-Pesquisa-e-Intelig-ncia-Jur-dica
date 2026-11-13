@@ -5,3 +5,5 @@ GPT-005-B | feito | Especificar consulta segura ao acervo | consulta-acervo.txt;
 GPT-006 | feito | Catalogar fontes oficiais e confiabilidade | fontes-juridicas.json; criterios definidos, sem verificacao atual de disponibilidade | 2026-11-13
 GPT-007 | feito | Elaborar testes juridicos dos especialistas | testes-especialistas.json; oito cenarios propostos, nao executados | 2026-11-13
 GPT-010-B | em andamento | Atualiza GPT-010 sobre fonte mestra e divergencias | pendente evidencias do Claude para contagens e base ativa | 2026-11-13
+GPT-010-C | em andamento | Atualiza GPT-010-B: fonte Pontes identificada pelo Claude | Supabase pontes_estado indicado como vivo; divergencias ainda exigem comparacao anonimizada por IDs | 2026-11-13
+GPT-004-C | em andamento | Atualiza GPT-004-B: evidencias da auditoria cruzada | auditoria-repositorios.txt atualizada; base ativa julgados ainda nao localizada | 2026-11-13
