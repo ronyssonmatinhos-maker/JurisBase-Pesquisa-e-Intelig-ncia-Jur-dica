@@ -1,0 +1,80 @@
+{
+  "versao": "1.0",
+  "natureza": "taxonomia_de_pesquisa_nao_validada",
+  "politica": "NAO_CONFERIDO",
+  "teses": [
+    {
+      "assunto": "execucao_fiscal",
+      "subtemas": [
+        "prescricao_intercorrente_art40_LEF",
+        "nulidade_CDA",
+        "citacao_valida",
+        "execucao_baixo_valor_resolucao_CNJ_547_2024",
+        "atos_expropriatorios"
+      ],
+      "fontes_normativas": [
+        "Lei 6.830/1980",
+        "CPC/2015",
+        "Resolucao CNJ 547/2024"
+      ],
+      "precedentes_a_conferir": [
+        "STJ Tema 566-571",
+        "STF Tema 1184"
+      ],
+      "alerta": "conferir vigencia, requisitos, modulacao e distincao entre extincao e cancelamento do credito"
+    },
+    {
+      "assunto": "administrativo_licitacoes",
+      "subtemas": [
+        "rescisao_contratual",
+        "inadimplemento_administracao",
+        "contraditorio_e_ampla_defesa"
+      ],
+      "fontes_normativas": [
+        "Lei 14.133/2021",
+        "Lei 8.666/1993 conforme regime aplicavel"
+      ],
+      "precedentes_a_conferir": []
+    },
+    {
+      "assunto": "civil_processual",
+      "subtemas": [
+        "nulidade_citacao",
+        "comparecimento_espontaneo",
+        "cerceamento_defesa",
+        "coisa_julgada"
+      ],
+      "fontes_normativas": [
+        "CPC/2015"
+      ],
+      "precedentes_a_conferir": []
+    },
+    {
+      "assunto": "imobiliario_registral",
+      "subtemas": [
+        "usucapiao",
+        "nulidade_escritura",
+        "terceiros_ocupantes",
+        "conflitos_possessorios_coletivos"
+      ],
+      "fontes_normativas": [
+        "Codigo Civil",
+        "CPC/2015",
+        "Resolucao CNJ 510/2023"
+      ],
+      "precedentes_a_conferir": []
+    }
+  ],
+  "campos_obrigatorios_para_precedente": [
+    "tribunal",
+    "numero_tema_ou_processo",
+    "orgao_julgador",
+    "data_julgamento",
+    "url_oficial",
+    "trecho_pertinente",
+    "tese_aplicavel",
+    "distincao",
+    "status_validacao"
+  ],
+  "nota": "Nenhum precedente individual foi conferido nesta entrega; nao usar como citacao processual sem verificacao."
+}
