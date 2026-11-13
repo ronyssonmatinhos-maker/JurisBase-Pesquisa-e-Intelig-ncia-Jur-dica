@@ -1,0 +1,50 @@
+OVERLAP ENTRE AGENTES DO CLAUDE (commit 4604777) E A CONFIGURACAO DO CHATGPT
+Referencia GPT: integracao-chatgpt-20261112 / integracao-ias/config-agentes.json (20 agentes, todos enabled=False) e especialistas.json v1.3
+Data: 2026-11-13
+Status: analise documental. Nada instalado, nada ativado, nenhum teste executado.
+
+1) EQUIVALENTES (mesmo escopo; manter um nome unico)
+- execucao_fiscal            = execucao_fiscal
+- tributario                 = tributario
+- administrativo_licitacoes  = administrativo_licitacoes
+- civil_processual           = civil_processual
+- imobiliario_registral      = imobiliario_registral
+- familia_sucessoes          = familia_sucessoes
+- eleitoral                  = eleitoral
+- penal_processual           = penal_processual
+- constitucional             = constitucional
+- ambiental_urbanistico      = ambiental_urbanistico
+- trabalhista                = trabalhista
+- bancario_consumidor (CL)   = consumidor_bancario (GPT)   [nome divergente, mesmo escopo]
+Total: 12 pares. Recomendacao: adotar o nome GPT (config-agentes.json) como canonico e manter o conteudo Claude como ficha complementar, apos conferencia com a v1.3.
+
+2) SOMENTE GPT (nao existem no Claude; a ser criados ou assumidos pelo Claude)
+- previdenciario_assistencial
+- empresarial_contratual
+- servidor_publico
+- municipal_legislativo
+- fazenda_publica_processual
+- direito_digital_dados
+- saude_publica
+- direitos_crianca_adolescente
+Total: 8.
+
+3) SOMENTE CLAUDE (sem agente equivalente no GPT)
+- coordenador        -> no GPT o papel e o "coordinator" dentro de config-agentes.json (nao e agente separado). Recomendacao: manter como papel de coordenacao, nao como agente.
+- auditor_citacoes   -> sem equivalente. Recomendacao: manter como verificador de citacoes, se o GPT aceitar.
+- fonte_stf, fonte_stj, fonte_tst_trt9, fonte_tjpr, fonte_tse_eleitoral, fonte_federal_trf4_tru4, fonte_tribunais_contas, fonte_legislacao, fonte_julgados_locais
+  -> no GPT as fontes estao em "fontes_comuns" (julgados_db, pesquisas_db, fontes_do_direito, legislacao_matinhos, fontes_oficiais), nao como agentes. Recomendacao: decidir se fontes viram agentes separados ou ficam como fontes_comuns.
+Total: 11 arquivos (2 papeis + 9 fontes).
+
+4) PONTOS QUE PRECISAM DE CONFERENCIA ANTES DE INSTALAR
+- As 12 fichas equivalentes foram geradas a partir do especialistas.json v1.1. A v1.3 do GPT tem escopos proprios (fontes_prioritarias, acionamento, saida, verificacoes_obrigatorias). Conferir campo a campo.
+- Fichas Claude ainda nao tem gatilhos (trigger_terms) identicos aos do config-agentes.json; usar os do GPT.
+- Os 8 agentes somente-GPT ainda nao existem no Claude. Nao foram criados nesta etapa.
+- Nenhum agente executou testes (T01-T08 ou testes positivo/negativo por novo agente).
+
+5) PROXIMO PASSO SUGERIDO (aguardando confirmacao do usuario)
+a) Aceitar nomes GPT como canonicos.
+b) Criar as 8 fichas faltantes a partir das escopos da v1.3.
+c) Conferir as 12 fichas equivalentes contra a v1.3.
+d) Executar T01-T08 e os testes positivo/negativo, publicar resultados anonimizados por ID.
+e) Decidir sobre fonte_* e auditor_citacoes (agente ou fontes_comuns).
