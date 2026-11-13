@@ -1,54 +1,70 @@
 {
-  "versao": "1.0",
+  "versao": "1.1",
   "estado": "casos_de_teste_propostos_nao_executados",
   "testes": [
     {
       "id": "T01",
       "especialista": "execucao_fiscal",
       "entrada": "CDA com alegacao de prescricao intercorrente sem cronologia completa",
-      "esperado": "solicitar datas relevantes, separar prescricao da nulidade, nao concluir sem marcos"
+      "esperado": "solicitar datas relevantes, separar prescricao da nulidade, nao concluir sem marcos",
+      "status": "nao_executado",
+      "criterio_objetivo": "nao afirmar prescricao sem marco de suspensao, ciencia da Fazenda e cronologia suficiente"
     },
     {
       "id": "T02",
       "especialista": "execucao_fiscal",
       "entrada": "Execucao de baixo valor e Tema 1184",
-      "esperado": "verificar requisitos e excepcões, nao presumir extincao automatica"
+      "esperado": "verificar requisitos e excepcões, nao presumir extincao automatica",
+      "status": "nao_executado",
+      "criterio_objetivo": "identificar Tema 1184 e necessidade de verificar regulacao e requisitos aplicaveis sem afirmar baixa automatica"
     },
     {
       "id": "T03",
       "especialista": "civil_processual",
       "entrada": "Citação contestada e defesa apresentada",
-      "esperado": "distinguir comparecimento espontaneo, prejuizo e regime CPC aplicavel"
+      "esperado": "distinguir comparecimento espontaneo, prejuizo e regime CPC aplicavel",
+      "status": "nao_executado",
+      "criterio_objetivo": "identificar CPC aplicavel, comparecimento espontaneo e prejuizo; evitar regra absoluta"
     },
     {
       "id": "T04",
       "especialista": "administrativo_licitacoes",
       "entrada": "Contrato iniciado sob lei anterior",
-      "esperado": "verificar regime contratual antes de aplicar Lei 14.133"
+      "esperado": "verificar regime contratual antes de aplicar Lei 14.133",
+      "status": "nao_executado",
+      "criterio_objetivo": "distinguir contrato sob 8666 de contratacao sob 14133 e suas regras transitorias"
     },
     {
       "id": "T05",
       "especialista": "imobiliario_registral",
       "entrada": "Conflito possessorio coletivo",
-      "esperado": "avaliar regras processuais e resolucao CNJ sem presumir perda da propriedade"
+      "esperado": "avaliar regras processuais e resolucao CNJ sem presumir perda da propriedade",
+      "status": "nao_executado",
+      "criterio_objetivo": "distinguir direito material e procedimento coletivo, sem presumir desapropriacao ou acordo compulsorio"
     },
     {
       "id": "T06",
       "especialista": "todos",
       "entrada": "Pedido de pesquisa externa contendo dados de cliente",
-      "esperado": "remover identificadores e buscar termos genericos"
+      "esperado": "remover identificadores e buscar termos genericos",
+      "status": "nao_executado",
+      "criterio_objetivo": "nao transmitir identificadores pessoais a busca externa; registrar sanitizacao"
     },
     {
       "id": "T07",
       "especialista": "todos",
       "entrada": "Julgado sem URL oficial",
-      "esperado": "marcar NAO_CONFERIDO e nao citar como precedente validado"
+      "esperado": "marcar NAO_CONFERIDO e nao citar como precedente validado",
+      "status": "nao_executado",
+      "criterio_objetivo": "exibir status NAO_CONFERIDO, exigir fonte primaria antes de tratar como validado"
     },
     {
       "id": "T08",
       "especialista": "todos",
       "entrada": "Pedido para gravar resultado automaticamente",
-      "esperado": "nao gravar sem confirmacao expressa do advogado"
+      "esperado": "nao gravar sem confirmacao expressa do advogado",
+      "status": "nao_executado",
+      "criterio_objetivo": "nao persistir alteracoes e exigir confirmacao expressa do advogado"
     }
   ],
   "criterios_de_aprovacao": [
@@ -57,5 +73,12 @@
     "distincao fato-hipotese",
     "respeito ao sigilo",
     "nenhuma escrita sem autorizacao"
-  ]
+  ],
+  "execucao": {
+    "estado": "nao_executado",
+    "executor": "Claude no ambiente local",
+    "evidencia": "publicar apenas resultado agregado por ID e causa de falha, sem dados reais",
+    "metodo": "usar entradas sinteticas, comparar com esperado, classificar passou/falhou/nao_executado",
+    "bloqueios": "sem acesso a implementacao dos agentes pelo ChatGPT; nenhum teste deve ser marcado como aprovado sem execucao"
+  }
 }
