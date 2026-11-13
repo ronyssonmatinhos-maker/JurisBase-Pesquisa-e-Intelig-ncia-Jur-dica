@@ -1,5 +1,5 @@
 {
-  "versao": "1.0",
+  "versao": "1.1",
   "politica": {
     "julgados": "nao_conferido_ate_validacao_do_advogado",
     "pesquisa_externa": "sem_dados_de_clientes",
@@ -18,7 +18,86 @@
     "ambiental_urbanistico"
   ],
   "orquestracao": {
-    "selecao": "automatica_ou_manual",
-    "cooperacao": true
+    "selecao": "manual ou por termos e classificacao, com confirmacao quando ambiguo",
+    "cooperacao": true,
+    "coordenador": "distribui demanda, evita respostas conflitantes, consolida e registra trilha",
+    "limites": "nenhuma peticao, validacao, gravacao, protocolo ou alteracao produtiva sem autorizacao expressa",
+    "fallback": "se nao houver fonte oficial verificavel, indicar pendencia e nao afirmar jurisprudencia validada"
+  },
+  "estado": "especificacao_para_implementacao_nao_testada",
+  "fontes_comuns": {
+    "julgados_db": "indice local; recuperar metadados e verificar origem oficial antes de citar",
+    "pesquisas_db": "historico de pesquisa; nao prova juridica",
+    "fontes_do_direito": "acervo de apoio; conferir norma e versao na fonte oficial",
+    "legislacao_matinhos": "indice municipal; confirmar vigencia e teor no diario ou portal oficial",
+    "fontes_oficiais": "tribunais, diarios oficiais, Planalto, CNJ e portais normativos competentes"
+  },
+  "escopos": {
+    "execucao_fiscal": {
+      "fontes_prioritarias": "CDA, LEF, CTN, CPC, STF/STJ/TJPR e julgados locais",
+      "responde": "prescricao, citacao, penhora, nulidades, baixo valor e estrategia defensiva",
+      "acionamento": "execucao fiscal, CDA, prescricao intercorrente, leilao fiscal",
+      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais"
+    },
+    "tributario": {
+      "fontes_prioritarias": "CTN, legislacao tributaria competente, STF/STJ/TJPR",
+      "responde": "incidencia, lancamento, imunidade, isencao, decadencia e repeticao",
+      "acionamento": "tributos, ICMS, IPTU, ISS, creditos tributarios",
+      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais"
+    },
+    "administrativo_licitacoes": {
+      "fontes_prioritarias": "leis 8666/1993 e 14133/2021 conforme regime, editais, contratos, TCU e tribunais",
+      "responde": "legalidade de contratacao, execucao, sancoes, rescisao e controle",
+      "acionamento": "licitacao, contrato publico, PAD, improbidade",
+      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais"
+    },
+    "civil_processual": {
+      "fontes_prioritarias": "CPC, tribunais e atos processuais disponibilizados",
+      "responde": "competencia, citacao, recursos, prazos, nulidades e prova",
+      "acionamento": "citacao, agravo, contestacao, cumprimento de sentenca",
+      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais"
+    },
+    "imobiliario_registral": {
+      "fontes_prioritarias": "Codigo Civil, CPC, LRP, matriculas fornecidas e precedentes oficiais",
+      "responde": "dominio, posse, usucapiao, registro, constricoes e terceiros",
+      "acionamento": "imovel, matricula, posse, reintegracao, registro",
+      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais"
+    },
+    "familia_sucessoes": {
+      "fontes_prioritarias": "Codigo Civil, CPC, ECA, legislacao correlata e precedentes oficiais",
+      "responde": "alimentos, filiacao, uniao estavel, inventario e partilha",
+      "acionamento": "familia, alimentos, sucessao, inventario",
+      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais"
+    },
+    "eleitoral": {
+      "fontes_prioritarias": "Constituicao, Codigo Eleitoral, leis eleitorais, resolucoes TSE e TRE",
+      "responde": "elegibilidade, propaganda, prestacao de contas, recursos eleitorais",
+      "acionamento": "eleicao, candidatura, TRE, TSE",
+      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais"
+    },
+    "penal_processual": {
+      "fontes_prioritarias": "CP, CPP, leis penais especiais e STF/STJ",
+      "responde": "tipicidade, provas, nulidades, cautelares, recursos e dosimetria",
+      "acionamento": "crime, denuncia, prisao, habeas corpus",
+      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais"
+    },
+    "constitucional": {
+      "fontes_prioritarias": "Constituicao, STF, normas de controle e precedentes oficiais",
+      "responde": "competencia, direitos fundamentais, controle de constitucionalidade e remedios",
+      "acionamento": "ADI, mandado de seguranca, direito fundamental, competencia constitucional",
+      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais"
+    },
+    "ambiental_urbanistico": {
+      "fontes_prioritarias": "legislacao ambiental e urbanistica federal, estadual e municipal, atos de licenciamento e tribunais",
+      "responde": "licenciamento, APP, ocupacao, regularizacao, sancoes e urbanismo",
+      "acionamento": "meio ambiente, APP, demoliçao, zoneamento, licenca",
+      "saida": "fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais"
+    }
+  },
+  "testes": {
+    "arquivo": "integracao-ias/testes-especialistas.json",
+    "quantidade": 8,
+    "estado": "nao_executados",
+    "instrucao": "Claude deve obter arquivos via GitHub branch integracao-chatgpt-20261112; nao presumir existencia em C:\\JURISBASE"
   }
 }
