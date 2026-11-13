@@ -11,7 +11,9 @@
     "roteamento_negativo_sem_correspondencia": 20,
     "casos_com_ambiguidade": 1,
     "regras_juridicas_T01_T08_presentes": 8,
-    "respostas_juridicas_reais_testadas": 0
+    "respostas_juridicas_reais_testadas": 0,
+    "casos_com_ambiguidade_apos_correcao": 0,
+    "roteamento_positivo_apos_correcao": 20
   },
   "roteamento": [
     {
@@ -290,11 +292,184 @@
     "T01-T08 precisam de resposta real de cada agente e avaliacao por advogado antes de afirmar funcionamento juridico"
   ],
   "proximos_passos_claude": [
+    "Implementar no codigo do coordenador correspondencia com limites de palavra, nao substring; adicionar regressao licitacao versus citacao",
     "Instalar no ambiente de testes isolado sem acesso de escrita a producao",
     "Executar os oito casos sinteticos T01-T08 contra agentes reais e anexar saida redigida sem dados pessoais",
     "Executar um caso positivo e um negativo para cada um dos 20 especialistas, nao apenas os dez novos",
     "Resolver ou justificar ambiguidades de roteamento no coordenador, sem descartar especialista relevante",
     "Testar auditor_citacoes com julgado ficticio e sem URL oficial; exigir NAO_CONFERIDO",
     "Publicar evidencias e contagens na branch Claude; nao ativar producao antes de aprovacao"
+  ],
+  "regressao_roteamento": {
+    "licitacao": [
+      "administrativo_licitacoes"
+    ],
+    "citacao": [
+      "civil_processual"
+    ],
+    "resultado": "aprovado_em_simulacao_com_limites_de_palavra",
+    "runtime": "nao_executado"
+  },
+  "roteamento_corrigido": [
+    {
+      "id": "execucao_fiscal",
+      "positive": [
+        "execucao_fiscal"
+      ],
+      "pass": true,
+      "negative": true
+    },
+    {
+      "id": "tributario",
+      "positive": [
+        "tributario"
+      ],
+      "pass": true,
+      "negative": true
+    },
+    {
+      "id": "administrativo_licitacoes",
+      "positive": [
+        "administrativo_licitacoes"
+      ],
+      "pass": true,
+      "negative": true
+    },
+    {
+      "id": "civil_processual",
+      "positive": [
+        "civil_processual"
+      ],
+      "pass": true,
+      "negative": true
+    },
+    {
+      "id": "imobiliario_registral",
+      "positive": [
+        "imobiliario_registral"
+      ],
+      "pass": true,
+      "negative": true
+    },
+    {
+      "id": "familia_sucessoes",
+      "positive": [
+        "familia_sucessoes"
+      ],
+      "pass": true,
+      "negative": true
+    },
+    {
+      "id": "eleitoral",
+      "positive": [
+        "eleitoral"
+      ],
+      "pass": true,
+      "negative": true
+    },
+    {
+      "id": "penal_processual",
+      "positive": [
+        "penal_processual"
+      ],
+      "pass": true,
+      "negative": true
+    },
+    {
+      "id": "constitucional",
+      "positive": [
+        "constitucional"
+      ],
+      "pass": true,
+      "negative": true
+    },
+    {
+      "id": "ambiental_urbanistico",
+      "positive": [
+        "ambiental_urbanistico"
+      ],
+      "pass": true,
+      "negative": true
+    },
+    {
+      "id": "previdenciario_assistencial",
+      "positive": [
+        "previdenciario_assistencial"
+      ],
+      "pass": true,
+      "negative": true
+    },
+    {
+      "id": "trabalhista",
+      "positive": [
+        "trabalhista"
+      ],
+      "pass": true,
+      "negative": true
+    },
+    {
+      "id": "consumidor_bancario",
+      "positive": [
+        "consumidor_bancario"
+      ],
+      "pass": true,
+      "negative": true
+    },
+    {
+      "id": "empresarial_contratual",
+      "positive": [
+        "empresarial_contratual"
+      ],
+      "pass": true,
+      "negative": true
+    },
+    {
+      "id": "servidor_publico",
+      "positive": [
+        "servidor_publico"
+      ],
+      "pass": true,
+      "negative": true
+    },
+    {
+      "id": "municipal_legislativo",
+      "positive": [
+        "municipal_legislativo"
+      ],
+      "pass": true,
+      "negative": true
+    },
+    {
+      "id": "fazenda_publica_processual",
+      "positive": [
+        "fazenda_publica_processual"
+      ],
+      "pass": true,
+      "negative": true
+    },
+    {
+      "id": "direito_digital_dados",
+      "positive": [
+        "direito_digital_dados"
+      ],
+      "pass": true,
+      "negative": true
+    },
+    {
+      "id": "saude_publica",
+      "positive": [
+        "saude_publica"
+      ],
+      "pass": true,
+      "negative": true
+    },
+    {
+      "id": "direitos_crianca_adolescente",
+      "positive": [
+        "direitos_crianca_adolescente"
+      ],
+      "pass": true,
+      "negative": true
+    }
   ]
 }
