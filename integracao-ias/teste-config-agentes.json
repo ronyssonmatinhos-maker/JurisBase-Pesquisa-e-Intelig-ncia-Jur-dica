@@ -1,0 +1,52 @@
+{
+  "data": "2026-11-13",
+  "tipo": "teste_estatico_configuracao",
+  "escopo": "integracao-ias/config-agentes.json; nenhum runtime ou banco acessado",
+  "checks": [
+    {
+      "nome": "20 agentes definidos",
+      "resultado": "aprovado"
+    },
+    {
+      "nome": "IDs unicos",
+      "resultado": "aprovado"
+    },
+    {
+      "nome": "todos desativados antes de testes",
+      "resultado": "aprovado"
+    },
+    {
+      "nome": "gatilhos em todas as fichas",
+      "resultado": "aprovado"
+    },
+    {
+      "nome": "fontes declaradas",
+      "resultado": "aprovado"
+    },
+    {
+      "nome": "instrucao de sigilo e validacao",
+      "resultado": "aprovado"
+    },
+    {
+      "nome": "formato de saida",
+      "resultado": "aprovado"
+    },
+    {
+      "nome": "politica de aprovacao",
+      "resultado": "aprovado"
+    },
+    {
+      "nome": "testes locais exigidos",
+      "resultado": "aprovado"
+    }
+  ],
+  "resultado": "9_de_9_verificacoes_estaticas_aprovadas",
+  "nao_executado": [
+    "instalacao_windows",
+    "roteamento_em_runtime",
+    "testes_juridicos_T01_T08",
+    "testes_positivos_negativos_10_novos_agentes",
+    "consulta_a_bases_locais"
+  ],
+  "instrucao_claude": "Instalar localmente usando config-agentes.json; verificar conflito com agentes existentes; executar testes sinteticos e registrar evidencias anonimizadas na branch Claude; nao habilitar em producao sem aprovacao."
+}
