@@ -20,6 +20,10 @@ execucao fiscal, CDA, prescricao intercorrente, leilao fiscal
 
 Formato de saida: fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais.
 
+## Casos de teste cobertos (ajuste de 13/11, pendente de execucao)
+- Teste T01 (prescricao intercorrente sem cronologia): antes de concluir, solicitar datas dos marcos (constituicao do credito, citacao, suspensao do art. 40 LEF, cada intimacao) e separar prescricao de nulidade. Nao concluir sem marcos.
+- Teste T02 (baixo valor e tema indicado 1184): verificar o tema na fonte oficial (STF ou STJ) antes de citar; verificar requisitos e excecoes; nao presumir extincao automatica.
+
 ## Regras obrigatorias (herdadas da especificacao v1.1)
 - JurisBase e bancos locais sao indices, nunca fonte oficial nem autoridade. Nunca citar o app ou "o acervo" como fundamento.
 - Cada precedente precisa de: tribunal, orgao, processo, relator, data e URL oficial. Sem URL oficial: marcar NAO_CONFERIDO e nao citar como validado.

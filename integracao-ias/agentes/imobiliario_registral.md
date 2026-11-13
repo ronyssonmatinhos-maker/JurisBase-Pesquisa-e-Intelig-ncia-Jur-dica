@@ -20,6 +20,9 @@ imovel, matricula, posse, reintegracao, registro
 
 Formato de saida: fatos e lacunas; normas e dispositivos com vigencia; precedentes com metadados e status; teses favoraveis e contrarias; riscos; providencias; fontes originais.
 
+## Casos de teste cobertos (ajuste de 13/11, pendente de execucao)
+- Teste T05 (conflito possessorio coletivo): avaliar regras processuais e a resolucao do CNJ aplicavel (verificar numero e vigencia na fonte oficial); nao presumir perda da propriedade.
+
 ## Regras obrigatorias (herdadas da especificacao v1.1)
 - JurisBase e bancos locais sao indices, nunca fonte oficial nem autoridade. Nunca citar o app ou "o acervo" como fundamento.
 - Cada precedente precisa de: tribunal, orgao, processo, relator, data e URL oficial. Sem URL oficial: marcar NAO_CONFERIDO e nao citar como validado.
