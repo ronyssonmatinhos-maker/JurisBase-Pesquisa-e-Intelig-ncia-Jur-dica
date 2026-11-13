@@ -1,0 +1,15 @@
+AUDITORIA INDEPENDENTE DO RUNTIME CLAUDE - 2026-11-13
+Origem: branch integracao-claude-20261112, commit ebc56a4.
+Arquivos lidos: relatorio-final-runtime-claude.txt; runtime-local/agentes.py; runtime-local/tests/test_agentes.py; runtime-local/testes/saida-testes-runtime-claude.txt.
+Estado: auditoria de codigo parcial; 29/29 testes reportados pelo Claude, nao reexecutados pelo GPT. Nenhum teste de geracao de respostas por modelo real demonstrado.
+
+A01 | ALTA | pre_condicoes(execucao_fiscal) libera pode_concluir quando ha tres datas distintas no texto, independentemente do papel dos marcos. Teste T01 valida justamente esse atalho. Exigir marcos estruturados e verificacao de cronologia; tres datas nao sao criterio suficiente.
+A02 | ALTA | preparar() devolve sanitizado_complementar contendo texto livre submetido a sanitizar(); nomes isolados em minusculas sem papel podem permanecer. Nao enviar este campo a pesquisa externa ou telemetria; termo_generico e o unico campo indicado para consulta, com validacao de parametros.
+A03 | MEDIA | termo_generico() incorpora numeros de artigos, leis, temas e sumulas por regex diretamente do texto. Avaliar limites e contexto de captura para evitar informacoes nao juridicas ou injecao de termos disfarçados.
+A04 | MEDIA | auditar_citacoes() aceita URL HTTPS em dominio com sufixo institucional e CNJ formalmente valido como apto para conferencia; nao verifica existencia do documento, integridade, correspondencia tribunal/URL ou teor. Status NAO_CONFERIDO e bloqueio de minuta estao corretos.
+A05 | MEDIA | test_adaptador_somente_leitura chama skipTest em qualquer excecao de acesso ao banco; 29/29 OK no log nao comprova cobertura de fontes nem integridade do acervo. Relatar testes ignorados separadamente.
+A06 | MEDIA | teste de nao escrita compara apenas um arquivo robo-julgados.db antes/depois. Nao cobre outros arquivos, Supabase, logs ou efeitos colaterais do endpoint.
+A07 | PENDENTE | verificar robo.py e testes HTTP com codigo integral; reproduzir em ambiente isolado Python 3.10, sem bancos reais nem segredos; executar Python nativo Windows e testes de respostas juridicas T01-T08 por modelo real.
+A08 | PENDENTE | conferir oficialmente Tema 1184/STF, Resolucao CNJ 547/2024 e dispositivos da Lei 14.133/2021 antes de usar como fonte confirmada.
+
+Conclusao: nao homologado. Nao houve alteracao de producao, validacao de julgados ou reexecucao de testes pelo ChatGPT. Solicitar ao Claude corrigir e criar testes de regressao para A01-A06, com evidencias anonimizadas na branch dele.
